@@ -1,0 +1,95 @@
+html{
+    overflow: hidden;
+}
+
+.bd-image {
+    background-image: url("../images/lg-bc.jpg");
+    background-position:  center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.box-center{
+    width: 500px;
+    height: 350px;
+    margin: 100px auto 0px;
+    padding:5% 5% 0%;
+
+    border-radius: 10px;
+}
+
+.login-div{
+    width:320px;
+    height: 390px;
+    margin: 100px auto 0px;
+    padding:3% 5% 0%;
+
+    background: rgba(250,250,250,0.3);
+    border-radius: 5px;
+}
+.login-div h2{
+    text-align: center;
+    color: #eee;
+    font-size: 30px;
+    line-height: 2em;
+    font-weight: 500;
+}
+
+.form-input{
+    width: 100%;
+    margin-bottom: 30px;
+
+    text-align: center;
+    font-size: 12px;
+}
+.form-input input{
+    display: inline-block;
+    width: 240px;
+    height: 34px;
+    padding:0 5%;
+
+    background: rgba(250, 250, 250, 0.9);
+    border-radius: 20px;
+}
+.form-input input::placeholder{
+    color: #333;
+}
+.login-button-wrap{
+    margin-bottom: 5px;
+}
+.login-button{}
+.login-button:hover{
+    background: #98F5FF;
+}
+.remember-me{
+    padding:0 0 0 8%;
+    margin-top: -10px;
+    margin-bottom: 20px;
+}
+.remember-me input[type="checkbox"]{
+    vertical-align: bottom;
+}
+.remember-me .text{
+    display: inline-block;
+    margin-left: 5px;
+
+    font-size: 12px;
+}
+.remember-me .text:hover{
+    cursor: pointer;
+}
+
+.error-info{
+    display: block;
+    padding-left: 10%;
+    margin-top:5px;
+
+    text-align: left;
+    color: red;
+}
+.warn-info{
+    color: red;
+    font-size: 12px;
+    margin-left: 8px;
+}

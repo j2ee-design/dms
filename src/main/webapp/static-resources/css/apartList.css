@@ -1,0 +1,475 @@
+.block-10{
+    display: inline-block;
+    margin-right: 10px;
+}
+.content{
+    padding:30px 20px;
+    display: flex;
+    flex-direction: column;
+    width: 1100px;
+    margin:0 auto;
+    overflow-x: hidden;
+}
+.apart-list{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction:row;
+}
+.apart{
+    display: flex;
+    flex-direction:column;
+    width: 150px;
+    height: 200px;
+    margin:20px 30px;
+
+    cursor: pointer;
+    border:1px solid #ccc;
+    border-radius: 5px;
+    background: #fafafa;
+}
+.apart:hover{
+    background: #efefef;
+}
+
+.apart-add{
+    justify-content:center;
+}
+.apart-add span.apart-img{
+    font-size: 120px;
+}
+
+.apart .apart-img{
+    margin:20px auto 15px;
+    font-size: 80px;
+}
+.apart-text-list{
+    text-align: center;
+}
+.apart-text{
+    line-height: 1.7em;
+}
+.apart-type{
+    display: inline-block;
+    margin-right: 4px;
+    color: #000;
+}
+.rest-num{
+    color: #000;
+}
+.apart-num{
+    color: black;
+    margin:0 4px;
+}
+
+/*添加公寓弹出层*/
+.apart-add-do{
+    display: flex;
+    flex-direction:column;
+    position: fixed;
+    z-index: 100000;
+    width: 300px;
+    height: 400px;
+    top: 150px;
+    left:40%;
+
+    border-radius: 5px;
+    background: #ffffff;
+    box-shadow: 0 0 8px 2px #ddd;
+    transition: all 1s;
+}
+.apart-add-do h3{
+    margin:20px auto;
+}
+.apart-add-do .add-apart-img{
+    font-size: 100px;
+    margin:0 auto 20px;
+}
+.add-apart-ul{
+
+}
+.add-apart-li{
+    margin:10px 0;
+    display: flex;
+    align-items: baseline;
+}
+.add-apart-text{
+    width: 100px;
+    text-align: right;
+}
+.entry-input{
+    padding-bottom:2px;
+    border: none;
+    border-bottom: 1px solid #aaa;
+    text-indent: 5px;
+}
+.entry-select{
+    padding: 2px 0;
+    border-color:#555 ;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #555;
+    cursor: pointer;
+    background: #fff;
+}
+.entry-select:focus{
+    outline:none;
+}
+.one-li{
+    align-items: center;
+}
+.apart-add-do .close-icon{
+    position: absolute;
+    top:4px;
+    right:8px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    font-size: 14px;
+    cursor: pointer;
+    transition:all 0.3s;
+}
+.apart-add-do .close-icon:hover{
+    color: #000;
+    font-size: 18px;
+}
+.input-submit{
+    display: inline-block;
+    border: none;
+    border-radius:0 0 5px 5px;
+    height:50px;
+    transition:all 0.3s;
+    cursor: pointer;
+}
+.input-submit:hover{
+    font-size:18px;
+    color: #333;
+}
+/*遮罩颜色*/
+.page-shade-color{
+    background: none;
+}
+/*错误输入动画*/
+@keyframes warnInfo {
+    0%{
+        color: #555;
+        border-color: inherit;
+        opacity:1;
+    }
+    50%{
+        color: #FF0000;
+        border-color: #FF0000;
+        opacity:0.5;
+    }
+    100%{
+        color: #555;
+        border-color: inherit;
+        opacity:1;
+    }
+}
+
+.warn-info-animation{
+    -webkit-animation: warnInfo 0.3s ease 0s 2 normal;
+    -o-animation: warnInfo 0.3s ease 0s 2 normal;
+    animation: warnInfo 0.3s ease 0s 2 normal;
+}
+/*===========iframe-dormList页面=======*/
+.dorm-list{
+    position: fixed;
+    width:500px;
+    height: 100%;
+    top:0;
+    right: 0;
+
+    background: #fff;
+    box-shadow: -1px 0 8px 2px #aaa;
+}
+
+@keyframes slipOutAnim {
+    0%{
+        right: 0;
+        opacity: 1;
+    }
+    60%{
+        opacity: 0.3;
+    }
+    100%{
+        right: -505px;
+        opacity: 0;
+    }
+}
+.slip-out-dormList{
+    -webkit-animation: slipOutAnim 0.5s ease 0s 1 normal;
+    -o-animation: slipOutAnim 0.5s ease 0s 1 normal;
+    animation: slipOutAnim 0.5s ease 0s 1 normal;
+}
+
+@keyframes slipInAnim {
+    0%{
+        opacity: 0;
+        right: -505px;
+    }
+    60%{
+        opacity: 0.3;
+    }
+    100%{
+        right: 0;
+        opacity: 1;
+    }
+}
+.slip-in-dormList{
+    -webkit-animation: slipInAnim 0.5s ease 0s 1 normal;
+    -o-animation: slipInAnim 0.5s ease 0s 1 normal;
+    animation: slipInAnim 0.5s ease 0s 1 normal;
+}
+
+.hide-out{
+    left:-505px;
+}
+.iframe-dormList{
+    width:100%;
+    height: 100%;
+}
+.dorm-list .hide-page-button{
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #00C5CD;
+    top:0;
+    left:-20px;
+    border-radius: 5px 0 0 5px;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 18px;
+    text-indent: 3px;
+    color: #fff;
+}
+/*学生信息*/
+.student-info{
+    position: absolute;
+    width:300px;
+    height: 300px;
+    background: #fff;
+    box-shadow: 0 0 8px 1px #ddd;
+
+    display: flex;
+    flex-direction: column;
+}
+.student-info h4{
+    text-align: center;
+    margin-top: 20px;
+    font-size:16px;
+    font-weight:600;
+}
+.dorm-info{
+    margin:10px 20px;
+    display: flex;
+    flex-direction:column;
+}
+.dorm-info span{
+    line-height: 1.5em;
+}
+.stu-table-div{
+    margin: 0 20px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 130px;
+}
+.stu-table{
+    width:100%;
+    border-collapse: collapse;
+}
+.stu-th{
+    border-bottom:1px solid #aaa;
+}
+.stu-tr:nth-child(odd),
+.stu-tr:hover{
+    background: #eee;
+}
+.stu-tr{
+    cursor: pointer;
+}
+
+.stu-table th{
+    padding-bottom:2px;
+}
+.stu-table th,.stu-table td{
+    text-align: center;
+    line-height: 1.5em;
+}
+.add-stu{
+    flex-grow:1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+.add-stu:hover{
+    font-size: 18px;
+}
+.close-dorm{
+    position: absolute;
+    top:0;
+    right:0;
+    padding:5px 8px 8px 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.close-dorm:hover{
+    font-size: 20px;
+}
+.slip-out-dormInfo{
+    z-index:-99;
+    opacity:0;
+    left:0;
+    top:0;
+}
+.slip-in-dormInfo{
+    z-index: 3;
+    opacity: 1;
+    left: -320px;
+    top:0;
+}
+
+@keyframes  slipInDormAnim{
+    0%{
+        z-index:-99;
+        opacity:0;
+        left:0;
+        top:0;
+    }
+    100%{
+        z-index: 3;
+        opacity: 1;
+        left: -320px;
+        top:0;
+    }
+}
+.slip-in-dorm-Animation{
+    -webkit-animation: slipInDormAnim 0.5s ease 0s 1 normal;
+    -o-animation: slipInDormAnim 0.5s ease 0s 1 normal;
+    animation: slipInDormAnim 0.5s ease 0s 1 normal;
+}
+
+@keyframes  slipOutDormAnim{
+    0%{
+        z-index: 3;
+        opacity: 1;
+        left: -320px;
+        top:0;
+    }
+    100%{
+        z-index:-99;
+        opacity:0;
+        left:0;
+        top:0;
+    }
+}
+.slip-out-dorm-Animation{
+    -webkit-animation: slipOutDormAnim 0.5s ease 0s 1 normal;
+    -o-animation: slipOutDormAnim 0.5s ease 0s 1 normal;
+    animation: slipOutDormAnim 0.5s ease 0s 1 normal;
+}
+/*添加学生卡片*/
+.student-info-add{
+    position: absolute;
+    width: 300px;
+    height: 25px;
+    background: #ffffff;
+    display: flex;
+    flex-direction:column;
+    transition: all 0.3s;
+    box-shadow: 0 0 8px 2px #ddd;
+}
+
+.stuAdd-input{
+    padding:6px 35px 6px 6px;
+    height: 100%;
+    width: auto;
+    border: none;
+}
+
+.searched-stu-info{
+    position: absolute;
+    width:100%;
+    bottom:-135px;
+    height: 120px;
+    background: #fff;
+    box-shadow:  0 0 6px 2px #ddd;
+
+    display: flex;
+    flex-direction:row;
+}
+.info-text{
+    display: flex;
+    flex-direction:column;
+    line-height: 1.5em;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    padding-top:15px ;
+    padding-left: 10px;
+    /*text-indent: 10px;*/
+}
+.no-exist,
+.everyday{
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+}
+.action{
+    display: flex;
+    min-width: 60px;
+    max-width: 60px;
+    justify-content: center;
+    align-items: center;
+    border-left: 1px solid #eee;
+    cursor: pointer;
+    transition: all 0.15s;
+}
+.action:hover{
+    font-size:16px;
+    color: #000;
+}
+.student-info-add .icon-search-position{
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    right: 0;
+    color: #aaa;
+    font-size: 16px;
+    cursor: pointer;
+    transition:all 0.3s;
+}
+.student-info-add .icon-search-position:hover{
+    color: #000;
+}
+
+
+/*查找框滑动样式*/
+.student-info-add-in{
+    top: 320px;
+    left: -320px;
+    opacity: 1;
+    z-index: 100000; /* z-index 要高于遮罩 */
+}
+
+.student-info-add-out{
+    top:320px;
+    left: 10px;
+    opacity: 0;
+    z-index: -99;
+}
+
+
+
+
+
+
+
+
+

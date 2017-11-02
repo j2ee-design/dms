@@ -1,0 +1,108 @@
+.main-body{
+    display: flex;
+    flex-direction: column;
+    padding:20px 20px 0;
+}
+.title{
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+.select-box{
+    margin-top: 10px;
+}
+.select-box label{
+    display: inline-block;
+    margin-right: 15px;
+    margin-bottom: 10px;
+}
+.stu-num{
+    margin:0 4px ;
+}
+.hint-info{
+    color: #aaa;
+}
+p.info{
+    line-height: 2em;
+}
+.apart-list{
+    display: flex;
+    flex-wrap: wrap ;
+    flex-direction:row;
+}
+.apart-list span:first-child{
+    margin-left: 13px;
+}
+.apart-list span:after{
+    content: '、';
+    cursor: text;
+
+}
+.apart-list span:last-child:after{
+    content: '';
+}
+.action{
+    margin-top: 10px;
+}
+.action span{
+    font-style: italic;
+    color: #00C5CD;
+    display: inline-block;
+    padding:0 5px;
+    cursor: pointer;
+}
+.action span:hover{
+    text-decoration: underline;
+}
+/*single-search*/
+.single-search-wrap{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    padding-top:10px;
+    border-top:1px solid #eee;
+}
+.single-manage{
+    margin-top: 10px;
+    margin-bottom: 5px;
+}
+.search-bar{
+    display: flex;
+    flex-direction:row;
+    align-items: baseline;
+}
+.search-input{
+    padding: 2px 10px;
+    height: 16px;
+    width:200px;
+    border-radius: 10px;
+    border:1px solid #aaa;
+    margin-right: 15px;
+}
+.consequence{
+    border-radius: 5px;
+    margin-top: 20px;
+    padding:10px 20px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width:45%;
+    max-width: 100%;
+    border:1px solid #aaa;
+}
+.single-stu-info{
+    display: flex;
+    flex-wrap: wrap;
+}
+.single-stu-info span{
+    display: inline-block;
+    margin-right:10px;
+}
+.disget{
+    width: 100%;
+    text-align: center;
+}
+
+
+
+
+

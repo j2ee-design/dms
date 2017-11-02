@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinho.dao.StudentDao">
+
+
+  <resultMap id="BaseResultMap" type="com.xinho.bean.Student">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="gender" jdbcType="INTEGER" property="gender" />
+    <result column="enro_year" jdbcType="TIMESTAMP" property="enroYear" />
+    <result column="dic_grade" jdbcType="INTEGER" property="dicGrade" />
+    <result column="academy_id" jdbcType="INTEGER" property="academyId" />
+    <result column="major_id" jdbcType="INTEGER" property="majorId" />
+    <result column="class_id" jdbcType="INTEGER" property="classId" />
+    <result column="dorm_id" jdbcType="INTEGER" property="dormId" />
+    <result column="dorm_status" jdbcType="INTEGER" property="dormStatus" />
+    <result column="stu_status" jdbcType="INTEGER" property="stuStatus" />
+  </resultMap>
+
+  <!--复杂查询是使用 BeabnExample 来查询的，-->
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <!--插入的 where 字句-->
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <!--基础列-->
+  <sql id="Base_Column_List">
+    id, name, gender, enro_year, dic_grade, academy_id, major_id, class_id, dorm_id, 
+    dorm_status, stu_status
+  </sql>
+
+
+  <!--查询符合条件的条数-->
+  <select id="countByExample" parameterType="com.xinho.bean.StudentExample" resultType="java.lang.Long">
+    select count(*) from student
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+
+
+  <!--按照主键单查询和按照条件批量查询-->
+  <select id="selectByExample" parameterType="com.xinho.bean.StudentExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from student
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from student
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+
+  <!--按照主键和按照条件删除（按照条件批量删除和按照主键单删除）-->
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from student
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xinho.bean.StudentExample">
+    delete from student
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+
+
+  <!--非检查型全插入和检查型非空插入（用 Selective 好一些！）-->
+  <insert id="insert" parameterType="com.xinho.bean.Student">
+    insert into student (id, name, gender, 
+      enro_year, dic_grade, academy_id, 
+      major_id, class_id, dorm_id, 
+      dorm_status, stu_status)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{gender,jdbcType=INTEGER}, 
+      #{enroYear,jdbcType=TIMESTAMP}, #{dicGrade,jdbcType=INTEGER}, #{academyId,jdbcType=INTEGER}, 
+      #{majorId,jdbcType=INTEGER}, #{classId,jdbcType=INTEGER}, #{dormId,jdbcType=INTEGER}, 
+      #{dormStatus,jdbcType=INTEGER}, #{stuStatus,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xinho.bean.Student">
+    insert into student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="enroYear != null">
+        enro_year,
+      </if>
+      <if test="dicGrade != null">
+        dic_grade,
+      </if>
+      <if test="academyId != null">
+        academy_id,
+      </if>
+      <if test="majorId != null">
+        major_id,
+      </if>
+      <if test="classId != null">
+        class_id,
+      </if>
+      <if test="dormId != null">
+        dorm_id,
+      </if>
+      <if test="dormStatus != null">
+        dorm_status,
+      </if>
+      <if test="stuStatus != null">
+        stu_status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="enroYear != null">
+        #{enroYear,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dicGrade != null">
+        #{dicGrade,jdbcType=INTEGER},
+      </if>
+      <if test="academyId != null">
+        #{academyId,jdbcType=INTEGER},
+      </if>
+      <if test="majorId != null">
+        #{majorId,jdbcType=INTEGER},
+      </if>
+      <if test="classId != null">
+        #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="dormId != null">
+        #{dormId,jdbcType=INTEGER},
+      </if>
+      <if test="dormStatus != null">
+        #{dormStatus,jdbcType=INTEGER},
+      </if>
+      <if test="stuStatus != null">
+        #{stuStatus,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+
+
+  <!--根据主键/根据条件——>检查和非检查更新（也就是单更新和批量更新）-->
+  <update id="updateByExampleSelective" parameterType="map">
+    update student
+    <set>
+      <if test="record.id != null">
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.name != null">
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.gender != null">
+        gender = #{record.gender,jdbcType=INTEGER},
+      </if>
+      <if test="record.enroYear != null">
+        enro_year = #{record.enroYear,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.dicGrade != null">
+        dic_grade = #{record.dicGrade,jdbcType=INTEGER},
+      </if>
+      <if test="record.academyId != null">
+        academy_id = #{record.academyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.majorId != null">
+        major_id = #{record.majorId,jdbcType=INTEGER},
+      </if>
+      <if test="record.classId != null">
+        class_id = #{record.classId,jdbcType=INTEGER},
+      </if>
+      <if test="record.dormId != null">
+        dorm_id = #{record.dormId,jdbcType=INTEGER},
+      </if>
+      <if test="record.dormStatus != null">
+        dorm_status = #{record.dormStatus,jdbcType=INTEGER},
+      </if>
+      <if test="record.stuStatus != null">
+        stu_status = #{record.stuStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update student
+    set id = #{record.id,jdbcType=INTEGER},
+      name = #{record.name,jdbcType=VARCHAR},
+      gender = #{record.gender,jdbcType=INTEGER},
+      enro_year = #{record.enroYear,jdbcType=TIMESTAMP},
+      dic_grade = #{record.dicGrade,jdbcType=INTEGER},
+      academy_id = #{record.academyId,jdbcType=INTEGER},
+      major_id = #{record.majorId,jdbcType=INTEGER},
+      class_id = #{record.classId,jdbcType=INTEGER},
+      dorm_id = #{record.dormId,jdbcType=INTEGER},
+      dorm_status = #{record.dormStatus,jdbcType=INTEGER},
+      stu_status = #{record.stuStatus,jdbcType=INTEGER}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xinho.bean.Student">
+    update student
+    <set>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=INTEGER},
+      </if>
+      <if test="enroYear != null">
+        enro_year = #{enroYear,jdbcType=TIMESTAMP},
+      </if>
+      <if test="dicGrade != null">
+        dic_grade = #{dicGrade,jdbcType=INTEGER},
+      </if>
+      <if test="academyId != null">
+        academy_id = #{academyId,jdbcType=INTEGER},
+      </if>
+      <if test="majorId != null">
+        major_id = #{majorId,jdbcType=INTEGER},
+      </if>
+      <if test="classId != null">
+        class_id = #{classId,jdbcType=INTEGER},
+      </if>
+      <if test="dormId != null">
+        dorm_id = #{dormId,jdbcType=INTEGER},
+      </if>
+      <if test="dormStatus != null">
+        dorm_status = #{dormStatus,jdbcType=INTEGER},
+      </if>
+      <if test="stuStatus != null">
+        stu_status = #{stuStatus,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xinho.bean.Student">
+    update student
+    set name = #{name,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=INTEGER},
+      enro_year = #{enroYear,jdbcType=TIMESTAMP},
+      dic_grade = #{dicGrade,jdbcType=INTEGER},
+      academy_id = #{academyId,jdbcType=INTEGER},
+      major_id = #{majorId,jdbcType=INTEGER},
+      class_id = #{classId,jdbcType=INTEGER},
+      dorm_id = #{dormId,jdbcType=INTEGER},
+      dorm_status = #{dormStatus,jdbcType=INTEGER},
+      stu_status = #{stuStatus,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!--根据页面实体添加-->
+    <sql id="With_Info_Column_List">
+        id, name, gender, enro_year, dic_grade, academy_id, major_id, class_id, dorm_id,
+        dorm_status, stu_status, academy.name, major.name
+    </sql>
+    <resultMap id="WithInfoResultMap" type="com.xinho.dto.StudentDto">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="name" jdbcType="VARCHAR" property="name" />
+        <result column="gender" jdbcType="INTEGER" property="gender" />
+        <result column="enro_year" jdbcType="TIMESTAMP" property="enroYear" />
+        <result column="dic_grade" jdbcType="INTEGER" property="dicGrade" />
+        <result column="academy_id" jdbcType="INTEGER" property="academyId" />
+        <result column="major_id" jdbcType="INTEGER" property="majorId" />
+        <result column="class_id" jdbcType="INTEGER" property="classId" />
+        <result column="dorm_id" jdbcType="INTEGER" property="dormId" />
+        <result column="dorm_status" jdbcType="INTEGER" property="dormStatus" />
+        <result column="stu_status" jdbcType="INTEGER" property="stuStatus" />
+        <result column="academy.name" jdbcType="VARCHAR" property="academyName"/>
+        <result column="major.name" jdbcType="VARCHAR" property="majorName"/>
+    </resultMap>
+    <select id="selectByExampleWithInfo" parameterType="com.xinho.bean.StudentExample" resultMap="BaseResultMap">
+        select
+        <if test="distinct">
+            distinct
+        </if>
+        <include refid="With_Info_Column_List" />
+        from student where student.id=${id} and major.id=student.major_id and academy.id=student.academy_id;
+        <if test="_parameter != null">
+            <include refid="Example_Where_Clause" />
+        </if>
+        <if test="orderByClause != null">
+            order by ${orderByClause}
+        </if>
+    </select>
+</mapper>

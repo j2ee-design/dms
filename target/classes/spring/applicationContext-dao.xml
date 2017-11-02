@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd"
+>
+    <!-- 1. 组件扫描,需要注意的是，Spring 集成 mybatis 用于扫描 dao 层的 bean-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
+        <property name="basePackage" value="com.xinho.dao"/>
+    </bean>
+    <context:component-scan base-package="com.xinho.dao"/>
+
+
+    <!-- 2. 配置数据源 --><!-- 别忘了这里能读取属性文件中的属性是因为：1. 子 IOC 容器可以访问父 IOC，2. 在父 IOC 中设置了读取所有属性文件 -->
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+        <property name="driverClass" value="${jdbc.driverclass}"/>
+        <property name="jdbcUrl" value="${jdbc.jdbcurl}"/>
+        <property name="user" value="${jdbc.user}"/>
+        <property name="password" value="${jdbc.password}"/>
+        <property name="initialPoolSize" value="${c3p0.initialPoolSize}"/>
+        <property name="maxIdleTime" value="${c3p0.maxIdleTime}"/>
+        <property name="maxPoolSize" value="${c3p0.maxPoolSize}"/>
+        <property name="maxStatements" value="${c3p0.maxStatements}"/>
+        <property name="minPoolSize" value="${c3p0.minPoolSize}"/>
+    </bean>
+
+    <!-- 配置 sqlSessionFactory:数据源 + 配置文件 + mapper 文件 + 扫描bean自动使用别名 -->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="configLocation" value="classpath:/spring/mybatis.xml"/>
+        <property name="mapperLocations" value="classpath:/mapper/*.xml"/>
+        <!--扫描java-bean,自动使用别名.在Mapper文件里面就可以直接写对应的类名 而不用写全路径名-->
+        <property name="typeAliasesPackage" value="com.xinho.bean"/>
+    </bean>
+</beans>

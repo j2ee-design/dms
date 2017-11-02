@@ -1,0 +1,156 @@
+.main-body{
+    padding:30px 40px 20px 20px;
+    overflow: hidden;
+    display: flex;
+}
+
+.add-one{
+    border-right:1px solid #ddd;
+    padding-right: 5%;
+    margin-right: 5%;
+}
+
+.add-file{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.up-file-wrap{
+    margin:15px 0;
+}
+
+.add-one-table{
+
+}
+.add-tr{
+    height: 40px;
+    line-height: 40px;
+}
+.tr-text{
+    text-align: right;
+    width: 80px;
+    font-size:12px;
+    color: #555;
+}
+.add-tr input.input[type='text']{
+    width: 200px;
+    height: 25px;
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    padding:0 10px;
+}
+
+.add-tr select.input{
+    font-size: 12px;
+    color: #555;
+    padding-left: 5px;
+    width: 100%;
+    height: 25px;
+    margin-left: -1px;
+    border-color:#ccc
+}
+
+.submit{
+    border-radius: 5px;
+    border: 1px solid #efefef;
+    background: #009FFF;
+    color:#fff;
+    font-size:16px;
+    width:100%;
+    height: 40px;
+    cursor: pointer;
+}
+.submit:hover{
+    background: #006FFF;
+}
+
+.up-file{
+    border:none;
+    margin-left: 5px;
+
+}
+
+
+/*add-file-table-wrap*/
+.add-file-table-wrap{
+    flex-grow:1;
+    max-height:400px;
+    margin-bottom: 10px;
+    overflow: scroll;
+    overflow-x: hidden;
+    border:1px solid #eee;
+}
+.add-file-table-wrap::-webkit-scrollbar{
+    width: 7px;
+    height: 7px;
+}
+.add-file-table-wrap::-webkit-scrollbar-thumb{
+    border-radius: 3px;
+    background: #dddfe0
+}
+.add-file-table-wrap::-webkit-scrollbar-track{
+    width: 7px;
+    height: 7px;
+}
+.add-file-table-wrap::-webkit-scrollbar-track-piece {
+    background: transparent;
+}
+.add-file-table-wrap::-webkit-scrollbar-button {
+    display: none;
+}
+
+.add-file-table{
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+
+.add-file-th{
+    height:30px;
+    border-bottom: 1px solid #eee;
+}
+.add-file-tr{
+    height: 20px;
+    line-height: 25px;
+    border-bottom: 1px solid #eee;
+}
+
+.add-file-tr:hover{
+    background: #efefef;
+}
+
+.add-file-th .check-box label{
+    cursor: pointer;
+}
+
+
+
+.up-file-submit{
+    padding:0 10px;
+    height: 25px;
+    line-height: 25px;
+    background: #009FFF;
+    border:none;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+.up-file-submit:hover{
+    background: #006FFF;
+}
+
+
+.submit-file{
+    width: 230px;
+}
+
+
+/*table 行样式*/
+.check-box{
+    width:40px;
+}
+.seq{
+    width:30px;
+}
+

@@ -1,0 +1,146 @@
+.main-body{
+    padding:30px 10px 40px;
+    display: flex;
+    flex-direction:column;
+    overflow: hidden;
+}
+
+.select{
+    margin-bottom: 20px;
+}
+
+.content{
+    border:1px solid #eee;
+    overflow-x: hidden;
+    max-height: 450px;
+    border-radius: 2px;
+}
+
+.add-table{
+    border-collapse:collapse;
+    border-right: 1px solid #eee;
+    width:100%;
+    text-align: center;
+}
+.add-th{
+    height: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.add-tr{
+    border-bottom: 1px solid #efefef;
+}
+
+.add-tr:hover{
+    background: #efefef;
+}
+
+.add-tr td{
+    padding:5px 5px;
+}
+
+.add-tr td:hover{
+    cursor: pointer;
+}
+.select-td{
+    text-align: left;
+    padding-right: 20px;
+}
+.select-all-td{
+    text-align: left;
+    padding-right: 20px;
+}
+.button-td{
+    text-align: right;
+}
+.button-td input{
+    display: inline-block;
+    padding:0 15px;
+    height:20px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 5px;
+    border:none;
+    background: #345F75;
+    transition: all 0.5s;
+}
+.button-td input:hover{
+    background: #555F75;
+}
+
+select{
+    padding:0 5px;
+    text-align: center;
+    background: #fff;
+    font-size:12px;
+}
+select:focus{
+    outline: none;
+}
+
+.do-something{
+    width: 80px !important;
+}
+.do-something a{
+    color: #00C5CD;
+}
+.line{
+    display: inline-block;
+    margin:0 1px;
+    vertical-align: 1px;
+    color: #555;
+}
+
+.check-box label:hover{
+    cursor: pointer;
+}
+
+.entry{
+    position: fixed;
+    padding:50px 70px 50px 20px;
+    border: 1px solid #eee;
+    top:150px;
+    left: 38%;
+    z-index:9999;
+}
+.entry-td-text{
+    display: inline-block;
+    width: 57px;
+    color: #006FFF;
+    font-size: 12px;
+    text-align: right;
+    margin-right: 3px;
+}
+.entry-td-input{
+    padding:3px 5px;
+    margin-bottom: 5px;
+    color: #000;
+    border-radius: 5px;
+    background: rgba(255,255,255,0.7);
+    border:1px solid #aaa;
+}
+.td-submit{
+
+}
+.entry-submit{
+    color: #fff;
+    font-size: 14px;
+    padding:3px 65px;
+    margin-top: 10px;
+    margin-left: 60px;
+    border: none;
+    background: #00C5CD;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.entry-submit:hover{
+    background: #00DFCD;
+}
+
+
+
+
+
+
+
+
