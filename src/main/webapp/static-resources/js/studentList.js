@@ -4,6 +4,20 @@ $(function () {
 });
 
 /**
+ * 查询学生
+ * 1. 获取查询条件
+ * 2. 发送请求，获取结果
+ * 3. 将结果显示在页面上
+ */
+function searchInList() {
+
+}
+
+
+
+
+
+/**
  * 为表格每一项点击后添加 flag（删除用）
  */
 function addflag(){
@@ -12,21 +26,31 @@ function addflag(){
     });
 }
 
+
+
+
+
+
 /**
  * 点击全选
  */
 function checkall(){
-    $('#checkbox-all').click(function () {
-        if ($('#checkbox-all').attr('checked')=='checked'){
-            $('#checkbox-all').removeAttr('checked');
-            $("#add-table .add-tr .check-box input[type='checkbox']").removeAttr('checked');
-            $('#add-table .add-tr .check-box').removeClass('beclecked');
-        } else {
-            $('#checkbox-all').attr('checked','checked');
-            $("#add-table .add-tr .check-box input[type='checkbox']").attr('checked','checked')
-            $('#add-table .add-tr .check-box').addClass('beclecked');
-        }
-    })
+    // $('#checkbox-all').click(function () {
+    //     if ($('#checkbox-all').attr('checked')=='checked'){
+    //         $('#checkbox-all').removeAttr('checked');
+    //         $("#add-table .add-tr .check-box input[type='checkbox']").removeAttr('checked');
+    //         $('#add-table .add-tr .check-box').removeClass('beclecked');
+    //     } else {
+    //         $('#checkbox-all').attr('checked','checked');
+    //         $("#add-table .add-tr .check-box input[type='checkbox']").attr('checked','checked')
+    //         $('#add-table .add-tr .check-box').addClass('beclecked');
+    //     }
+    // })
+
+
+
+
+
 }
 
 /**

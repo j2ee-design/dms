@@ -19,4 +19,40 @@ public interface StudentService {
      * @return 添加结果
      */
     public boolean addSingle(StudentDto studentDto);
+
+    /**
+     * 根据ID列表批量删除学生，不回滚
+     * @param studentIdList
+     * @return 成功删除的数量
+     */
+    int removeStudentById(List<Integer> studentIdList);
+
+    /**
+     * 根据ID删除单个学生
+     * @param studentId
+     * @return 成功删除的数量
+     */
+    int removeStudentById(Integer studentId);
+
+
+    /**
+     * 根据example删除学生
+     * @param studentDto
+     * @return 成功删除的数量
+     */
+    int removeStudent(StudentDto studentDto);
+
+    /**
+     * 根据dto查找学生
+     * @param studentDto
+     * @return
+     */
+    List<Student> searchStudent(StudentDto studentDto);
+
+    /**
+     * 根据 ID 查找学生
+     * @param id
+     * @return
+     */
+    Student searchStudentById(Integer id);
 }

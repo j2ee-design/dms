@@ -48,8 +48,9 @@
         <div class="select">
             <table>
                 <tr>
-                    <td class="select-td"><span>年级：</span>
-                        <select name="grade" id="grade" autofocus="">
+                    <td class="select-td">
+                        <span>年级：</span>
+                        <select name="dicGrade" id="grade" autofocus="">
                             <option value="1">全部</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -57,8 +58,9 @@
                             <option value="4">4</option>
                         </select>
                     </td>
-                    <td class="select-td"><span>学院：</span>
-                        <select name="" id="acade">
+                    <td class="select-td">
+                        <span>学院：</span>
+                        <select name="academyId" id="acade">
                             <option value="1">全部</option>
                             <option value="">大数据学院</option>
                             <option value="">理学院</option>
@@ -66,8 +68,9 @@
                             <option value="">体育学院</option>
                         </select>
                     </td>
-                    <td class="select-td"><span>专业：</span>
-                        <select name="" id="major">
+                    <td class="select-td">
+                        <span>专业：</span>
+                        <select name="majorId" id="major">
                             <option value="1">全部</option>
                             <option value="">物联网工程</option>
                             <option value="">数字媒体技术</option>
@@ -79,31 +82,23 @@
                             <option value="">物联网工程</option>
                         </select>
                     </td>
-                    <td class="select-td"><span>班级：</span>
-                        <select name="" id="class">
+                    <td class="select-td">
+                        <span>班级：</span>
+                        <select name="classId" id="class">
                             <option value="1">全部</option>
                             <option value="">15070941</option>
                             <option value="">15070942</option>
                         </select>
                     </td>
-                    <td class="select-td"><span>宿舍：</span>
-                        <select name="" id="dorm">
+                    <td class="select-td">
+                        <span>宿舍：</span>
+                        <select name="dormId" id="dorm">
                             <option value="1">全部</option>
-                            <option value="">#13-342</option>
-                            <option value="">#13-340</option>
-                            <option value="">#13-341</option>
                         </select>
                     </td>
-                    <td class="select-td"><span>状态：</span>
-                        <select name="" id="statue">
-                            <option value="1">全部</option>
-                            <option value="">在学</option>
-                            <option value="">毕业</option>
-                            <option value="">退学</option>
-                            <option value="">休学</option>
-                        </select>
+                    <td>
+                        <input type="submit" value="查询" onclick="searchInList()" />
                     </td>
-                    <td class="select-td button-td"><input type="submit" value="查询"></td>
                 </tr>
             </table>
         </div>

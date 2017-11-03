@@ -54,8 +54,6 @@ public class StudentServiceImpl implements StudentService {
         return errorResults;
     }
 
-
-
     /**
      * 添加一个学生（有两种想法：1. 根据 academy 表和 major 表插入到 student 表，2.先查找，根据查找结果选择要不要插入）
      * 1. 检查学院、专业在数据库中的真实性
@@ -98,6 +96,40 @@ public class StudentServiceImpl implements StudentService {
 
         /*  3. */
         return studentDao.insertSelective(student)==1;
+    }
+
+    @Override
+    public int removeStudentById(List<Integer> studentIdList) {
+        int i = 0;
+        int sum = 0;
+        for (Integer id: studentIdList) {
+            // TODO 在 dao 中添加批量删除的方法
+            i = studentDao.deleteByPrimaryKey(id);
+            sum += i;
+            i = 0;
+        }
+        return sum;
+    }
+
+    @Override
+    public int removeStudentById(Integer studentId) {
+        return 0;
+    }
+
+
+    @Override
+    public int removeStudent(StudentDto studentDto) {
+        return 0;
+    }
+
+    @Override
+    public List<Student> searchStudent(StudentDto studentDto) {
+        return null;
+    }
+
+    @Override
+    public Student searchStudentById(Integer id) {
+        return null;
     }
 
 }

@@ -2,33 +2,33 @@ package com.xinho.bean;
 
 public class Page {
     // 总条数
-    private int totalNumber;
+    private int totalRecord;
     // 当前页数
     private int currentPage;
     // 总页数
-    private int totalPage;
+    private int sumPageNum;
     // 每页显示条数
-    private int pageNumber;
+    private int pageSize;
 
     public Page() {
         this.currentPage = 1;
-        this.pageNumber = 10;
+        this.pageSize = 10;
     }
 
     public int getTotalNumber() {
-        return totalNumber;
+        return totalRecord;
     }
 
     private void count() {
-        this.totalPage = this.totalNumber / this.pageNumber;
-        if(this.totalNumber % this.pageNumber > 0) {
-            this.totalPage++;
+        this.sumPageNum = this.totalRecord / this.pageSize;
+        if(this.totalRecord % this.pageSize > 0) {
+            this.sumPageNum++;
         }
-        if(this.totalPage <= 0) {
-            this.totalPage = 1;
+        if(this.sumPageNum <= 0) {
+            this.sumPageNum = 1;
         }
-        if(this.currentPage > this.totalPage) {
-            this.currentPage = this.totalPage;
+        if(this.currentPage > this.sumPageNum) {
+            this.currentPage = this.sumPageNum;
         }
         if(this.currentPage <= 0) {
             this.currentPage = 1;
@@ -36,7 +36,7 @@ public class Page {
     }
 
     public void setTotalNumber(int totalNumber) {
-        this.totalNumber = totalNumber;
+        this.totalRecord = totalNumber;
         this.count();
     }
 
@@ -46,17 +46,17 @@ public class Page {
     public void setCurrentPage(int currentPage) {
         this.currentPage = currentPage;
     }
-    public int getTotalPage() {
+    public int getSumPageNum() {
 
-        return totalPage;
+        return sumPageNum;
     }
-    public void setTotalPage(int totalPage) {
-        this.totalPage = totalPage;
+    public void setSumPageNum(int sumPageNum) {
+        this.sumPageNum = sumPageNum;
     }
-    public int getPageNumber() {
-        return pageNumber;
+    public int getPageSize() {
+        return pageSize;
     }
-    public void setPageNumber(int pageNumber) {
-        this.pageNumber = pageNumber;
+    public void setPageSize(int pageSize) {
+        this.pageSize = pageSize;
     }
 }
