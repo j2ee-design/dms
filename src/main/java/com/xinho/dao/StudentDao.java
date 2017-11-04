@@ -29,4 +29,7 @@ public interface StudentDao {
     int updateByPrimaryKeySelective(Student record);
 
     int updateByPrimaryKey(Student record);
+
+    int deleteBatchByIdList(List<Integer> idList);
+
 }

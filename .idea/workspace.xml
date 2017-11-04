@@ -7,14 +7,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f6b33d6-e0bb-4df5-bd67-325dd9212b0a" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/ApartmentService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/DormitoryService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/ApartmentServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/DormitoryServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/Page.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/bean/Page.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/xinho/service/StudentServiceTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/xinho/service/StudentServiceTest.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/bean/Page.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/bean/Page.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/constant/PageCodeEnum.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/constant/PageCodeEnum.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/controller/StudentAddController.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/controller/StudentAddController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/dao/StudentDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/dao/StudentDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/service/StudentService.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/StudentService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/StudentServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/StudentServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/studentList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/studentList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/js/studentList.js" afterPath="$PROJECT_DIR$/src/main/webapp/static-resources/js/studentList.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/xinho/dao/StudentDaoTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/xinho/dao/StudentDaoTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/xinho/service/StudentServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/xinho/service/StudentServiceTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/StudentMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/StudentMapper.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -43,6 +50,12 @@
         <item name="dms@localhost" type="e3449647:DbNodeDescriptor" />
         <item name="dms" type="e3449647:DbNodeDescriptor" />
       </path>
+      <path>
+        <item name="" type="eadb38e5:DatabaseStructure$Root" />
+        <item name="dms@localhost" type="e3449647:DbNodeDescriptor" />
+        <item name="dms" type="e3449647:DbNodeDescriptor" />
+        <item name="student" type="e3449647:DbNodeDescriptor" />
+      </path>
     </expand>
     <select />
   </component>
@@ -51,35 +64,60 @@
       <file leaf-file-name="StudentAddController.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/StudentAddController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="88" column="64" lean-forward="true" selection-start-line="88" selection-start-column="64" selection-end-line="88" selection-end-column="64" />
+            <state relative-caret-position="766">
+              <caret line="85" column="4" lean-forward="false" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/StudentService.java">
+      <file leaf-file-name="ApartmentService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/ApartmentService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="52" column="17" lean-forward="false" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+            <state relative-caret-position="34">
+              <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="StudentServiceImpl.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ApartmentServiceImpl.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/ApartmentServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentServiceImpl.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/StudentServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="107" column="21" lean-forward="true" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
+            <state relative-caret-position="426">
+              <caret line="146" column="5" lean-forward="false" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
               <folding>
                 <element signature="method#validate#0;class#StudentServiceImpl#0" expanded="false" />
                 <element signature="method#addSingle#0;class#StudentServiceImpl#0" expanded="false" />
-                <element signature="e#3745#3746#0" expanded="true" />
-                <element signature="e#3772#3773#0" expanded="true" />
-                <element signature="e#3838#3839#0" expanded="true" />
-                <element signature="e#3865#3866#0" expanded="true" />
+                <element signature="method#removeStudentById#0;class#StudentServiceImpl#0" expanded="false" />
+                <element signature="method#removeStudentById#1;class#StudentServiceImpl#0" expanded="false" />
+                <element signature="docComment;method#searchStudent#0;class#StudentServiceImpl#0" expanded="false" />
+                <element signature="method#searchStudent#0;class#StudentServiceImpl#0" expanded="false" />
+                <element signature="method#searchStudentById#0;class#StudentServiceImpl#0" expanded="false" />
+                <element signature="method#transform#0;class#StudentServiceImpl#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="StudentServiceTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com/xinho/service/StudentServiceTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="276">
+              <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+              <folding>
+                <element signature="e#1508#1509#0" expanded="true" />
+                <element signature="e#1566#1567#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -92,8 +130,8 @@
       <list>
         <option value="FxmlFile" />
         <option value="Jsp File" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -110,6 +148,7 @@
       <find>Criterion</find>
       <find>addCriterion</find>
       <find>Page</find>
+      <find>Criteria</find>
     </findStrings>
     <replaceStrings>
       <replace>Dormitory</replace>
@@ -132,8 +171,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/properties/dao.properties" />
-        <option value="$PROJECT_DIR$/src/test/java/com/xinho/dao/DicDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/test/TestDao.java" />
         <option value="$PROJECT_DIR$/src/test/testDao/testStudent.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/mybatis.xml" />
@@ -143,7 +180,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/dao/MajorDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/apartmentDao.xml" />
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/dao/StudentDao.java" />
         <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/xinho/dao/Generator.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/dao/Generator.java" />
@@ -167,12 +203,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/bean/BaseBean.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/dao/SysGroupActionDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/dto/ApartmentDto.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/bean/AcademyExample.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/bean/Student.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/xinho/dao/StudentDaoTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/dto/StudentDto.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/xinho/service/StudentServiceTest.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6be36501-5e23-4e52-863d-50f2f5f5f5f5/console.sql" />
         <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/studentAdd.js" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext-web.xml" />
@@ -180,9 +213,15 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/studentList.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/studentList.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/bean/Page.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/StudentAddController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/StudentService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/StudentAddController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/xinho/dao/StudentDaoTest.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/dao/StudentDao.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/xinho/service/StudentServiceTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/StudentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/ApartmentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/DormitoryServiceImpl.java" />
       </list>
     </option>
   </component>
@@ -218,7 +257,9 @@
     <option name="width" value="1211" />
     <option name="height" value="661" />
   </component>
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -310,7 +351,7 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="xinho" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dms" type="b2602c69:ProjectViewProjectNode" />
@@ -320,7 +361,6 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="xinho" type="462c0819:PsiDirectoryNode" />
               <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="serviceImpl" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dms" type="b2602c69:ProjectViewProjectNode" />
@@ -341,50 +381,40 @@
               <item name="dms" type="b2602c69:ProjectViewProjectNode" />
               <item name="dms" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="spring" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dms" type="b2602c69:ProjectViewProjectNode" />
               <item name="dms" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dms" type="b2602c69:ProjectViewProjectNode" />
               <item name="dms" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static-resources" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="xinho" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dms" type="b2602c69:ProjectViewProjectNode" />
               <item name="dms" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="static-resources" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="xinho" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="dms" type="b2602c69:ProjectViewProjectNode" />
               <item name="dms" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="dms" type="b2602c69:ProjectViewProjectNode" />
-              <item name="dms" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
-              <item name="jsp" type="462c0819:PsiDirectoryNode" />
+              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="xinho" type="462c0819:PsiDirectoryNode" />
+              <item name="service" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -405,7 +435,18 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/xinho/dao" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/test/java/com/xinho/dao" />
+    </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.xinho.dao" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xinho.service.serviceImpl" />
+      <recent name="com.xinho.dto" />
       <recent name="com.xinho.dao" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -414,16 +455,6 @@
       <recent name="$PROJECT_DIR$/src/test" />
       <recent name="$PROJECT_DIR$/src/main/webapp/static-resources/other" />
       <recent name="$PROJECT_DIR$/src/main/webapp" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.xinho.dto" />
-      <recent name="com.xinho.dao" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/xinho/dao" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/test/java/com/xinho/dao" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -438,52 +469,8 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Tomcat Server.dms">
-    <configuration name="Generator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.xinho.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="MAIN_CLASS_NAME" value="com.xinho.dao.Generator" />
-      <option name="VM_PARAMETERS" />
-      <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="ENABLE_SWING_INSPECTOR" value="false" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <module name="dms" />
-      <envs />
-    </configuration>
-    <configuration name="Generator.generator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.xinho.dao.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="dms" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.xinho.dao" />
-      <option name="MAIN_CLASS_NAME" value="com.xinho.dao.Generator" />
-      <option name="METHOD_NAME" value="generator" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-    </configuration>
-    <configuration name="StudentDaoTest.searchTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.StudentServiceTest.searchStudentTest">
+    <configuration name="StudentDaoTest.deleteBatchByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.xinho.dao.*" />
@@ -495,7 +482,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.xinho.dao" />
       <option name="MAIN_CLASS_NAME" value="com.xinho.dao.StudentDaoTest" />
-      <option name="METHOD_NAME" value="searchTest" />
+      <option name="METHOD_NAME" value="deleteBatchByIdTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -508,7 +495,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="StudentDaoTest.updateTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StudentDaoTest.insertTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.xinho.dao.*" />
@@ -520,7 +507,7 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.xinho.dao" />
       <option name="MAIN_CLASS_NAME" value="com.xinho.dao.StudentDaoTest" />
-      <option name="METHOD_NAME" value="updateTest" />
+      <option name="METHOD_NAME" value="insertTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -533,7 +520,7 @@
       <envs />
       <patterns />
     </configuration>
-    <configuration name="StudentServiceTest.addSingleTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StudentServiceTest.removeStudentByIdTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.xinho.service.*" />
@@ -545,7 +532,57 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.xinho.service" />
       <option name="MAIN_CLASS_NAME" value="com.xinho.service.StudentServiceTest" />
-      <option name="METHOD_NAME" value="addSingleTest" />
+      <option name="METHOD_NAME" value="removeStudentByIdTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="StudentServiceTest.searchStudentByIdTemp" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.xinho.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="dms" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.xinho.service" />
+      <option name="MAIN_CLASS_NAME" value="com.xinho.service.StudentServiceTest" />
+      <option name="METHOD_NAME" value="searchStudentByIdTemp" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+    </configuration>
+    <configuration name="StudentServiceTest.searchStudentTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.xinho.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="dms" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.xinho.service" />
+      <option name="MAIN_CLASS_NAME" value="com.xinho.service.StudentServiceTest" />
+      <option name="METHOD_NAME" value="searchStudentTest" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -714,19 +751,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.dms" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.StudentDaoTest.updateTest" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.StudentDaoTest.searchTest" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.Generator.generator" />
-      <item index="4" class="java.lang.String" itemvalue="Application.Generator" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.StudentServiceTest.addSingleTest" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.StudentServiceTest.removeStudentByIdTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.StudentDaoTest.insertTest" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.StudentDaoTest.deleteBatchByIdTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.StudentServiceTest.searchStudentTest" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.StudentServiceTest.searchStudentByIdTemp" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.StudentServiceTest.addSingleTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.StudentDaoTest.searchTest" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.StudentDaoTest.updateTest" />
-        <item index="3" class="java.lang.String" itemvalue="Application.Generator" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.Generator.generator" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.StudentServiceTest.searchStudentTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.StudentServiceTest.searchStudentByIdTemp" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.StudentDaoTest.deleteBatchByIdTest" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.StudentDaoTest.insertTest" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.StudentServiceTest.removeStudentByIdTest" />
       </list>
     </recent_temporary>
   </component>
@@ -751,44 +788,44 @@
       <workItem from="1509582285671" duration="16047000" />
       <workItem from="1509608543106" duration="22135000" />
       <workItem from="1509651947725" duration="11432000" />
-      <workItem from="1509676792555" duration="3738000" />
+      <workItem from="1509676792555" duration="16351000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="StudentDaoTest_searchTest - 2017.11.03 at 02h 18m 06s.xml">
-      <configuration name="StudentDaoTest.searchTest" configurationId="JUnit" />
+    <history-entry file="StudentDaoTest_deleteBatchByIdTest - 2017.11.03 at 20h 46m 25s.xml">
+      <configuration name="StudentDaoTest.deleteBatchByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentDaoTest_updateTest - 2017.11.03 at 01h 19m 40s.xml">
-      <configuration name="StudentDaoTest.updateTest" configurationId="JUnit" />
+    <history-entry file="StudentDaoTest_deleteBatchByIdTest - 2017.11.03 at 20h 46m 58s.xml">
+      <configuration name="StudentDaoTest.deleteBatchByIdTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentServiceTest_addSingleTest - 2017.11.03 at 02h 41m 18s.xml">
-      <configuration name="StudentServiceTest.addSingleTest" configurationId="JUnit" />
+    <history-entry file="StudentDaoTest_insertTest - 2017.11.03 at 20h 45m 40s.xml">
+      <configuration name="StudentDaoTest.insertTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentServiceTest_addSingleTest - 2017.11.03 at 02h 43m 54s.xml">
-      <configuration name="StudentServiceTest.addSingleTest" configurationId="JUnit" />
+    <history-entry file="StudentServiceTest_searchStudentByIdTemp - 2017.11.03 at 22h 52m 46s.xml">
+      <configuration name="StudentServiceTest.searchStudentByIdTemp" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentServiceTest_addSingleTest - 2017.11.03 at 02h 45m 39s.xml">
-      <configuration name="StudentServiceTest.addSingleTest" configurationId="JUnit" />
+    <history-entry file="StudentServiceTest_searchStudentTest - 2017.11.03 at 22h 35m 53s.xml">
+      <configuration name="StudentServiceTest.searchStudentTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentServiceTest_addSingleTest - 2017.11.03 at 02h 47m 45s.xml">
-      <configuration name="StudentServiceTest.addSingleTest" configurationId="JUnit" />
+    <history-entry file="StudentServiceTest_searchStudentTest - 2017.11.03 at 22h 42m 45s.xml">
+      <configuration name="StudentServiceTest.searchStudentTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentServiceTest_addSingleTest - 2017.11.03 at 02h 51m 08s.xml">
-      <configuration name="StudentServiceTest.addSingleTest" configurationId="JUnit" />
+    <history-entry file="StudentServiceTest_searchStudentTest - 2017.11.03 at 22h 49m 34s.xml">
+      <configuration name="StudentServiceTest.searchStudentTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentServiceTest_addSingleTest - 2017.11.03 at 02h 52m 24s.xml">
-      <configuration name="StudentServiceTest.addSingleTest" configurationId="JUnit" />
+    <history-entry file="StudentServiceTest_searchStudentTest - 2017.11.04 at 10h 53m 36s.xml">
+      <configuration name="StudentServiceTest.searchStudentTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentServiceTest_addSingleTest - 2017.11.03 at 02h 55m 11s.xml">
-      <configuration name="StudentServiceTest.addSingleTest" configurationId="JUnit" />
+    <history-entry file="StudentServiceTest_searchStudentTest - 2017.11.04 at 10h 56m 37s.xml">
+      <configuration name="StudentServiceTest.searchStudentTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StudentServiceTest_addSingleTest - 2017.11.03 at 04h 08m 09s.xml">
-      <configuration name="StudentServiceTest.addSingleTest" configurationId="JUnit" />
+    <history-entry file="StudentServiceTest_searchStudentTest - 2017.11.04 at 10h 58m 20s.xml">
+      <configuration name="StudentServiceTest.searchStudentTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118934000" />
+    <option name="totallyTimeSpent" value="131547000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="6" />
@@ -803,7 +840,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39224806" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34573644" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32868218" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -836,7 +873,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="38" />
+      <option name="time" value="40" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -845,30 +882,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/apartmentDao.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dao/StudentDao.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-dao.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="36" column="42" lean-forward="false" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/properties/dao.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="1" column="13" lean-forward="true" selection-start-line="1" selection-start-column="13" selection-end-line="1" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/log.base_IS_UNDEFINEDcomment.log">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="91">
@@ -892,13 +905,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/generatorConfig.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AcademyMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1632">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dao/Generator.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dao/ClassDao.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -935,13 +941,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dao/StudentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="16" column="8" lean-forward="false" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/bean/MajorExample.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="409">
@@ -955,13 +954,6 @@
             <element signature="class#Criteria#0;class#MajorExample#0" expanded="false" />
             <element signature="class#Criterion#0;class#MajorExample#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/bean/StudentExample.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-10301">
-          <caret line="131" column="0" lean-forward="false" selection-start-line="131" selection-start-column="0" selection-end-line="131" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1055,40 +1047,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="613">
-          <caret line="347" column="31" lean-forward="false" selection-start-line="347" selection-start-column="31" selection-end-line="347" selection-end-column="31" />
-          <folding>
-            <element signature="n#resultMap#0;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#sql#0;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#sql#1;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#sql#2;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#select#0;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#select#1;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#select#2;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#delete#0;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#delete#1;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#insert#0;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#insert#1;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#update#0;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#update#1;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#update#2;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#update#3;n#mapper#0;n#!!top" expanded="false" />
-            <element signature="n#resultMap#1;n#mapper#0;n#!!top" expanded="false" />
-            <marker date="1509642346115" expanded="true" signature="3698:3726" ph="select count... student" />
-            <marker date="1509642346115" expanded="true" signature="4365:4468" ph="select from student" />
-            <marker date="1509642346115" expanded="true" signature="4595:4652" ph="delete from " />
-            <marker date="1509642346115" expanded="true" signature="4747:4766" ph="delete from " />
-            <marker date="1509642346115" expanded="true" signature="4982:5482" ph="insert into student... " />
-            <marker date="1509642346115" expanded="true" signature="8851:9446" ph="update stude... " />
-            <marker date="1509642346115" expanded="true" signature="9648:10673" ph="update stude... " />
-            <marker date="1509642346115" expanded="true" signature="10764:11285" ph="update stude... " />
-            <marker date="1509642346115" expanded="true" signature="12700:12928" ph="select disti... student" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dao/AcademyDao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="329">
@@ -1103,24 +1061,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dto/StudentDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="24" column="5" lean-forward="true" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="method#StudentDto#0;class#StudentDto#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/xinho/dao/StudentDaoTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="20" column="82" lean-forward="false" selection-start-line="20" selection-start-column="38" selection-end-line="20" selection-end-column="82" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6be36501-5e23-4e52-863d-50f2f5f5f5f5/console.sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -1129,21 +1069,6 @@
       </provider>
     </entry>
     <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.class">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/java/com/xinho/service/StudentServiceTest.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" column="71" lean-forward="false" selection-start-line="7" selection-start-column="71" selection-end-line="7" selection-end-column="71" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.student">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1213,34 +1138,191 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/StudentAddController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="88" column="64" lean-forward="true" selection-start-line="88" selection-start-column="64" selection-end-line="88" selection-end-column="64" />
-          <folding />
+        <state relative-caret-position="426">
+          <caret line="347" column="39" lean-forward="false" selection-start-line="347" selection-start-column="16" selection-end-line="347" selection-end-column="39" />
+          <folding>
+            <element signature="n#resultMap#0;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#sql#0;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#sql#1;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#sql#2;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#select#0;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#select#1;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#select#2;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#delete#0;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#delete#1;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#insert#0;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#insert#1;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#update#0;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#update#1;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#update#2;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#update#3;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#sql#3;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#resultMap#1;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#select#3;n#mapper#0;n#!!top" expanded="false" />
+            <element signature="n#delete#2;n#mapper#0;n#!!top" expanded="false" />
+            <marker date="1509713204117" expanded="true" signature="3698:3726" ph="select count... student" />
+            <marker date="1509713204117" expanded="true" signature="4365:4468" ph="select from student" />
+            <marker date="1509713204117" expanded="true" signature="4595:4652" ph="delete from " />
+            <marker date="1509713204117" expanded="true" signature="4747:4766" ph="delete from " />
+            <marker date="1509713204117" expanded="true" signature="4982:5482" ph="insert into student... " />
+            <marker date="1509713204117" expanded="true" signature="8851:9446" ph="update stude... " />
+            <marker date="1509713204117" expanded="true" signature="9648:10673" ph="update stude... " />
+            <marker date="1509713204117" expanded="true" signature="10764:11285" ph="update stude... " />
+            <marker date="1509713204117" expanded="true" signature="12700:12928" ph="select disti... student" />
+            <marker date="1509713204117" expanded="true" signature="13209:13228" ph="delete from " />
+            <marker date="1509713204117" expanded="true" signature="13209:13359" ph="delete from " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/StudentService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="52" column="17" lean-forward="false" selection-start-line="52" selection-start-column="17" selection-end-line="52" selection-end-column="17" />
+        <state relative-caret-position="-322">
+          <caret line="7" column="17" lean-forward="false" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/xinho/dao/StudentDaoTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="60" column="4" lean-forward="false" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.academy">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dto/StudentDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" column="19" lean-forward="false" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
+          <folding>
+            <element signature="method#StudentDto#0;class#StudentDto#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/bean/StudentExample.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="63" column="0" lean-forward="false" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
+          <folding>
+            <element signature="method#or#1;class#StudentExample#0" expanded="false" />
+            <element signature="method#createCriteria#0;class#StudentExample#0" expanded="false" />
+            <element signature="method#createCriteriaInternal#0;class#StudentExample#0" expanded="false" />
+            <element signature="method#clear#0;class#StudentExample#0" expanded="false" />
+            <element signature="class#GeneratedCriteria#0;class#StudentExample#0" expanded="false" />
+            <element signature="class#Criteria#0;class#StudentExample#0" expanded="false" />
+            <element signature="class#Criterion#0;class#StudentExample#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.student">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/xinho/service/StudentServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="41" column="31" lean-forward="false" selection-start-line="41" selection-start-column="31" selection-end-line="41" selection-end-column="31" />
+          <folding>
+            <element signature="e#1508#1509#0" expanded="true" />
+            <element signature="e#1566#1567#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dao/StudentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="32" column="27" lean-forward="false" selection-start-line="32" selection-start-column="27" selection-end-line="32" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AcademyMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="51" lean-forward="false" selection-start-line="6" selection-start-column="51" selection-end-line="6" selection-end-column="51" />
+          <folding>
+            <marker date="1509637940109" expanded="true" signature="3494:3597" ph="select from academy" />
+            <marker date="1509637940109" expanded="true" signature="3683:3740" ph="delete from " />
+            <marker date="1509637940109" expanded="true" signature="3835:3854" ph="delete from " />
+            <marker date="1509637940109" expanded="true" signature="4025:4252" ph="insert into academy... " />
+            <marker date="1509637940109" expanded="true" signature="5327:5355" ph="select count... academy" />
+            <marker date="1509637940109" expanded="true" signature="6251:6517" ph="update acade... " />
+            <marker date="1509637940109" expanded="true" signature="6719:7164" ph="update acade... " />
+            <marker date="1509637940109" expanded="true" signature="7255:7489" ph="update acade... " />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/StudentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="107" column="21" lean-forward="true" selection-start-line="107" selection-start-column="21" selection-end-line="107" selection-end-column="21" />
+        <state relative-caret-position="426">
+          <caret line="146" column="5" lean-forward="false" selection-start-line="146" selection-start-column="5" selection-end-line="146" selection-end-column="5" />
           <folding>
             <element signature="method#validate#0;class#StudentServiceImpl#0" expanded="false" />
             <element signature="method#addSingle#0;class#StudentServiceImpl#0" expanded="false" />
-            <element signature="e#3745#3746#0" expanded="true" />
-            <element signature="e#3772#3773#0" expanded="true" />
-            <element signature="e#3838#3839#0" expanded="true" />
-            <element signature="e#3865#3866#0" expanded="true" />
+            <element signature="method#removeStudentById#0;class#StudentServiceImpl#0" expanded="false" />
+            <element signature="method#removeStudentById#1;class#StudentServiceImpl#0" expanded="false" />
+            <element signature="docComment;method#searchStudent#0;class#StudentServiceImpl#0" expanded="false" />
+            <element signature="method#searchStudent#0;class#StudentServiceImpl#0" expanded="false" />
+            <element signature="method#searchStudentById#0;class#StudentServiceImpl#0" expanded="false" />
+            <element signature="method#transform#0;class#StudentServiceImpl#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/StudentAddController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="85" column="4" lean-forward="false" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/ApartmentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/DormitoryServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="12" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/DormitoryService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="33" lean-forward="false" selection-start-line="2" selection-start-column="33" selection-end-line="2" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/ApartmentServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

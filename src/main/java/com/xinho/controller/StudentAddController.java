@@ -70,7 +70,7 @@ public class StudentAddController {
      * 2. 按照"全部"条件查找第一页，一页30条
      * @return
      */
-    @RequestMapping("/listInit")
+    @RequestMapping("/list")
     public String initList(){
         return "studentList";
     }
@@ -83,7 +83,7 @@ public class StudentAddController {
      * @param studentDto
      * @return
      */
-    @@RequestMapping
+    @RequestMapping("/list/search")
     @ResponseBody
     public List<Student> getStudent(StudentDto studentDto){
         List<Student> studentList = studentService.searchStudent(studentDto);

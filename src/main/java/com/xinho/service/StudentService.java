@@ -22,10 +22,10 @@ public interface StudentService {
 
     /**
      * 根据ID列表批量删除学生，不回滚
-     * @param studentIdList
+     * @param idList
      * @return 成功删除的数量
      */
-    int removeStudentById(List<Integer> studentIdList);
+    int removeStudentById(List<Integer> idList);
 
     /**
      * 根据ID删除单个学生
