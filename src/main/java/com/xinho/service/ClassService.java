@@ -11,5 +11,5 @@ public interface ClassService {
      * @param majorId 专业ID
      * @return 查找到的值
      */
-    List<Class> getClassesByMajorId(Integer majorId);
+    List<Class> getClassesByMajorIdAndGradeId(Integer majorId,Integer dicGrade);
 }

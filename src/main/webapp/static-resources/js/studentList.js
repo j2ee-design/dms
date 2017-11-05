@@ -23,7 +23,7 @@ function searchInList() {
         type:'post',
         url:getBasePath()+"/student/list/search",
         contentType:'application/json;charset=utf-8',
-        data:frontdata,
+        data:JSON.stringify(data),
         success:function (data) {
             // 清除原有项
             $('#add-table tbody .add-tr').remove();
@@ -49,8 +49,7 @@ function searchInList() {
                     "</tr>"
                 );
             }
-        }
-        ,
+        },
         error:function (data) {
             console.log(data);
             alert('查询失败');
@@ -183,7 +182,7 @@ function doAcademyChange() {
     // 1.
     var data = {};
     data['academyId'] = $('#acade').val();
-    // 1.1
+    // 1.1 点击全部时清空下一级菜单
     if (data['academyId']==null || data['academyId'].length == 0){
         $('#major').empty().append("<option value=''>全部</option>");
         $('#class').empty().append("<option value=''>全部</option>");
@@ -224,6 +223,7 @@ function doMajorChange(){
     // 1.
     var data = {};
     data['majorId'] = $('#major').val();
+    data['dicGrade'] = $('#grade').val();
     if (data['majorId']==null || data['majorId'].length==0 ){
         $('#class').empty().append("<option value=''>全部</option>");
         $('#dorm').empty().append("<option value=''>全部</option>");
@@ -275,4 +275,12 @@ function doClassChange(){
 
 }
 
-
+/**
+ * 点击年级选项后的变化
+ */
+function doDicGradeChange(){
+    $('#acade').empty().append("<option value=''>全部</option>");
+    $('#major').empty().append("<option value=''>全部</option>");
+    $('#class').empty().append("<option value=''>全部</option>");
+    $('#dorm').empty().append("<option value=''>全部</option>");
+}

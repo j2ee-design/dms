@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <!-- 设置不生成注释 -->
+        <commentGenerator>
+          <property name="suppressAllComments" value="true" />
+        </commentGenerator>
+      
+        <!--数据库连接信息-->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/dms"
+                        userId="xinho"
+                        password="">
+        </jdbcConnection>
+
+        <javaTypeResolver >
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 指定javabean生成的位置 -->
+        <javaModelGenerator
+                targetPackage="bean"
+                targetProject="/home/xinho/Desktop/test">
+            <property name="enableSubPackages" value="true" />
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!--指定sql映射文件位置-->
+        <sqlMapGenerator
+                targetPackage="mapper"
+                targetProject="/home/xinho/Desktop/test">
+            <property name="enableSubPackages" value="true" />
+        </sqlMapGenerator>
+        <!--指定dao接口位置-->
+        <javaClientGenerator
+                type="XMLMAPPER"
+                targetPackage="dao"
+                targetProject="/home/xinho/Desktop/test">
+            <property name="enableSubPackages" value="true" />
+        </javaClientGenerator>
+
+        <!--指定每张表的生成策略-->
+        <table tableName="academy" domainObjectName="Academy"></table>
+        <table tableName="apartment" domainObjectName="Apartment"></table>
+        <table tableName="class" domainObjectName="Class"></table>
+        <table tableName="dic" domainObjectName="Div"></table>
+        <table tableName="dormitory" domainObjectName="Dormitory"></table>
+        <table tableName="grade" domainObjectName="Grade"></table>
+        <table tableName="major" domainObjectName="Major"></table>
+        <table tableName="student" domainObjectName="Student"></table>
+        <table tableName="sys_action" domainObjectName="SysAction"></table>
+        <table tableName="sys_group_action" domainObjectName="SysGroupAction"></table>
+        <table tableName="sys_menu" domainObjectName="sysMenu"></table>
+        <table tableName="sys_user" domainObjectName="sysUser"></table>
+    </context>
+</generatorConfiguration>

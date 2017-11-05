@@ -1,6 +1,8 @@
 package com.xinho.bean;
 
-public class Class {
+import lombok.Data;
+
+@Data public class Class {
     private Integer id;
 
     private Integer majorId;
@@ -9,35 +11,9 @@ public class Class {
 
     private Integer stuNum;
 
-    public Integer getId() {
-        return id;
-    }
+    /**
+     * 该班级所在年级的字典ID
+     */
+    private Integer dicGrade;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getMajorId() {
-        return majorId;
-    }
-
-    public void setMajorId(Integer majorId) {
-        this.majorId = majorId;
-    }
-
-    public Integer getClassId() {
-        return classId;
-    }
-
-    public void setClassId(Integer classId) {
-        this.classId = classId;
-    }
-
-    public Integer getStuNum() {
-        return stuNum;
-    }
-
-    public void setStuNum(Integer stuNum) {
-        this.stuNum = stuNum;
-    }
 }

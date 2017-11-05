@@ -51,7 +51,7 @@
                 <tr>
                     <td class="select-td">
                         <span>年级：</span>
-                        <select name="dicGrade" id="grade" autofocus="">
+                        <select name="dicGrade" id="grade" autofocus="" onchange="doDicGradeChange()">
                             <option value="">全部</option>
                             <c:forEach items="${dicGradeList}" var="dicGrade">
                                 <option value="${dicGrade.id}">${dicGrade.value}</option>

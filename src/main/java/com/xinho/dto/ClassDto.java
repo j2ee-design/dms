@@ -5,4 +5,5 @@ import lombok.Data;
 
 @Data public class ClassDto extends Class{
     private String MajorName;
+    private String dicGradeValue;
 }

@@ -49,7 +49,7 @@ public class StudentServiceImpl implements StudentService {
         if (CommonUtils.isEmpty(studentDto.getMajorName())) {
             errorResults.add("majorName");
         }
-        if (CommonUtils.isNumber(studentDto.getClassName())){
+        if (!CommonUtils.isNumber(studentDto.getClassName())){
             errorResults.add("className");
         }
         return errorResults;

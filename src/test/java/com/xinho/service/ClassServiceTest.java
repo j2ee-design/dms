@@ -15,6 +15,6 @@ public class ClassServiceTest {
 
     @Test
     public void getClassesByMajorIdTest(){
-        classService.getClassesByMajorId(2).forEach(item-> System.out.println(item.getClassId()));
+        classService.getClassesByMajorIdAndGradeId(2,10014).forEach(item-> System.out.println(item.getClassId()));
     }
 }

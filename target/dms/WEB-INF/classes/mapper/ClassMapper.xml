@@ -6,6 +6,7 @@
     <result column="major_id" jdbcType="INTEGER" property="majorId" />
     <result column="class_id" jdbcType="INTEGER" property="classId" />
     <result column="stu_num" jdbcType="INTEGER" property="stuNum" />
+    <result column="dic_grade" jdbcType="INTEGER" property="dicGrade" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -66,7 +67,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, major_id, class_id, stu_num
+    id, major_id, class_id, stu_num, dic_grade
   </sql>
   <select id="selectByExample" parameterType="com.xinho.bean.ClassExample" resultMap="BaseResultMap">
     select
@@ -100,9 +101,9 @@
   </delete>
   <insert id="insert" parameterType="com.xinho.bean.Class">
     insert into class (id, major_id, class_id, 
-      stu_num)
+      stu_num, dic_grade)
     values (#{id,jdbcType=INTEGER}, #{majorId,jdbcType=INTEGER}, #{classId,jdbcType=INTEGER}, 
-      #{stuNum,jdbcType=INTEGER})
+      #{stuNum,jdbcType=INTEGER}, #{dicGrade,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.xinho.bean.Class">
     insert into class
@@ -119,6 +120,9 @@
       <if test="stuNum != null">
         stu_num,
       </if>
+      <if test="dicGrade != null">
+        dic_grade,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -132,6 +136,9 @@
       </if>
       <if test="stuNum != null">
         #{stuNum,jdbcType=INTEGER},
+      </if>
+      <if test="dicGrade != null">
+        #{dicGrade,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -156,6 +163,9 @@
       <if test="record.stuNum != null">
         stu_num = #{record.stuNum,jdbcType=INTEGER},
       </if>
+      <if test="record.dicGrade != null">
+        dic_grade = #{record.dicGrade,jdbcType=INTEGER},
+      </if>
     </set>
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
@@ -166,7 +176,8 @@
     set id = #{record.id,jdbcType=INTEGER},
       major_id = #{record.majorId,jdbcType=INTEGER},
       class_id = #{record.classId,jdbcType=INTEGER},
-      stu_num = #{record.stuNum,jdbcType=INTEGER}
+      stu_num = #{record.stuNum,jdbcType=INTEGER},
+      dic_grade = #{record.dicGrade,jdbcType=INTEGER}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -183,6 +194,9 @@
       <if test="stuNum != null">
         stu_num = #{stuNum,jdbcType=INTEGER},
       </if>
+      <if test="dicGrade != null">
+        dic_grade = #{dicGrade,jdbcType=INTEGER},
+      </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
@@ -190,7 +204,8 @@
     update class
     set major_id = #{majorId,jdbcType=INTEGER},
       class_id = #{classId,jdbcType=INTEGER},
-      stu_num = #{stuNum,jdbcType=INTEGER}
+      stu_num = #{stuNum,jdbcType=INTEGER},
+      dic_grade = #{dicGrade,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

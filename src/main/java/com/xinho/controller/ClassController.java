@@ -20,8 +20,9 @@ public class ClassController {
 
     @ResponseBody
     @RequestMapping(value = "/pid",method = RequestMethod.GET)
-    public List<Class> getClassesByMajorId(@RequestParam(value = "majorId") Integer majorId){
-        List<Class> classList = classService.getClassesByMajorId(majorId);
+    public List<Class> getClassesByMajorId(@RequestParam(value = "majorId") Integer majorId,
+                                           @RequestParam(value = "dicGrade") Integer dicGrade){
+        List<Class> classList = classService.getClassesByMajorIdAndGradeId(majorId,dicGrade);
         return classList;
     }
 

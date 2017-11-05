@@ -28,7 +28,7 @@ public class CommonUtils {
         return isNumber(num.toString());
     }
     public static boolean isNumber(String str){
-        return match("^[1-9]\\d*$",str);
+        return match("^[0-9]\\d*$",str);
     }
 
     public static boolean isData(String str){

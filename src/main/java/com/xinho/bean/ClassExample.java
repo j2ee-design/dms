@@ -343,6 +343,66 @@ public class ClassExample {
             addCriterion("stu_num not between", value1, value2, "stuNum");
             return (Criteria) this;
         }
+
+        public Criteria andDicGradeIsNull() {
+            addCriterion("dic_grade is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDicGradeIsNotNull() {
+            addCriterion("dic_grade is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andDicGradeEqualTo(Integer value) {
+            addCriterion("dic_grade =", value, "dicGrade");
+            return (Criteria) this;
+        }
+
+        public Criteria andDicGradeNotEqualTo(Integer value) {
+            addCriterion("dic_grade <>", value, "dicGrade");
+            return (Criteria) this;
+        }
+
+        public Criteria andDicGradeGreaterThan(Integer value) {
+            addCriterion("dic_grade >", value, "dicGrade");
+            return (Criteria) this;
+        }
+
+        public Criteria andDicGradeGreaterThanOrEqualTo(Integer value) {
+            addCriterion("dic_grade >=", value, "dicGrade");
+            return (Criteria) this;
+        }
+
+        public Criteria andDicGradeLessThan(Integer value) {
+            addCriterion("dic_grade <", value, "dicGrade");
+            return (Criteria) this;
+        }
+
+        public Criteria andDicGradeLessThanOrEqualTo(Integer value) {
+            addCriterion("dic_grade <=", value, "dicGrade");
+            return (Criteria) this;
+        }
+
+        public Criteria andDicGradeIn(List<Integer> values) {
+            addCriterion("dic_grade in", values, "dicGrade");
+            return (Criteria) this;
+        }
+
+        public Criteria andDicGradeNotIn(List<Integer> values) {
+            addCriterion("dic_grade not in", values, "dicGrade");
+            return (Criteria) this;
+        }
+
+        public Criteria andDicGradeBetween(Integer value1, Integer value2) {
+            addCriterion("dic_grade between", value1, value2, "dicGrade");
+            return (Criteria) this;
+        }
+
+        public Criteria andDicGradeNotBetween(Integer value1, Integer value2) {
+            addCriterion("dic_grade not between", value1, value2, "dicGrade");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
