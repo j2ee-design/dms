@@ -6,6 +6,7 @@ import com.xinho.dto.StudentDto;
 import com.xinho.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -17,7 +18,7 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/student")
-public class StudentAddController {
+public class StudentController {
 
     @Autowired
     private StudentService studentService;
@@ -68,10 +69,12 @@ public class StudentAddController {
      * 进入列表初始化页面
      * 1. 向后台发送年级和学院信息
      * 2. 按照"全部"条件查找第一页，一页30条
-     * @return
+     * @return 逻辑视图-->studentList
      */
     @RequestMapping("/list")
-    public String initList(){
+    public String initList(Model model){
+        // 初始化搜索条件为空进行查询
+        model.addAttribute("studentDtoList",studentService.searchStudent(new StudentDto()));
         return "studentList";
     }
 
@@ -85,10 +88,9 @@ public class StudentAddController {
      */
     @RequestMapping("/list/search")
     @ResponseBody
-    public List<Student> getStudent(StudentDto studentDto){
-        List<Student> studentList = studentService.searchStudent(studentDto);
-
-        return studentList;
+    public List<StudentDto> getStudent(StudentDto studentDto){
+        List<StudentDto> studentDtoList = studentService.searchStudent(studentDto);
+        return studentDtoList;
     }
     /*
     * 两种方法：

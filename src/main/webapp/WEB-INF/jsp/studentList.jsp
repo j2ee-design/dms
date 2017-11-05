@@ -1,4 +1,5 @@
 <%@page language="java" contentType="text/html; utf-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,23 +46,27 @@
     </header>
     <form action="">
     <div class="main-body">
+        <input type="hidden" value="${basePath}" id="basePath">
         <div class="select">
             <table>
                 <tr>
                     <td class="select-td">
                         <span>年级：</span>
                         <select name="dicGrade" id="grade" autofocus="">
-                            <option value="1">全部</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
+                            <option value="">全部</option>
+                            <option value="10012">大一</option>
+                            <option value="10013">大二</option>
+                            <option value="10014">大三</option>
+                            <option value="10015">大四</option>
+                            <option value="10016">研一</option>
+                            <option value="10017">研二</option>
+                            <option value="10018">研三</option>
                         </select>
                     </td>
                     <td class="select-td">
                         <span>学院：</span>
                         <select name="academyId" id="acade">
-                            <option value="1">全部</option>
+                            <option value="">全部</option>
                             <option value="">大数据学院</option>
                             <option value="">理学院</option>
                             <option value="">艺术学院</option>
@@ -71,7 +76,7 @@
                     <td class="select-td">
                         <span>专业：</span>
                         <select name="majorId" id="major">
-                            <option value="1">全部</option>
+                            <option value="">全部</option>
                             <option value="">物联网工程</option>
                             <option value="">数字媒体技术</option>
                             <option value="">网络工程</option>
@@ -85,7 +90,7 @@
                     <td class="select-td">
                         <span>班级：</span>
                         <select name="classId" id="class">
-                            <option value="1">全部</option>
+                            <option value="">全部</option>
                             <option value="">15070941</option>
                             <option value="">15070942</option>
                         </select>
@@ -93,10 +98,10 @@
                     <td class="select-td">
                         <span>宿舍：</span>
                         <select name="dormId" id="dorm">
-                            <option value="1">全部</option>
+                            <option value="0">全部</option>
                         </select>
                     </td>
-                    <td>
+                    <td class="button-td">
                         <input type="submit" value="查询" onclick="searchInList()" />
                     </td>
                 </tr>
@@ -105,7 +110,7 @@
         <div class="content scroller-bar-01">
             <table class="add-table" id="add-table">
                 <tr class="add-th">
-                    <th class="check-box"><label>全选<input type="checkbox" name="all" class="hide" id="checkbox-all"></label></th>
+                    <th class="check-box"><label>全选<input onclick="checkall()" type="checkbox" name="all" class="hide" id="checkbox-all"></label></th>
                     <th class="seq">序号</th>
                     <th class="number">学号</th>
                     <th class="name">姓名</th>
@@ -117,312 +122,40 @@
                     <th class="dorm-id">宿舍</th>
                     <th class="do-something">操作</th>
                 </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">1</td>
-                    <td class="number">1507094200</td>
-                    <td class="name">张三</td>
-                    <td class="gender">男</td>
-                    <td class="date">2012-10-10</td>
-                    <td class="acad">大数据学院</td>
-                    <td class="major">物联网工程</td>
-                    <td class="class">1507094200</td>
-                    <td class="dorm-id">001</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">2</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">3</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">4</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">5</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">6</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">1</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">2</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">1</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">2</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">1</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">2</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">1</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">2</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">1</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">2</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">1</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
-                <tr class="add-tr"><!-- 这里用 jsp 拼一下 -->
-                    <td class="check-box"><input type="checkbox" name="one"></td>
-                    <td class="seq">2</td>
-                    <td class="number">学号</td>
-                    <td class="name">姓名</td>
-                    <td class="gender">性别</td>
-                    <td class="date">入学日期</td>
-                    <td class="acad">学院</td>
-                    <td class="major">专业</td>
-                    <td class="class">班级</td>
-                    <td class="dorm-id">宿舍</td>
-                    <td class="do-something">
-                        <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
-                        <span class="line">|</span>
-                        <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
-                    </td>
-                </tr>
+                <c:forEach items="${studentDtoList}" var="studentDto" varStatus="i">
+                    <tr class="add-tr">
+                        <td class="check-box"><input type="checkbox" name="one"></td>
+                        <td class="seq">${i.count}</td>
+                        <td class="number">${studentDto.id}</td>
+                        <td class="name">${studentDto.name}</td>
+                        <td class="gender">${(studentDto.gender==0)?"男":"女"}</td>
+                        <td class="date"><fmt:formatDate value="${studentDto.enroYear}" type="date"/></td>
+                        <td class="acad">${studentDto.academyName}</td>
+                        <td class="major">${studentDto.majorName}</td>
+                        <td class="class">${studentDto.className}</td>
+                        <td class="dorm-id">
+                            <c:choose>
+                                <c:when test="${studentDto.dormStatus==0}">
+                                    <c:out value="未分配"/>
+                                </c:when>
+                                <c:when test="${studentDto.dormStatus==1}">
+                                    <c:out value="${studentDto.dormId}"/>
+                                </c:when>
+                                <c:when test="${studentDto.dormStatus==2}">
+                                    <c:out value="${studentDto.dormId}（出宿）"/>
+                                </c:when>
+                                <c:otherwise>
+                                    <c:out value="错误"/>
+                                </c:otherwise>
+                            </c:choose>
+                        </td>
+                        <td class="do-something">
+                            <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
+                            <span class="line">|</span>
+                            <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
+                        </td>
+                    </tr>
+                </c:forEach>
             </table>
         </div>
         <div class="page">

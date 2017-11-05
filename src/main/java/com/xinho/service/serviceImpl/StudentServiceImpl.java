@@ -1,6 +1,7 @@
 package com.xinho.service.serviceImpl;
 
 import com.xinho.bean.*;
+import com.xinho.bean.Class;
 import com.xinho.dao.AcademyDao;
 import com.xinho.dao.ClassDao;
 import com.xinho.dao.MajorDao;
@@ -43,10 +44,13 @@ public class StudentServiceImpl implements StudentService {
             errorResults.add("name");
         }
         if (CommonUtils.isEmpty(studentDto.getAcademyName())) {
-            errorResults.add("academyStr");
+            errorResults.add("academyName");
         }
         if (CommonUtils.isEmpty(studentDto.getMajorName())) {
-            errorResults.add("majorStr");
+            errorResults.add("majorName");
+        }
+        if (CommonUtils.isNumber(studentDto.getClassName())){
+            errorResults.add("className");
         }
         return errorResults;
     }
@@ -66,7 +70,7 @@ public class StudentServiceImpl implements StudentService {
         ClassExample classExample = new ClassExample();
         academyExample.createCriteria().andNameEqualTo(studentDto.getAcademyName());
         majorExample.createCriteria().andNameEqualTo(studentDto.getMajorName());
-        classExample.createCriteria().andClassIdEqualTo(studentDto.getClassId());
+        classExample.createCriteria().andClassIdEqualTo(studentDto.getClassName());
 
         if ( studentDao.selectByPrimaryKey(studentDto.getId()) != null ){
             return false;
@@ -78,7 +82,7 @@ public class StudentServiceImpl implements StudentService {
         try{
             academyId = academyDao.selectByExample(academyExample).get(0).getId();
             majorId = majorDao.selectByExample(majorExample).get(0).getId();
-            classId = classDao.selectByExample(classExample).get(0).getId();
+            classId = classDao.selectByExample(classExample).get(0).getId();// 我艹，把这里的 classId 和 class 的 ID 搞混了。。。尼玛
         } catch (Exception e){
             // 如果产生异常（如果该数据不存在，那么会产生空指针异常），那么直接返回 false，节省一次查询提高性能。
             e.printStackTrace();
@@ -120,7 +124,7 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public int removeStudent(StudentDto studentDto) {
-        return studentDao.deleteByExample(transform(studentDto));
+        return studentDao.deleteByExample(getExampleByDto(studentDto));
     }
 
     /**
@@ -134,23 +138,31 @@ public class StudentServiceImpl implements StudentService {
      * @return
      */
     @Override
-    public List<Student> searchStudent(StudentDto studentDto) {
-        return studentDao.selectByExample(transform(studentDto));
+    public List<StudentDto> searchStudent(StudentDto studentDto) {
+        List<Student> studentList = studentDao.selectByExample(getExampleByDto(studentDto));
+        List<StudentDto> studentDtoList = new ArrayList<StudentDto>();
+        for (Student student: studentList) {
+            studentDtoList.add(beanToDtoWithMoreInfo(student));
+        }
+        return studentDtoList;
     }
 
     @Override
-    public Student searchStudentById(Integer id) {
+    public StudentDto searchStudentById(Integer id) {
+        StudentDto studentDto = null;
         if (id != null){
-            return studentDao.selectByPrimaryKey(id);
+            Student student = studentDao.selectByPrimaryKey(id);
+            studentDto = beanToDtoWithMoreInfo(student);
         }
-        return null;
+        return studentDto;
     }
 
-    public StudentExample transform(StudentDto studentDto){
+    public StudentExample getExampleByDto(StudentDto studentDto){
 
         StudentExample studentExample = new StudentExample();
         AcademyExample academyExample = new AcademyExample();
         MajorExample majorExample = new MajorExample();
+        ClassExample classExample = new ClassExample();
         StudentExample.Criteria criteria = studentExample.createCriteria();
         Object object = null;
 
@@ -184,6 +196,17 @@ public class StudentServiceImpl implements StudentService {
         }
 
         if (studentDto.getClassId()!=null){
+            classExample.createCriteria().andClassIdEqualTo(studentDto.getClassName());
+            if ((object=classDao.selectByExample(classExample))!=null){
+                List<Class> classListTemp = (List<Class>) object;
+                studentDto.setMajorId(classListTemp.get(0).getId());
+                classListTemp = null;
+                criteria.andMajorIdEqualTo(studentDto.getMajorId());
+            }
+        }
+
+
+        if (studentDto.getClassId()!=null){
             criteria.andClassIdEqualTo(studentDto.getClassId());
         }
 
@@ -212,5 +235,33 @@ public class StudentServiceImpl implements StudentService {
         }
         object = null;
         return studentExample;
+    }
+
+    public StudentDto beanToDtoWithMoreInfo(Student student){
+        StudentDto studentDto = new StudentDto();
+        BeanUtils.copyProperties(student,studentDto);
+
+        AcademyExample academyExample = new AcademyExample();
+        academyExample.createCriteria().andIdEqualTo(student.getAcademyId());
+        String academyName = academyDao.selectByExample(academyExample).get(0).getName();
+        if (academyName != null){
+            studentDto.setAcademyName(academyName);
+        }
+
+        MajorExample majorExample = new MajorExample();
+        majorExample.createCriteria().andIdEqualTo(student.getMajorId());
+        String majorName = majorDao.selectByExample(majorExample).get(0).getName();
+        if (majorName!=null){
+            studentDto.setMajorName(majorName);
+        }
+
+        ClassExample classExample = new ClassExample();
+        classExample.createCriteria().andIdEqualTo(student.getClassId());
+        // 这里被自己弄晕了。。。Student 中的 ClassId 是 Class 中的 Id，Student 中的 ClassName 是 Class 中的 ClassId
+        Integer className = classDao.selectByExample(classExample).get(0).getClassId();
+        if (className!=null){
+            studentDto.setClassName(className);
+        }
+        return studentDto;
     }
 }

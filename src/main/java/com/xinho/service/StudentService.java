@@ -47,12 +47,12 @@ public interface StudentService {
      * @param studentDto
      * @return
      */
-    List<Student> searchStudent(StudentDto studentDto);
+    List<StudentDto> searchStudent(StudentDto studentDto);
 
     /**
      * 根据 ID 查找学生
      * @param id
      * @return
      */
-    Student searchStudentById(Integer id);
+    StudentDto searchStudentById(Integer id);
 }

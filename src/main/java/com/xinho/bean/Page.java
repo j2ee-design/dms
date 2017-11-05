@@ -10,8 +10,12 @@ public class Page {
     // 每页显示条数
     private int pageSize;
 
+    /**
+     * 每次查询，如果不进行设置，默认查询第一页
+     */
     public Page() {
         this.currentPage = 1;
+        this.sumPageNum = 1;
         this.pageSize = 10;
     }
 

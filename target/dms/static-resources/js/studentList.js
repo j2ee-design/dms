@@ -1,7 +1,89 @@
 $(function () {
-    checkall();
     addflag();
 });
+function getBasePath() {
+    return $('#basePath').val()
+}
+/**
+ * 查询学生
+ * 1. 获取查询条件
+ * 2. 发送请求，获取结果
+ * 3. 将结果显示在页面上
+ */
+function searchInList() {
+    // 1.
+    var data = {};
+    data['dicGrade'] = $('#grade').val();
+    data['academyId'] = $('#acade').val();
+    data['majorId'] = $('#major').val();
+    data['classId'] = $('#class').val();
+    data['dormId'] = $('#dorm').val();
+    var frontdata = JSON.stringify(data);
+    $.ajax({
+        type:'post',
+        url:getBasePath()+"/student/list/search",
+        contentType:'application/json;charset=utf-8',
+        data:frontdata,
+        success:function (data) {
+            console.log("========测试=========");
+            console.log(typeof data);
+            console.log(data);
+            console.log(data[student]);
+            console.log("========测试=========");
+            // 清除原有项
+            $('#add-table tbody .add-tr').remove();
+            // 将数据加入
+            for (var i in data){
+                $('#add-table tbody').append("" +
+                    "<tr class='add-tr'>\n" +
+                    "    <td class='check-box'><input type='checkbox' name='one'></td>\n" +
+                    "        <td class='seq'>"+i+"</td>\n" +
+                    "        <td class='number'>"+data[i]['id']+"</td>\n" +
+                    "        <td class='name'>"+data[i]['name']+"</td>\n" +
+                    "        <td class='gender'>"+getGenderStr(data[i]['gender'])+"</td>\n" +
+                    "        <td class='date'>"+getDateStr(data[i]['enroYear'])+"</td>\n" +
+                    "        <td class='acad'>"+data[i]['academyName']+"</td>\n" +
+                    "        <td class='major'>"+data[i]['majorName']+"</td>\n" +
+                    "        <td class='class'>"+data[i]['classId']+"</td>\n" +
+                    "        <td class='dorm-id'>"+getDateStr(data[i]['dormStatus'],data[i]['dormId'])+"</td>\n" +
+                    "        <td class='do-something'>\n" +
+                    "        <a href='javascript:void(0)' onclick='modify(this)'>修改</a>\n" +
+                    "        <span class='line'>|</span>\n" +
+                    "        <a href='javascript:void(0)' onclick='deleteit(this)'>删除</a>\n" +
+                    "    </td>\n" +
+                    "</tr>"
+                );
+            }
+        },
+        error:function (data) {
+            console.log(data);
+            alert('查询失败');
+        }
+    })
+
+}
+function getDormStr(dormstatus,dormId) {
+    if (dormstatus==0){
+        return "未分配";
+    } if (dormstatus==1){
+        return dormId;
+    } else {
+        return dormId + "（出宿）";
+    }
+    return "错误";
+}
+
+function getDateStr(date) {
+    // TODO 日期格式转换
+    return date;
+}
+function getGenderStr(code) {
+    if (code == 1){
+        return "女";
+    }
+    return "男";
+}
+
 
 /**
  * 为表格每一项点击后添加 flag（删除用）
@@ -14,19 +96,10 @@ function addflag(){
 
 /**
  * 点击全选
+ * 1. 获取所有的 checkbox，触发其点击事件
  */
 function checkall(){
-    $('#checkbox-all').click(function () {
-        if ($('#checkbox-all').attr('checked')=='checked'){
-            $('#checkbox-all').removeAttr('checked');
-            $("#add-table .add-tr .check-box input[type='checkbox']").removeAttr('checked');
-            $('#add-table .add-tr .check-box').removeClass('beclecked');
-        } else {
-            $('#checkbox-all').attr('checked','checked');
-            $("#add-table .add-tr .check-box input[type='checkbox']").attr('checked','checked')
-            $('#add-table .add-tr .check-box').addClass('beclecked');
-        }
-    })
+    $("#add-table tbody .add-tr td.check-box input[type='checkbox']").click();
 }
 
 /**

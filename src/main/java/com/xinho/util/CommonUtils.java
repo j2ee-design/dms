@@ -21,17 +21,16 @@ public class CommonUtils {
         return false;
     }
 
-    /**
-     * 是否是数字(整)
-     * @param str
-     * @return
-     */
-    public static boolean isNumber(String str){
-        return match("^[1-9]\\d*$",str);
-    }
     public static boolean isNumber(Long num){
         return isNumber(num.toString());
     }
+    public static boolean isNumber(Integer num){
+        return isNumber(num.toString());
+    }
+    public static boolean isNumber(String str){
+        return match("^[1-9]\\d*$",str);
+    }
+
     public static boolean isData(String str){
         return match("^\\d{4}[-]\\d{2}[-]\\d{2}$",str);
     }

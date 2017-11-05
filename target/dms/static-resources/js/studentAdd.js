@@ -47,8 +47,8 @@ function submitSingle() {
         showMassage("学号只能输入数字！");
         return;
     }
-    var inputClassId = $("#add-one-table .add-tr .input[name='classId']").val();
-    if (!isNum(inputClassId)){
+    var inputClassName = $("#add-one-table .add-tr .input[name='className']").val();
+    if (!isNum(inputClassName)){
         showMassage("班名只能为数字!");
         return;
     }

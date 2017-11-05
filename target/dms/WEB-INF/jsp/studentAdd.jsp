@@ -91,7 +91,7 @@
                     <td class="tr-text">专业：</td><td><input class="input" name="majorName" type="text"></td>
                 </tr>
                 <tr class="add-tr">
-                    <td class="tr-text">班级：</td><td><input class="input" name="classId" type="text"></td>
+                    <td class="tr-text">班级：</td><td><input class="input" name="className" type="text"></td>
                 </tr>
                 <tr class="submit-tr">
                     <td></td><td class="submit-td"><input class="submit" type="submit" value="提交" onclick="submitSingle()"></td>

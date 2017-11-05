@@ -101,7 +101,7 @@ select:focus{
     border: 1px solid #eee;
     top:150px;
     left: 38%;
-    z-index:9999;
+    z-index:100001;
 }
 .entry-td-text{
     display: inline-block;
