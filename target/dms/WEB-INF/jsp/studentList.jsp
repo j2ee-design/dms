@@ -53,40 +53,30 @@
                         <span>年级：</span>
                         <select name="dicGrade" id="grade" autofocus="">
                             <option value="">全部</option>
-                            <option value="10012">大一</option>
-                            <option value="10013">大二</option>
-                            <option value="10014">大三</option>
-                            <option value="10015">大四</option>
-                            <option value="10016">研一</option>
-                            <option value="10017">研二</option>
-                            <option value="10018">研三</option>
+                            <c:forEach items="${dicGradeList}" var="dicGrade">
+                                <option value="${dicGrade.id}">${dicGrade.value}</option>
+                            </c:forEach>
                         </select>
                     </td>
                     <td class="select-td">
                         <span>学院：</span>
-                        <select name="academyId" id="acade">
+                        <select name="academyId" id="acade" onchange="doAcademyChange()">
                             <option value="">全部</option>
-                            <option value="1">大数据学院</option>
-                            <option value="2">理学院</option>
-                            <option value="3">艺术学院</option>
-                            <option value="4">体育学院</option>
+                            <c:forEach items="${academyList}" var="academy">
+                                <option value="${academy.id}">${academy.name}</option>
+                            </c:forEach>
                         </select>
                     </td>
                     <td class="select-td">
                         <span>专业：</span>
-                        <select name="majorId" id="major">
+                        <select name="majorId" id="major" onchange="doMajorChange()">
                             <option value="">全部</option>
-                            <option value="1">物联网工程</option>
-                            <option value="2">数字媒体技术</option>
-                            <option value="3">网络工程</option>
                         </select>
                     </td>
                     <td class="select-td">
                         <span>班级：</span>
-                        <select name="classId" id="class">
+                        <select name="classId" id="class" onchange="doClassChange()">
                             <option value="">全部</option>
-                            <option value="">15070941</option>
-                            <option value="">15070942</option>
                         </select>
                     </td>
                     <td class="select-td">

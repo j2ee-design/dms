@@ -1,26 +1,20 @@
 package com.xinho.service;
 
-import com.xinho.dto.AcademyDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import java.util.List;
-
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration({"classpath:spring/applicationContext*.xml"})
-public class AcademyServiceTest {
+public class ClassServiceTest {
 
     @Autowired
-    private AcademyService academyService;
+    private ClassService classService;
 
     @Test
-    public void getAllAcademyTest(){
-        List<AcademyDto> academyDtoList = academyService.getAllAcademy();
-        for (AcademyDto academyDto: academyDtoList) {
-            System.out.println(academyDto.toString());
-        }
+    public void getClassesByMajorIdTest(){
+        classService.getClassesByMajorId(2).forEach(item-> System.out.println(item.getClassId()));
     }
 }

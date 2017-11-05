@@ -50,11 +50,11 @@ function searchInList() {
                 );
             }
         }
-        // ,
-        // error:function (data) {
-        //     console.log(data);
-        //     alert('查询失败');
-        // }
+        ,
+        error:function (data) {
+            console.log(data);
+            alert('查询失败');
+        }
     })
 
 }
@@ -175,6 +175,7 @@ function deleteit(a){
 /**
  * 选择学院之后，向后台获取该学院的专业数据
  * 1. 获取当前学院ID,
+ * 1.1 判断当前选中的是不是全部，是，则清空子选项并终止不发起请求
  * 2. 发送数据至后台，
  * 3. 将新数据写入 Dom
  */
@@ -182,19 +183,96 @@ function doAcademyChange() {
     // 1.
     var data = {};
     data['academyId'] = $('#acade').val();
+    // 1.1
+    if (data['academyId']==null || data['academyId'].length == 0){
+        $('#major').empty().append("<option value=''>全部</option>");
+        $('#class').empty().append("<option value=''>全部</option>");
+        $('#dorm').empty().append("<option value=''>全部</option>");
+        return;
+    }
+
     // 2.
     $.ajax({
         type:'get',
-        url:getBasePath()+"/marjor/pid/",
+        url:getBasePath()+"/major/pid",
         data:data,
         success:function (data) {
-            
+            console.log("==========测试开始==========");
+            console.log("data Type:"+typeof data+"  data:"+data+"  "+data.toString());
+            console.log("==========测试结束==========");
+            // 将新值写进 dom 之前要=将旧值删除
+            $('#major').empty().append("<option value=''>全部</option>");
+            $('#class').empty().append("<option value=''>全部</option>");
+            $('#dorm').empty().append("<option value=''>全部</option>");
+            for (var i in data){
+                $('#major').append("" +
+                    "<option value='"+data[i]['id']+"'>"+data[i]["name"]+"</option>"
+                )
+            }
         }
     })
 }
 
+/**
+ * 选择专业之后，向后台获取该专业的班级数据
+ * 1. 获取当前专业ID,
+ * 1.1 ...
+ * 2. 发送数据至后台，
+ * 3. 将新数据写入 Dom
+ */
+function doMajorChange(){
+    // 1.
+    var data = {};
+    data['majorId'] = $('#major').val();
+    if (data['majorId']==null || data['majorId'].length==0 ){
+        $('#class').empty().append("<option value=''>全部</option>");
+        $('#dorm').empty().append("<option value=''>全部</option>");
+        return;
+    }
+    // 2.
+    $.ajax({
+        type:'get',
+        url:getBasePath()+"/class/pid",
+        data:data,
+        success:function (data) {
+            $('#class').empty().append("<option value=''>全部</option>");
+            $('#dorm').empty().append("<option value=''>全部</option>");
+            for (var i in data){
+                $('#class').append("" +
+                    "<option value='"+data[i]['id']+"'>"+data[i]["classId"]+"</option>"
+                )
+            }
+        }
+    })
 
+}
 
+/**
+ * 选择班级后点击选择宿舍
+ */
+function doClassChange(){
+    // 1.
+    var data = {};
+    data['classId'] = $('#class').val();
+    if (data['classId']==null || data['classId'].length==0 ){
+        $('#dorm').empty().append("<option value=''>全部</option>");
+        return;
+    }
+    // 2.
+    $.ajax({
+        type:'get',
+        url:getBasePath()+"/dorm/pid",
+        data:data,
+        success:function (data) {
+            $('#dorm').empty().append("<option value=''>全部</option>");
+            for (var i in data){
+                $('#dorm').append("" +
+                    "<option value='"+data[i]['id']+"'>"+"#"+data[i]["apartId"]+" "+data[i]["dormId"]+"</option>"
+                )
+            }
+        }
+    })
 
+}
 
 
