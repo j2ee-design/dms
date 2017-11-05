@@ -44,7 +44,6 @@
             <li class=""><a class="user-sider-bar-li" href=""><i class="user-menu-icon icon-off "></i><span class="user-menu-text">退出登录</span></a></li>
         </ul>
     </header>
-    <form action="">
     <div class="main-body">
         <input type="hidden" value="${basePath}" id="basePath">
         <div class="select">
@@ -67,24 +66,19 @@
                         <span>学院：</span>
                         <select name="academyId" id="acade">
                             <option value="">全部</option>
-                            <option value="">大数据学院</option>
-                            <option value="">理学院</option>
-                            <option value="">艺术学院</option>
-                            <option value="">体育学院</option>
+                            <option value="1">大数据学院</option>
+                            <option value="2">理学院</option>
+                            <option value="3">艺术学院</option>
+                            <option value="4">体育学院</option>
                         </select>
                     </td>
                     <td class="select-td">
                         <span>专业：</span>
                         <select name="majorId" id="major">
                             <option value="">全部</option>
-                            <option value="">物联网工程</option>
-                            <option value="">数字媒体技术</option>
-                            <option value="">网络工程</option>
-                            <option value="">数据科学与大数据</option>
-                            <option value="">物联网工程</option>
-                            <option value="">物联网工程</option>
-                            <option value="">物联网工程</option>
-                            <option value="">物联网工程</option>
+                            <option value="1">物联网工程</option>
+                            <option value="2">数字媒体技术</option>
+                            <option value="3">网络工程</option>
                         </select>
                     </td>
                     <td class="select-td">
@@ -98,7 +92,7 @@
                     <td class="select-td">
                         <span>宿舍：</span>
                         <select name="dormId" id="dorm">
-                            <option value="0">全部</option>
+                            <option value="">全部</option>
                         </select>
                     </td>
                     <td class="button-td">
@@ -173,7 +167,6 @@
             <input type="submit" class="page-text" value="下一页">
         </div>
     </div>
-    </form>
     <div class="entry hide" id="entry">
         <table class="entry-table" id="entry-table">
             <tr class="number"><td class="entry-td"><span class="entry-td-text">学号</span><input class="entry-td-input" type="text"></td></tr>

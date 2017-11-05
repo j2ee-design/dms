@@ -1,10 +1,14 @@
 package com.xinho.controller;
 
+import com.xinho.bean.Dic;
 import com.xinho.bean.Student;
 import com.xinho.constant.PageCodeEnum;
 import com.xinho.dto.StudentDto;
+import com.xinho.service.AcademyService;
+import com.xinho.service.DicService;
 import com.xinho.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -22,6 +26,12 @@ public class StudentController {
 
     @Autowired
     private StudentService studentService;
+
+    @Autowired
+    private AcademyService academyService;
+
+    @Autowired
+    private DicService dicService;
 
     @RequestMapping
     public String init(){
@@ -71,10 +81,14 @@ public class StudentController {
      * 2. 按照"全部"条件查找第一页，一页30条
      * @return 逻辑视图-->studentList
      */
-    @RequestMapping("/list")
+    @RequestMapping(value = "/list",method = RequestMethod.GET)
     public String initList(Model model){
         // 初始化搜索条件为空进行查询
         model.addAttribute("studentDtoList",studentService.searchStudent(new StudentDto()));
+        // 加入所有学院信息
+        model.addAttribute("academyList",academyService.getAllAcademy());
+        // 加入所有年级信息
+        model.addAttribute("dicGradeList",dicService.getDicByPId(10001));
         return "studentList";
     }
 
@@ -83,20 +97,15 @@ public class StudentController {
      * 1. 分页的实现两种思路：
      *    1.1 要分页的地方调用专门分页的函数（所以要专门写一个分页的 dao 方法），传入 page 信息即可。
      *    1.2 使用 mybatis 拦截器，标志要分页的请求，在 mybatis 发起请求的时候打断并修改请求 sql 语句。
-     * @param studentDto
+     * @param studentDto 查询的 dto
      * @return
      */
-    @RequestMapping("/list/search")
+    @RequestMapping(value = "/list/search",method = RequestMethod.POST)
     @ResponseBody
-    public List<StudentDto> getStudent(StudentDto studentDto){
+    public List<StudentDto> getStudent(@RequestBody StudentDto studentDto){
         List<StudentDto> studentDtoList = studentService.searchStudent(studentDto);
         return studentDtoList;
     }
-    /*
-    * 两种方法：
-    * 1. 初始化仅仅传送页面，数据由另一个来执行
-    * 2. 查询由初始化来做，其他的传入查询参数（覆盖默认参数）
-    */
 
     /**
      * 删除动作-->删除在ID列表中的学生

@@ -11,6 +11,7 @@ function getBasePath() {
  * 3. 将结果显示在页面上
  */
 function searchInList() {
+
     // 1.
     var data = {};
     data['dicGrade'] = $('#grade').val();
@@ -18,7 +19,11 @@ function searchInList() {
     data['majorId'] = $('#major').val();
     data['classId'] = $('#class').val();
     data['dormId'] = $('#dorm').val();
+    console.log("==========开始测试===========");
+    console.log(data);
     var frontdata = JSON.stringify(data);
+    console.log(frontdata);
+    console.log("==========结束测试===========");
     $.ajax({
         type:'post',
         url:getBasePath()+"/student/list/search",
@@ -28,7 +33,7 @@ function searchInList() {
             console.log("========测试=========");
             console.log(typeof data);
             console.log(data);
-            console.log(data[student]);
+            console.log(data['student']);
             console.log("========测试=========");
             // 清除原有项
             $('#add-table tbody .add-tr').remove();
@@ -44,7 +49,7 @@ function searchInList() {
                     "        <td class='date'>"+getDateStr(data[i]['enroYear'])+"</td>\n" +
                     "        <td class='acad'>"+data[i]['academyName']+"</td>\n" +
                     "        <td class='major'>"+data[i]['majorName']+"</td>\n" +
-                    "        <td class='class'>"+data[i]['classId']+"</td>\n" +
+                    "        <td class='class'>"+data[i]['className']+"</td>\n" +
                     "        <td class='dorm-id'>"+getDateStr(data[i]['dormStatus'],data[i]['dormId'])+"</td>\n" +
                     "        <td class='do-something'>\n" +
                     "        <a href='javascript:void(0)' onclick='modify(this)'>修改</a>\n" +
@@ -54,11 +59,12 @@ function searchInList() {
                     "</tr>"
                 );
             }
-        },
-        error:function (data) {
-            console.log(data);
-            alert('查询失败');
         }
+        // ,
+        // error:function (data) {
+        //     console.log(data);
+        //     alert('查询失败');
+        // }
     })
 
 }

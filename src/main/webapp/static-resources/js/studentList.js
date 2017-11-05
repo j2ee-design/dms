@@ -11,6 +11,7 @@ function getBasePath() {
  * 3. 将结果显示在页面上
  */
 function searchInList() {
+
     // 1.
     var data = {};
     data['dicGrade'] = $('#grade').val();
@@ -18,18 +19,12 @@ function searchInList() {
     data['majorId'] = $('#major').val();
     data['classId'] = $('#class').val();
     data['dormId'] = $('#dorm').val();
-    var frontdata = JSON.stringify(data);
     $.ajax({
         type:'post',
         url:getBasePath()+"/student/list/search",
         contentType:'application/json;charset=utf-8',
         data:frontdata,
         success:function (data) {
-            console.log("========测试=========");
-            console.log(typeof data);
-            console.log(data);
-            console.log(data[student]);
-            console.log("========测试=========");
             // 清除原有项
             $('#add-table tbody .add-tr').remove();
             // 将数据加入
@@ -44,7 +39,7 @@ function searchInList() {
                     "        <td class='date'>"+getDateStr(data[i]['enroYear'])+"</td>\n" +
                     "        <td class='acad'>"+data[i]['academyName']+"</td>\n" +
                     "        <td class='major'>"+data[i]['majorName']+"</td>\n" +
-                    "        <td class='class'>"+data[i]['classId']+"</td>\n" +
+                    "        <td class='class'>"+data[i]['className']+"</td>\n" +
                     "        <td class='dorm-id'>"+getDateStr(data[i]['dormStatus'],data[i]['dormId'])+"</td>\n" +
                     "        <td class='do-something'>\n" +
                     "        <a href='javascript:void(0)' onclick='modify(this)'>修改</a>\n" +
@@ -54,11 +49,12 @@ function searchInList() {
                     "</tr>"
                 );
             }
-        },
-        error:function (data) {
-            console.log(data);
-            alert('查询失败');
         }
+        // ,
+        // error:function (data) {
+        //     console.log(data);
+        //     alert('查询失败');
+        // }
     })
 
 }
@@ -176,7 +172,26 @@ function deleteit(a){
     // $(a).parent().parent().remove();
 }
 
-
+/**
+ * 选择学院之后，向后台获取该学院的专业数据
+ * 1. 获取当前学院ID,
+ * 2. 发送数据至后台，
+ * 3. 将新数据写入 Dom
+ */
+function doAcademyChange() {
+    // 1.
+    var data = {};
+    data['academyId'] = $('#acade').val();
+    // 2.
+    $.ajax({
+        type:'get',
+        url:getBasePath()+"/marjor/pid/",
+        data:data,
+        success:function (data) {
+            
+        }
+    })
+}
 
 
 

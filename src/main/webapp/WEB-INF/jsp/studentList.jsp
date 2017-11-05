@@ -44,7 +44,6 @@
             <li class=""><a class="user-sider-bar-li" href=""><i class="user-menu-icon icon-off "></i><span class="user-menu-text">退出登录</span></a></li>
         </ul>
     </header>
-    <form action="">
     <div class="main-body">
         <input type="hidden" value="${basePath}" id="basePath">
         <div class="select">
@@ -54,51 +53,36 @@
                         <span>年级：</span>
                         <select name="dicGrade" id="grade" autofocus="">
                             <option value="">全部</option>
-                            <option value="10012">大一</option>
-                            <option value="10013">大二</option>
-                            <option value="10014">大三</option>
-                            <option value="10015">大四</option>
-                            <option value="10016">研一</option>
-                            <option value="10017">研二</option>
-                            <option value="10018">研三</option>
+                            <c:forEach items="${dicGradeList}" var="dicGrade">
+                                <option value="${dicGrade.id}">${dicGrade.value}</option>
+                            </c:forEach>
                         </select>
                     </td>
                     <td class="select-td">
                         <span>学院：</span>
-                        <select name="academyId" id="acade">
+                        <select name="academyId" id="acade" onchange="doAcademyChange()">
                             <option value="">全部</option>
-                            <option value="">大数据学院</option>
-                            <option value="">理学院</option>
-                            <option value="">艺术学院</option>
-                            <option value="">体育学院</option>
+                            <c:forEach items="${academyList}" var="academy">
+                                <option value="${academy.id}">${academy.name}</option>
+                            </c:forEach>
                         </select>
                     </td>
                     <td class="select-td">
                         <span>专业：</span>
-                        <select name="majorId" id="major">
+                        <select name="majorId" id="major" onchange="doMajorChange()">
                             <option value="">全部</option>
-                            <option value="">物联网工程</option>
-                            <option value="">数字媒体技术</option>
-                            <option value="">网络工程</option>
-                            <option value="">数据科学与大数据</option>
-                            <option value="">物联网工程</option>
-                            <option value="">物联网工程</option>
-                            <option value="">物联网工程</option>
-                            <option value="">物联网工程</option>
                         </select>
                     </td>
                     <td class="select-td">
                         <span>班级：</span>
-                        <select name="classId" id="class">
+                        <select name="classId" id="class" onchange="doClassChange()">
                             <option value="">全部</option>
-                            <option value="">15070941</option>
-                            <option value="">15070942</option>
                         </select>
                     </td>
                     <td class="select-td">
                         <span>宿舍：</span>
                         <select name="dormId" id="dorm">
-                            <option value="0">全部</option>
+                            <option value="">全部</option>
                         </select>
                     </td>
                     <td class="button-td">
@@ -173,7 +157,6 @@
             <input type="submit" class="page-text" value="下一页">
         </div>
     </div>
-    </form>
     <div class="entry hide" id="entry">
         <table class="entry-table" id="entry-table">
             <tr class="number"><td class="entry-td"><span class="entry-td-text">学号</span><input class="entry-td-input" type="text"></td></tr>

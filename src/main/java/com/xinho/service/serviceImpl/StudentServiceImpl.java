@@ -57,7 +57,7 @@ public class StudentServiceImpl implements StudentService {
 
     /**
      * 添加一个学生（有两种想法：1. 根据 academy 表和 major 表插入到 student 表，2.先查找，根据查找结果选择要不要插入）
-     * 1. 检查学院、专业在数据库中的真实性
+     * 1. 检查学院、专业、班级信息在数据库中的真实性
      * 2. 如果正确，构建要插入的 bean 对象。
      * 3. 插值，返回结果
      * @param studentDto
@@ -164,7 +164,6 @@ public class StudentServiceImpl implements StudentService {
         MajorExample majorExample = new MajorExample();
         ClassExample classExample = new ClassExample();
         StudentExample.Criteria criteria = studentExample.createCriteria();
-        Object object = null;
 
         if (studentDto.getId()!=null){
             criteria.andIdEqualTo(studentDto.getId());
@@ -174,6 +173,43 @@ public class StudentServiceImpl implements StudentService {
             criteria.andNameEqualTo(studentDto.getName());
         }
 
+        if(studentDto.getGender()!= null){
+            criteria.andGenderEqualTo(studentDto.getGender());
+        }
+
+        if(studentDto.getEnroYear()!=null){
+            criteria.andEnroYearEqualTo(studentDto.getEnroYear());
+        }
+
+        if (studentDto.getDicGrade()!=null){
+            criteria.andDicGradeEqualTo(studentDto.getDicGrade());
+        }
+
+        if (studentDto.getAcademyId()!=null){
+            criteria.andAcademyIdEqualTo(studentDto.getAcademyId());
+        }
+
+        if (studentDto.getMajorId()!=null){
+            criteria.andMajorIdEqualTo(studentDto.getMajorId());
+        }
+
+        if (studentDto.getDormId()!=null){
+            criteria.andDormIdEqualTo(studentDto.getDormId());
+        }
+
+        if (studentDto.getClassId()!=null){
+            criteria.andClassIdEqualTo(studentDto.getClassId());
+        }
+
+        if (studentDto.getDormStatus()!=null){
+            criteria.andDormStatusEqualTo(studentDto.getDormStatus());
+        }
+
+        if(studentDto.getStuStatus()!=null){
+            criteria.andStuStatusEqualTo(studentDto.getStuStatus());
+        }
+
+        Object object = null;
         if (studentDto.getAcademyName()!=null){
             academyExample.createCriteria().andNameEqualTo(studentDto.getAcademyName());
             if ((object=academyDao.selectByExample(academyExample))!=null){
@@ -183,7 +219,6 @@ public class StudentServiceImpl implements StudentService {
                 criteria.andAcademyIdEqualTo(studentDto.getAcademyId());
             }
         }
-
 
         if (studentDto.getMajorName()!=null){
             majorExample.createCriteria().andNameEqualTo(studentDto.getMajorName());
@@ -195,7 +230,7 @@ public class StudentServiceImpl implements StudentService {
             }
         }
 
-        if (studentDto.getClassId()!=null){
+        if (studentDto.getClassName()!=null){
             classExample.createCriteria().andClassIdEqualTo(studentDto.getClassName());
             if ((object=classDao.selectByExample(classExample))!=null){
                 List<Class> classListTemp = (List<Class>) object;
@@ -205,34 +240,6 @@ public class StudentServiceImpl implements StudentService {
             }
         }
 
-
-        if (studentDto.getClassId()!=null){
-            criteria.andClassIdEqualTo(studentDto.getClassId());
-        }
-
-        if (studentDto.getDicGrade()!=null){
-            criteria.andDicGradeEqualTo(studentDto.getDicGrade());
-        }
-
-        if (studentDto.getDormId()!=null){
-            criteria.andDormIdEqualTo(studentDto.getDormId());
-        }
-
-        if (studentDto.getDormStatus()!=null){
-            criteria.andDormStatusEqualTo(studentDto.getDormStatus());
-        }
-
-        if(studentDto.getEnroYear()!=null){
-            criteria.andEnroYearEqualTo(studentDto.getEnroYear());
-        }
-
-        if(studentDto.getGender()!= null){
-            criteria.andGenderEqualTo(studentDto.getGender());
-        }
-
-        if(studentDto.getStuStatus()!=null){
-            criteria.andStuStatusEqualTo(studentDto.getStuStatus());
-        }
         object = null;
         return studentExample;
     }

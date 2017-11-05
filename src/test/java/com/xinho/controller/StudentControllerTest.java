@@ -1,6 +1,5 @@
-package com.xinho.comtroller;
+package com.xinho.controller;
 
-import com.xinho.controller.StudentController;
 import com.xinho.dto.StudentDto;
 import org.junit.Test;
 import org.junit.runner.RunWith;
