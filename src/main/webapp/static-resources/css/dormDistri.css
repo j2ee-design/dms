@@ -166,7 +166,7 @@
 .distribute{
     border-top: 1px solid #ccc;
     width: 100%;
-    height: 10%;
+    min-height: 10%;
     display:flex;
     flex-direction:row;
 
@@ -174,14 +174,10 @@
     letter-spacing: 5px;
     cursor: pointer;
 }
-/*.distribute:hover{*/
-
-/*}*/
 .test-distribute,.do-distribute{
     display: flex;
     width: 50%;
     height: 100%;
-    /*justify-content: center;*/
     align-items: center;
     transition: all 0.5s;
 }

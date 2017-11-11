@@ -145,8 +145,51 @@ function getJsonLength(jsonData) {
     return i;
 }
 
+/**
+ * 课复用检测是否为数字
+ */
+function isNum(target) {
+    var reg = new RegExp("^[0-9]{1,}$");
+    return reg.test(target);
+}
 
+/**
+ * 可复用，判断字符串是否是日期
+ */
+function isDate(str) {
+    var reg = new RegExp("^[0-9]{4}\-[0-9]{1,2}\-[0-9]{1,2}$");
+    return reg.test(str);
+}
 
+/**
+ * 可复用，获取项目根目录
+ */
+function getBasePath() {
+    return $('#basePath').val();
+}
 
+/**
+ * 工具类，转换日期
+ * @param date
+ * @returns {string}
+ */
+function getDateStr(date) {
+    date = parseInt(date);
+    var dateEle = new Date(date);
+    var year = dateEle.getFullYear();
+    var month = dateEle.getMonth()+1;
+    var day = dateEle.getDate();
+    return year+"-"+month+"-"+day;
+}
 
-
+/**
+ * 工具类，获取性别
+ * @param code
+ * @returns {*}
+ */
+function getGenderStr(code) {
+    if (code == 1){
+        return "女";
+    }
+    return "男";
+}

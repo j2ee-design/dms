@@ -21,9 +21,9 @@ public class AcademyServiceImpl implements AcademyService {
     @Override
     public List<AcademyDto> getAllAcademy() {
         AcademyExample academyExample = getExampleByDto(new AcademyDto());
-        List<AcademyDto> academyList = new ArrayList<>();
-        academyDao.selectByExample(academyExample).forEach(item-> academyList.add(transDaoToDto(item)));
-        return academyList;
+        List<AcademyDto> academyDtoList = new ArrayList<>();
+        academyDao.selectByExample(academyExample).forEach(item-> academyDtoList.add(transDaoToDto(item)));
+        return academyDtoList;
     }
 
 

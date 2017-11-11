@@ -4,6 +4,6 @@ import com.xinho.bean.Dormitory;
 import lombok.Data;
 
 @Data public class DormitoryDto extends Dormitory{
-    private Integer trueClassId;
+    private Integer className;
     private String apartName;
 }

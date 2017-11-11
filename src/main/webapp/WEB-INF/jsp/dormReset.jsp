@@ -1,18 +1,21 @@
+<%@page language="java" contentType="text/html; utf-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>后台管理--学生退宿</title>
-    <link rel="shotcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/font-awesome/font-awesome.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/dormReset.css">
-    <script src="js/comment/jquery-3.2.1.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/dormReset.js"></script>
+    <link rel="shotcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="${basePath}/css/reset.css">
+    <link rel="stylesheet" href="${basePath}/css/font-awesome/font-awesome.min.css">
+    <link rel="stylesheet" href="${basePath}/css/main.css">
+    <link rel="stylesheet" href="${basePath}/css/dormReset.css">
+    <script src="${basePath}/js/comment/jquery-3.2.1.js"></script>
+    <script src="${basePath}/js/main.js"></script>
+    <script src="${basePath}/js/dormReset.js"></script>
 </head>
 <body>
+<input type="hidden" value="${basePath}" id="basePath">
 <aside class="side-bar">
     <ul class="sider-bar-ul" id="sider-bar-ul">
         <li class="logo"><a href="#" class="logo-img">宿舍管理系统</a></li>
@@ -30,7 +33,7 @@
 <div class="container">
     <header class="header" id="header">
         <nav class="message  icon-envelope envelope-icon" id="message-div"></nav>
-        <img src="images/me.jpg" alt="" class="user-img">
+        <img src="${basePath}/images/me.jpg" alt="" class="user-img">
         <span class="welcome-info"><span class="welcome-text">欢迎您</span><span class="user-name">江北</span></span>
         <i class=" icon-caret-down user-arror-down" id="user-arror-down"></i>
         <ul class="user-menu  icon-caret-up caret-up hide" id="user-menu">

@@ -360,7 +360,7 @@
         </if>
     </select>
   <!-- 根据 ID list 批量删除 -->
-  <delete id="deleteBatchById">
+  <delete id="deleteBatchByIdList">
       delete from student where id in (
         <foreach collection="list" item="it" separator=",">
             ${it.longValue()}

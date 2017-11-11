@@ -3,6 +3,7 @@ package com.xinho.bean;
 import lombok.Data;
 
 @Data public class Dormitory {
+
     private Integer id;
 
     private Integer dormId;

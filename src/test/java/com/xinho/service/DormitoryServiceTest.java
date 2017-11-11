@@ -17,7 +17,7 @@ public class DormitoryServiceTest {
     @Test
     public void addSingle(){
         DormitoryDto dormitoryDto = new DormitoryDto();
-        dormitoryDto.setTrueClassId(15070942);
+        dormitoryDto.setClassName(15070942);
         dormitoryService.addSingle(dormitoryDto);
     }
 

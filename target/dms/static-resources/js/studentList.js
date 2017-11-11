@@ -1,9 +1,20 @@
 $(function () {
-    addflag();
+    // 展示删除信息
+    showDeleteInfo();
 });
+
+function showDeleteInfo() {
+    var deleteNum = $('#deleteNum').val();
+    var allNum = $('#allNUm').val();
+    if (deleteNum.trim().length>0){
+        alert("本次操作共选择 "+allNum+" 人，成功删除 "+ deleteNum+" 人！");
+    }
+}
+
 function getBasePath() {
     return $('#basePath').val()
 }
+
 /**
  * 查询学生
  * 1. 获取查询条件
@@ -11,7 +22,6 @@ function getBasePath() {
  * 3. 将结果显示在页面上
  */
 function searchInList() {
-
     // 1.
     var data = {};
     data['dicGrade'] = $('#grade').val();
@@ -40,7 +50,7 @@ function searchInList() {
                     "        <td class='acad'>"+data[i]['academyName']+"</td>\n" +
                     "        <td class='major'>"+data[i]['majorName']+"</td>\n" +
                     "        <td class='class'>"+data[i]['className']+"</td>\n" +
-                    "        <td class='dorm-id'>"+getDateStr(data[i]['dormStatus'],data[i]['dormId'])+"</td>\n" +
+                    "        <td class='dorm-id'>"+getDormStr(data[i]['dormStatus'],data[i]['dormId'])+"</td>\n" +
                     "        <td class='do-something'>\n" +
                     "        <a href='javascript:void(0)' onclick='modify(this)'>修改</a>\n" +
                     "        <span class='line'>|</span>\n" +
@@ -57,6 +67,13 @@ function searchInList() {
     })
 
 }
+
+/**
+ * 工具类，获取宿舍状态
+ * @param dormstatus
+ * @param dormId
+ * @returns {*}
+ */
 function getDormStr(dormstatus,dormId) {
     if (dormstatus==0){
         return "未分配";
@@ -68,26 +85,6 @@ function getDormStr(dormstatus,dormId) {
     return "错误";
 }
 
-function getDateStr(date) {
-    // TODO 日期格式转换
-    return date;
-}
-function getGenderStr(code) {
-    if (code == 1){
-        return "女";
-    }
-    return "男";
-}
-
-
-/**
- * 为表格每一项点击后添加 flag（删除用）
- */
-function addflag(){
-    $('.check-box').click(function(){
-        $(this).addClass('beclecked');
-    });
-}
 
 /**
  * 点击全选
@@ -98,12 +95,12 @@ function checkall(){
 }
 
 /**
- * 修改表格中的一项，将修改后的数据发送到后台，更新数据库
+ * 点击修改学生信息页面变化
  * 1. 弹出弹出框供用户修改
  * 2. 将写入的数据修改提交到后台
  * 3. 将数据在页面更新
  * 4. 将弹出框中的内容清空
- * @param a
+ * @param a 点击的a链接
  */
 function modify(a){
     // 1. 弹出框
@@ -114,61 +111,182 @@ function modify(a){
     // 弹出框内容填充
     $('#entry-table').children().children('tr').each(function(){
         switch ($(this).children('td').children('span').html()){
-            case '学号':$(this).children('td').children('input').val($(a).parent().siblings('.number').html());break;
-            case '姓名':$(this).children('td').children('input').val($(a).parent().siblings('.name').html());break;
-            case '性别':$(this).children('td').children('input').val($(a).parent().siblings('.gender').html());break;
-            case '入学日期':$(this).children('td').children('input').val($(a).parent().siblings('.date').html());break;
-            case '学院':$(this).children('td').children('input').val($(a).parent().siblings('.acad').html());break;
-            case '专业':$(this).children('td').children('input').val($(a).parent().siblings('.major').html());break;
-            case '班级':$(this).children('td').children('input').val($(a).parent().siblings('.class').html());break;
-            case '宿舍':$(this).children('td').children('input').val($(a).parent().siblings('.dorm-id').html());break;
+            case '姓名':$(this).children('td').children('input').val($(a).parent().siblings('.name').text());break;
+            case '性别':$(this).children('td').children('input').val($(a).parent().siblings('.gender').text());break;
+            case '年级':$(this).children('td').children('input').val($(a).parent().siblings('.grade').text());break;
+            case '入学日期':$(this).children('td').children('input').val($(a).parent().siblings('.date').text());break;
+            case '学院':$(this).children('td').children('input').val($(a).parent().siblings('.acad').text());break;
+            case '专业':$(this).children('td').children('input').val($(a).parent().siblings('.major').text());break;
+            case '班级':$(this).children('td').children('input').val($(a).parent().siblings('.class').text());break;
+            case '宿舍':$(this).children('td').children('input').val($(a).parent().siblings('.dorm-id').text());break;
         }
     });
+    // 在弹出框中写入学号信息
+    $('#studentId').val($(a).parent().siblings('.number').text());
 }
+
 /**
- * 3. 向后台发送数据，将数据在页面更新
- * 4. 将弹出框内容清除
- * 5. 关闭遮罩，弹出成功提示框
+ * 修改学生信息操作
+ * 1. 获取并向后台发送数据，将数据在页面更新
+ * 2. 将弹出框内容清除
+ * 3. 关闭遮罩，弹出成功提示框
  */
 function doModify(){
-    // 3. 向后台发送数据，将数据在页面更新
+    // 3. 获取并向后台发送数据，将数据在页面更新
+    // TODO 这个验证可以卸载 onchange 事件中
+    var frontdata = {};
+    var closeflag = false;
+    //
+    // 学号不让改！（设计很重要。。。）
+    frontdata['id'] = $('#studentId').val();
+    if (!isNum(frontdata['id'])){
+        alert("修改失败,产生故障！");
+        closeflag = true;
+    }
+    frontdata['name'] = $('#nameInput').val().trim();
+    if (isNull(frontdata['name'])){
+        alert("修改失败，名字不能为空且不能包含特殊字符！");
+        closeflag = true;
+    }
 
-    // 4. 更改页面显示
-    $('#beModifyA').parent().siblings().each(function () {
-        switch ($(this).attr('class')){
-            case 'number':$(this).html( $('#entry-table').children().children('.number').children().children('input').val() );break;
-            case 'name':$(this).html( $('#entry-table').children().children('.name').children('input').val() );break;
-            case 'gender':$(this).html( $('#entry-table').children().children('.gender').children().children('input').val() );break;
-            case 'date':$(this).html( $('#entry-table').children().children('.date').children().children('input').val() );break;
-            case 'acad':$(this).html( $('#entry-table').children().children('.acad').children().children('input').val() );break;
-            case 'major':$(this).html( $('#entry-table').children().children('.major').children().children('input').val() );break;
-            case 'class':$(this).html( $('#entry-table').children().children('.class').children().children('input').val() );break;
-            case 'dorm-id':$(this).html( $('#entry-table').children().children('.dorm-id').children().children('input').val() );break;
+    var genderInpu = $('#genderInput').val();
+    if (genderInpu=='男'){
+        frontdata['gender'] = 0;
+    } else if (genderInpu=='女'){
+        frontdata['gender'] = 1;
+    } else {
+        alert("修改失败，性别只能为男或女！");
+        closeflag = true;
+    }
+
+    var gradeInput = $('#gradeInput').val();
+    if (gradeInput=='大一'){
+        frontdata['dicGrade'] = 10012;
+    } else if (gradeInput=='大二'){
+        frontdata['dicGrade'] = 10013;
+    } else if (gradeInput=='大三'){
+        frontdata['dicGrade'] = 10014;
+    } else if (gradeInput=='大四'){
+        frontdata['dicGrade'] = 10015;
+    } else if (gradeInput=='研一'){
+        frontdata['dicGrade'] = 10016;
+    } else if (gradeInput=='研二'){
+        frontdata['dicGrade'] = 10017;
+    } else if (gradeInput=='研三'){
+        frontdata['dicGrade'] = 10018;
+    } else {
+        alert("修改失败，请输入正确的年级信息！");
+        closeflag = true;
+    }
+
+    frontdata['enroYear'] = $('#enroYearInput').val();
+    if (!isDate(frontdata['enroYear'] )){
+        alert("修改失败，请输入 0000-00-00 格式的日期！");
+        closeflag = true;
+    }
+    frontdata['academyName'] = $('#academyInput').val();
+    if (isNull(frontdata['academyName'])){
+        alert("修改失败，学院名不能为空且不能有特殊字符串！");
+        closeflag = true;
+    }
+    frontdata['majorName'] = $('#majorInput').val();
+    if (isNull(frontdata['majorName'])){
+        alert("修改失败，专业名不能为空且不能有特殊字符！");
+        closeflag = true;
+    }
+    frontdata['className'] = $('#classNameInput').val();
+    if (!isNum(frontdata['className'])){
+        alert("修改失败，班级ID不能为空且只能为数字！");
+        closeflag = true;
+    }
+
+    if ($('#dormInput').val()!='未分配'){
+        if (!isNum($('#dormInput').val())){
+            alert("修改失败，宿舍ID不能为空且只能为数字！");
+            closeflag = true;
+        } else {
+            frontdata['dormName'] = $('#dormInput').val();
+        }
+    }
+    if (closeflag){
+        return;
+    }
+    // 3.2 发送请求
+    $.ajax({
+        type:'post',
+        contentType:'application/json;charset=utf-8',
+        url:getBasePath()+'/student/modify',
+        data:JSON.stringify(frontdata),
+        success:function (data) {
+            // 添加成功的情况
+            if (data['pageCode']=='1100'){
+                $('#beModifyA').parent().siblings().each(function () {
+                    switch ($(this).attr('class')){
+                        case 'number':$(this).html( frontdata['id'] );break;
+                        case 'name':$(this).html( frontdata['name'] );break;
+                        case 'gender':$(this).html( genderInpu );break;
+                        case 'grade':$(this).html( gradeInput );break;
+                        case 'date':$(this).html( frontdata['enroYear']);break;
+                        case 'acad':$(this).html( frontdata['academyName'] );break;
+                        case 'major':$(this).html( frontdata['majorName'] );break;
+                        case 'class':$(this).html( frontdata['className'] );break;
+                        case 'dorm-id':$(this).html( frontdata['dormName'] );break;
+                    }
+                });
+                // 4. 更改页面显示
+                alert("修改学生信息成功！");
+            }
+            // 添加失败的情况
+            if (data['pageCode']=='1101'){
+                alert("修改学生信息失败，输入数据格式错误！")
+            }
+            if (data['pageCode']=='1102'){
+                alert("修改学生信息失败，学院与班级或班级与宿舍之间的关系不匹配！！")
+            }
+            if (data['pageCode']=='1103'){
+                alert("修改学生信息失败，请检查输入数据真实性！")
+            }
+            if (data['pageCode']=='1104'){
+                alert("修改学生信息失败，服务器发送未知故障！");
+            }
         }
     });
-    // 5. 将弹出框内容清除
 
+
+    // 5. 将弹出框内容清除
+    $('#entry-table tbody').find("input[type='text']").val("");
     // 6. 关闭遮罩
     $('#page-shade').addClass('hide');
     $('#entry').addClass('hide');
 }
 
-function deleteit(a){
-    // 向后台发送 ajax 请求，将学号为 *** 的学生删除
-    // 1. 获取学号
-    var number = $(a).parent().siblings('.seq').html();
+/**
+ * 点击取消
+ */
+function doCancel() {
+    $('#entry-table tbody').find("input[type='text']").val("");
+    $('#page-shade').addClass('hide');
+    $('#entry').addClass('hide');
+}
 
-    // 2. 通知后台删除
-    // dosomething;
-
-    // 页面变化，在后台删除成功后执行
-    $(a).parent().siblings('.check-box').addClass('beclecked');
-    $('#add-table').children().children('.add-tr').each(function () {
-        if ( $(this).children('.check-box').hasClass('beclecked') ){
-            $(this).remove();
-        }
-    })
-    // $(a).parent().parent().remove();
+/**
+ * 点击删除
+ * 1. 获取所有选中的学生ID发送到后台
+ * @param id
+ */
+function deleteit(id) {
+    var frontdata = {};
+    var idList = [];
+    $("input[name='one']:checked").each(function () {
+        idList.push($(this).val());
+    });
+    frontdata['idList'] = idList.toString();
+    var url = getBasePath()+"/student/delete/"+frontdata['idList'];
+    var formEle = $("<form method='post'></form>");
+    formEle.attr('action',url);
+    $(document.body).append(formEle);
+    formEle.submit();
+    // TODO 这里可以加一个等待标志
 }
 
 /**
@@ -196,9 +314,6 @@ function doAcademyChange() {
         url:getBasePath()+"/major/pid",
         data:data,
         success:function (data) {
-            console.log("==========测试开始==========");
-            console.log("data Type:"+typeof data+"  data:"+data+"  "+data.toString());
-            console.log("==========测试结束==========");
             // 将新值写进 dom 之前要=将旧值删除
             $('#major').empty().append("<option value=''>全部</option>");
             $('#class').empty().append("<option value=''>全部</option>");
@@ -261,7 +376,7 @@ function doClassChange(){
     // 2.
     $.ajax({
         type:'get',
-        url:getBasePath()+"/dorm/pid",
+        url:getBasePath()+"/dormitory/pid",
         data:data,
         success:function (data) {
             $('#dorm').empty().append("<option value=''>全部</option>");
@@ -276,9 +391,10 @@ function doClassChange(){
 }
 
 /**
- * 点击年级选项后的变化，清空除了学院之外的所有值
+ * 点击年级选项后的变化
  */
 function doDicGradeChange(){
+    $('#acade-all').attr('selected',true);
     $('#major').empty().append("<option value=''>全部</option>");
     $('#class').empty().append("<option value=''>全部</option>");
     $('#dorm').empty().append("<option value=''>全部</option>");

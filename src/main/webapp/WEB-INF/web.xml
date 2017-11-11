@@ -16,20 +16,7 @@
             org.springframework.web.context.ContextLoaderListener
         </listener-class>
     </listener>
-    <!--  配置前端控制器  -->
-    <servlet>
-        <servlet-name>DispatcherServlet</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!--  配置前端控制器的配置文件。前端控制器也是一个容器  -->
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring/applicationContext.xml</param-value>
-        </init-param>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>DispatcherServlet</servlet-name>
-        <url-pattern>/</url-pattern>
-    </servlet-mapping>
+
     <!--  配置字符过滤器  -->
     <filter-mapping>
         <filter-name>CharseterEncodingFilter</filter-name>
@@ -45,6 +32,32 @@
             <param-value>UTF-8</param-value>
         </init-param>
     </filter>
+    <!--&lt;!&ndash;支持 RESTful 风格的 url &ndash;&gt;-->
+    <!--<filter>-->
+        <!--<filter-name>hiddenHttpMethodFilter</filter-name>-->
+        <!--<filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>-->
+    <!--</filter>-->
+    <!--<filter-mapping>-->
+        <!--<filter-name>hiddenHttpMethodFilter</filter-name>-->
+        <!--<url-pattern>/*</url-pattern>-->
+    <!--</filter-mapping>-->
+
+    <!--  配置前端控制器  -->
+    <servlet>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--  配置前端控制器的配置文件。前端控制器也是一个容器  -->
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring/applicationContext.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
     <!-- 在每个页面加入 bathPath -->
     <jsp-config>
         <jsp-property-group>

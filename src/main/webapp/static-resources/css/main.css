@@ -383,7 +383,29 @@ body{
     background: #555F75;
 }
 
+/*
+   等待图标旋转
+*/
+.spinner-animation-transform{
+    position: fixed;
+    z-index: 100005;
+    font-size: 25px;
+    color:#FFF;
+    top:48%;
+    left:48%;
+    -webkit-animation: waitIcon 0.3s ease 0s infinite normal;
+    -o-animation: waitIcon 0.3s ease 0s infinite normal;
+    animation: waitIcon 0.3s ease 0s infinite normal;
+}
 
+@keyframes waitIcon {
+    from{
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
+}
 
 
 

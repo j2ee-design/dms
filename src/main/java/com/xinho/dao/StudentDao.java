@@ -31,5 +31,4 @@ public interface StudentDao {
     int updateByPrimaryKey(Student record);
 
     int deleteBatchByIdList(List<Integer> idList);
-
 }

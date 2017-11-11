@@ -17,6 +17,8 @@
     </style>
 </head>
 <body>
+<input type="hidden" value="${deleteNum}" id="deleteNum">
+<input type="hidden" value="${allNum}" id="allNUm">
 <!--学生删除&#45;&#45;将学生信息保存到文本中在从数据库中删除-->
 <aside class="side-bar">
     <ul class="sider-bar-ul" id="sider-bar-ul">
@@ -61,7 +63,7 @@
                     <td class="select-td">
                         <span>学院：</span>
                         <select name="academyId" id="acade" onchange="doAcademyChange()">
-                            <option value="">全部</option>
+                            <option value="" id="acade-all">全部</option>
                             <c:forEach items="${academyList}" var="academy">
                                 <option value="${academy.id}">${academy.name}</option>
                             </c:forEach>
@@ -99,6 +101,7 @@
                     <th class="number">学号</th>
                     <th class="name">姓名</th>
                     <th class="gender">性别</th>
+                    <th class="grade">年级</th>
                     <th class="date">入学日期</th>
                     <th class="acad">学院</th>
                     <th class="major">专业</th>
@@ -108,35 +111,25 @@
                 </tr>
                 <c:forEach items="${studentDtoList}" var="studentDto" varStatus="i">
                     <tr class="add-tr">
-                        <td class="check-box"><input type="checkbox" name="one"></td>
+                        <td class="check-box"><input type="checkbox" name="one" value="${studentDto.id}"></td>
                         <td class="seq">${i.count}</td>
                         <td class="number">${studentDto.id}</td>
                         <td class="name">${studentDto.name}</td>
                         <td class="gender">${(studentDto.gender==0)?"男":"女"}</td>
+                        <td class="grade"><!--
+                        --><c:choose><c:when test="${studentDto.dicGrade==10012}"><c:out value="大一"></c:out></c:when><c:when test="${studentDto.dicGrade==10013}"><c:out value="大二"></c:out></c:when><c:when test="${studentDto.dicGrade==10014}"><c:out value="大三"></c:out></c:when><c:when test="${studentDto.dicGrade==10015}"><c:out value="大四"></c:out></c:when><c:when test="${studentDto.dicGrade==10016}"><c:out value="研一"></c:out></c:when><c:when test="${studentDto.dicGrade==10017}"><c:out value="研二"></c:out></c:when><c:when test="${studentDto.dicGrade==10018}"><c:out value="研三"></c:out></c:when></c:choose><!--
+                     --></td>
                         <td class="date"><fmt:formatDate value="${studentDto.enroYear}" type="date"/></td>
                         <td class="acad">${studentDto.academyName}</td>
                         <td class="major">${studentDto.majorName}</td>
                         <td class="class">${studentDto.className}</td>
-                        <td class="dorm-id">
-                            <c:choose>
-                                <c:when test="${studentDto.dormStatus==0}">
-                                    <c:out value="未分配"/>
-                                </c:when>
-                                <c:when test="${studentDto.dormStatus==1}">
-                                    <c:out value="${studentDto.dormId}"/>
-                                </c:when>
-                                <c:when test="${studentDto.dormStatus==2}">
-                                    <c:out value="${studentDto.dormId}（出宿）"/>
-                                </c:when>
-                                <c:otherwise>
-                                    <c:out value="错误"/>
-                                </c:otherwise>
-                            </c:choose>
-                        </td>
+                        <td class="dorm-id"><!--
+                        --><c:choose><c:when test="${studentDto.dormStatus==0}"><c:out value="未分配"/></c:when><c:when test="${studentDto.dormStatus==1}"><c:out value="${studentDto.dormName}"/></c:when><c:when test="${studentDto.dormStatus==2}"><c:out value="${studentDto.dormId}（出宿）"/></c:when><c:otherwise><c:out value="错误"/></c:otherwise></c:choose><!--
+                     --></td>
                         <td class="do-something">
                             <a href="javascript:void(0)" onclick="modify(this)" class="ooo">修改</a>
                             <span class="line">|</span>
-                            <a href="javascript:void(0)" onclick="deleteit(this)">删除</a>
+                            <a href="javascript:void(0)" onclick="deleteit(${studentDto.id})">删除</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -159,15 +152,18 @@
     </div>
     <div class="entry hide" id="entry">
         <table class="entry-table" id="entry-table">
-            <tr class="number"><td class="entry-td"><span class="entry-td-text">学号</span><input class="entry-td-input" type="text"></td></tr>
-            <tr class="name"><td class="entry-td"><span class="entry-td-text">姓名</span><input class="entry-td-input" type="text"></td></tr>
-            <tr class="gender"><td class="entry-td"><span class="entry-td-text">性别</span><input class="entry-td-input" type="text"></td></tr>
-            <tr class="date"><td class="entry-td"><span class="entry-td-text">入学日期</span><input class="entry-td-input" type="text"></td></tr>
-            <tr class="acad"><td class="entry-td"><span class="entry-td-text">学院</span><input class="entry-td-input" type="text"></td></tr>
-            <tr class="major"><td class="entry-td"><span class="entry-td-text">专业</span><input class="entry-td-input" type="text"></td></tr>
-            <tr class="class"><td class="entry-td"><span class="entry-td-text">班级</span><input class="entry-td-input" type="text"></td></tr>
-            <tr class="dorm-id"><td class="entry-td"><span class="entry-td-text">宿舍</span><input class="entry-td-input" type="text"></td></tr>
+            <input type="hidden" value="" id="studentId">
+            <tr class="name"><td class="entry-td"><span class="entry-td-text">姓名</span><input id="nameInput" class="entry-td-input" type="text"></td></tr>
+            <tr class="gender"><td class="entry-td"><span class="entry-td-text">性别</span><input id="genderInput" class="entry-td-input" type="text"></td></tr>
+            <tr class="grade"><td class="entry-td"><span class="entry-td-text">年级</span><input id="gradeInput" class="entry-td-input" type="text"></td></tr>
+            <tr class="date"><td class="entry-td"><span class="entry-td-text">入学日期</span><input id="enroYearInput" class="entry-td-input" type="text"></td></tr>
+            <tr class="acad"><td class="entry-td"><span class="entry-td-text">学院</span><input id="academyInput" class="entry-td-input" type="text"></td></tr>
+            <tr class="major"><td class="entry-td"><span class="entry-td-text">专业</span><input id="majorInput" class="entry-td-input" type="text"></td></tr>
+            <tr class="class"><td class="entry-td"><span class="entry-td-text">班级</span><input id="classNameInput" class="entry-td-input" type="text"></td></tr>
+            <tr class="dorm-id"><td class="entry-td"><span class="entry-td-text">宿舍</span><input id="dormInput" class="entry-td-input" type="text"></td></tr>
             <tr class="number"><td class="td-submit"><input type="submit" class="entry-submit" value="确定" onclick="doModify()"></td></tr>
+            <tr class="number"><td class="td-submit-cancel"><input type="submit" class="entry-submit" value="取消" onclick="doCancel()"></td></tr>
+            <!-- 尼玛，真的不敢想象这种屎一般，没逻辑，没脑子的代码是我自己写的 -->
         </table>
     </div>
 </div>

@@ -21,9 +21,6 @@ function warnInput(str) {
         $(targetId).addClass('input-warn-info-animation');
     }
 }
-function getBasePath() {
-    return $('#basePath').val();
-}
 
 /**
  * 点击添加学生
@@ -68,10 +65,7 @@ function submitSingle() {
     })
 }
 
-function isNum(target) {
-    var reg = new RegExp("^[0-9]{1,}$");
-    return reg.test(target);
-}
+
 
 /**
  * 点击全选:

@@ -37,12 +37,13 @@ function openAddDiv(){
 }
 
 /**
- * 提交添加公寓操作
+ * 点击提交添加，新增公寓操作
  * 1. 检查 input 的 value，封装为 json 数据
  * 2. ajax 将数据发送至后台
  * 3. 判断状态，根据状态操作
  *   3.1 添加成功，调用 closeAdd，并弹出提示（2s 后关闭）
  *   3.2 失败，在添加弹窗上追加错误信息
+ * 4. 弹出等待信息，增强体验
  */
 function addApartSubmit(){
     // 1
@@ -50,29 +51,49 @@ function addApartSubmit(){
     var errorFlag = false;
     $('#add-apart-form .add-apart-li .entry-input').each(function () {
         var name = $(this).attr('name');
+        // TODO 这里应该补充详细的前端校检（数字已经校检了。长度，特殊字符。）。
         switch (name){
             case 'name':if ( !filterNull(this) ) errorFlag = true;break;
             default:if ( !filterNum(this) ) errorFlag = true;break;
         }
         data[$(this).attr('name')]=$(this).val();
     });
-    data[$('#add-apart-form .one-li .entry-select').attr('name')] = $('#add-apart-form .one-li .entry-select option:selected').text();
+    data[$('#add-apart-form .one-li .entry-select').attr('name')] = $('#add-apart-form .one-li .entry-select option:selected').val();
+    data['dicTypeName'] = $('#add-apart-form .one-li .entry-select option:selected').text();
     if (errorFlag){
         return;
     }
     // 2
+    $.ajax({
+        type:'post',
+        contentType:'application/json;charset=utf-8',
+        url:getBasePath()+'/apart/add',
+        data:JSON.stringify(data),
+        // 添加成功
+        success:function (data) {
+            // 关闭遮罩和等待提示
+            $('#page-shade').addClass('hide page-shade-color');
+            $('#wait-icon').addClass('hide');
+            // 分情况弹出信息
+            if (data['pageCode']=='1200'){
+                addApartDiv(data);
+                closeAdd();
+                alert("新建公寓成功！");
+            }
+            if (data['pageCode']=='1201'){
+                alert("新增公寓失败，该ID/NAME对应的公寓已经存在");
+            }
+        },
+        error:function () {
+            $('#page-shade').addClass('hide page-shade-color');
+            $('#wait-icon').addClass('hide');
+            alert("添加失败，遇见未知故障！");
+        }
+    });
+    // 4.
+    $('#page-shade').removeClass('hide page-shade-color');
+    $('#wait-icon').removeClass('hide');
 
-    if (true){
-        // 3.1
-        // alert('添加成功！'); // 此处可以自定义弹出层
-        addApartDiv(data);
-        closeAdd();
-    } else {
-        // 3.2
-        var errordate = '错误信息';
-        alert(errordate);
-    }
-    console.log(data);
 }
 
 /**
@@ -87,8 +108,8 @@ function addApartDiv(data){
         "    <span class='apart-img icon-building'></span>\n" +
         "    <ul class='apart-text-list'>\n" +
         "        <li class='apart-text'>#"+data.id+"<span class='block-10'></span>"+data.name+"</li>\n" +
-        "        <li class='apart-text'><span class='apart-type'>"+data.dicApartType+"</span>，共<span class='apart-num'>"+data.floorNum+"</span>层</li>\n" +
-        "        <li class='apart-text'>床位： <span class='rest-num'>0</span> / "+(data.cellBed*data.floorDoriNum*data.floorNum)+"</li>\n" +
+        "        <li class='apart-text'><span class='apart-type'>"+data.dicTypeName+"</span>，共<span class='apart-num'>"+data.floorNum+"</span>层</li>\n" +
+        "        <li class='apart-text'>床位： <span class='rest-num'>0</span> / "+(data.dormBedNum*data.dormNum)+"</li>\n" +
         "    </ul>\n" +
         "</li>"
     );
@@ -96,7 +117,7 @@ function addApartDiv(data){
     $('#apart-list .special').on('click',function (event) {
         var apartId = $(this).children(".apart-text-list").children(".apart-text").children(".dorm-id").html();
         // 1 restful 风格 url，传入公寓 id
-        $('#dorm-list-iframe').attr('src', 'dormList.html?{'+apartId+'}');
+        $('#dorm-list-iframe').attr('src', 'dormList.jsp?{'+apartId+'}');
         // 2 滑出动画并固定 div
         $('#dorm-list-Div').addClass('slip-in-dormList').removeClass('hide-out');
         // 3 阻止冒泡
@@ -106,17 +127,11 @@ function addApartDiv(data){
 }
 
 /**
- * 判断字符串是否为空
+ * 工具类，判断字符串是否为空
  * @param targetInput
  */
 function filterNull(targetInput){
     var name = $(targetInput).val();
-
-    // console.log('====开始完毕====');
-    // console.log(name.trim().length);
-    // console.log(name);
-    // console.log(/[`~!@#$^&*()=|{}':;',\\[\\].<>\?@#￥……&*（）——|{}【】‘；：”“'。，、？]/.test(name));
-    // console.log('====测试完毕====');
 
     if (name.trim().length <=0 || name == null ||
         /[`~!@#$^&*()=|{}':;',\\[\\].<>\?@#￥……&*（）——|{}【】‘；：”“'。，、？]/.test(name)
@@ -129,7 +144,7 @@ function filterNull(targetInput){
 }
 
 /**
- * 正则表达式检测是否为数字
+ * 工具类，正则表达式检测是否为有效数字(部位0)
  */
 function filterNum(targetInput){
     var name = $(targetInput).val();
@@ -137,6 +152,9 @@ function filterNum(targetInput){
     if ( !reg.test(name) ){
         $(targetInput).parent().addClass('warn-info-animation');
         $(targetInput).addClass('warn-info-animation');
+        return false;
+    }
+    if (parseInt(targetInput)==0){
         return false;
     }
     return true;
@@ -199,6 +217,8 @@ function hideDormList(){
             return;
         }
         $('#dorm-list-Div').addClass('slip-out-dormList');
+        // TODO 清除<iframe>中的内容
+
     });
 }
 
@@ -224,16 +244,18 @@ function stopSomePropagation(){
 }
 
 /**
- * 滑出宿舍列表
+ * 点击宿舍卡片，滑出宿舍列表页
  * 1. 设置 iframe 链接
  * 2. 动画滑出父 div。动画 --> 固定
  * 3. 通知冒泡
  */
 function slipInDormList(apart) {
     $('#apart-list .special').on('click',function (event) {
-        var apartId = $(this).children(".apart-text-list").children(".apart-text").children(".dorm-id").html();
+        var apartId = $(this).children(".apart-text-list").children(".apartId").val();
         // 1 restful 风格 url，传入公寓 id
-        $('#dorm-list-iframe').attr('src', 'dormList.html?{'+apartId+'}');
+        // TODO 这里，在公寓详情页被关闭之后，将页面替换。或者给公寓详情页面加一个分页。
+        var url = getBasePath()+"/dormitory/"+apartId;
+        $('#dorm-list-iframe').attr('src', url);
         // 2 滑出动画并固定 div
         $('#dorm-list-Div').addClass('slip-in-dormList').removeClass('hide-out');
         // 3
@@ -250,39 +272,63 @@ function slipInDormList(apart) {
  */
 function alertStudentInfo(dormId){
     // 1. 后台查值
+    $.ajax({
+        type:'get',
+        url:getBasePath()+"/dormitory/get/"+dormId,
+        success:function (data) {
+            if(data['dormitoryDto'] !== null){
+                if (data['dormitoryDto']['usedBed'] != '0'){
+                    var stuListStr = "";
+                    // 循环拼接所有学生信息元素
+                    for (var i in data['studentDtos']){
+                        stuListStr += "<tr class='stu-tr'><td class='index'>"+(i+1)+"</td><td>"+data['studentDtos'][i]['id']+"</td><td>"+data['studentDtos'][i]['name']+"</td><td>"+getDateStr(data['studentDtos'][i]['enroYear'])+"</td></tr>\n";
+                    }
+                    // 获取舍长年级、姓名
+                    var grade = getChiefInfo(data['dormitoryDto']['chiefId'], data['studentDtos'],"gradeName");
+                    var name = getChiefInfo(data['dormitoryDto']['chiefId'], data['studentDtos'],"name");
+                    var academyName = getChiefInfo(data['dormitoryDto']['chiefId'],data['studentDtos'],"academyName");
 
-    // 2  返回值不为空，且长度大于1.写值【写值之前先清空】
-    $('#student-info').empty();
-    $('#student-info').append("" +
-        "<h4>#13-342</h4>\n" +
-        "<div class='dorm-info'>\n" +
-        "    <span>年级：大二</span>\n" +
-        "    <span>宿舍长：gay gay 远</span>\n" +
-        "    <span>所在学院：大数据学院</span>\n" +
-        "    <span>所在班级：1507094236</span>\n" +
-        "</div>\n" +
-        "<div class='stu-table-div scroller-bar-01'>\n" +
-        "    <table class='stu-table' id='stu-table'>\n" +
-        "        <tr class='stu-th'><th>床位</th><th>学号</th><th>姓名</th><th>入学年份</th></tr>\n" +
-        "        <tr class='stu-tr'><td>01</td><td>1507094236</td><td>大江北</td><td>2015-09-01</td></tr>\n" +
-        "        <tr class='stu-tr'><td>02</td><td>1507094236</td><td>小江北</td><td>2015-09-01</td></tr>\n" +
-        "        <tr class='stu-tr'><td>03</td><td>1507094236</td><td>中江北</td><td>2015-09-01</td></tr>\n" +
-        "        <tr class='stu-tr'><td>04</td><td>1507094236</td><td>1kb江北</td><td>2015-09-01</td></tr>\n" +
-        "        <tr class='stu-tr'><td>05</td><td>1507094236</td><td>1mb江北</td><td>2015-09-01</td></tr>\n" +
-        "        <tr class='stu-tr'><td>06</td><td>1507094236</td><td>1Gb江北</td><td>2015-09-01</td></tr>\n" +
-        "    </table>\n" +
-        "</div>\n" +
-        "<div class='add-stu' onclick='addStudentToDorm()'>加入学生</div>\n" +
-        "<div class='close-dorm icon-remove' onclick='closeStuInfo()'></div>");
-    // 3 返回值为空，或者长度小于1
-    if (false){
-        $('#student-info').empty();
-        $('#student-info').append("" +
-            "<h4 style='margin-top: 50px'>此宿舍尚未分配</h4>\n"+
-            "<div class='add-stu' onclick='addStudentToDorm()'>加入学生</div>\n" +
-            "<div class='close-dorm icon-remove' onclick='closeStuInfo()'></div>");
-    }
-    // 4. 播放动画
+                    // 写入 DOM
+                    $('#student-info').empty().append("" +
+                        "<h4>#"+data['dormitoryDto']['apartId']+"-"+data['dormitoryDto']['dormId']+"</h4>\n" +
+                        "<input type='hidden' id='searched-dormId' value='"+data['dormitoryDto']['id']+"'> " +
+                        "<div class='dorm-info' id='dorm-info'>" +
+                        "    <input type='hidden' id='canAddStu' value='"+data['dormitoryDto']['usedBed']/data['dormitoryDto']['allBed']+"'> " +
+                        "    <span>年级："+grade+"</span>\n" +
+                        "    <span>舍长："+name+"</span>\n" +
+                        "    <span>所在学院："+academyName+"</span>\n" +
+                        "    <span>所在班级："+data['dormitoryDto']['className']+"</span>\n" +
+                        "</div>\n" +
+                        "<div class='stu-table-div scroller-bar-01'>\n" +
+                        "    <table class='stu-table' id='stu-table'>\n" +
+                        "        <tr class='stu-th'><th>床位</th><th>学号</th><th>姓名</th><th>入学年份</th></tr>\n" +
+                                 stuListStr+
+                        "    </table>\n" +
+                        "</div>\n" +
+                        "<div class='add-stu' onclick='addStudentToDorm()'>加入学生</div>\n" +
+                        "<div class='close-dorm icon-remove' onclick='closeStuInfo()'></div>"
+                    );
+                } else {
+                    $('#student-info').empty().append("" +
+                        "<h4 style='margin-top: 30px;margin-bottom: 30px'>此宿舍尚未分配</h4>\n"+
+                        "<div class='stu-table-div scroller-bar-01'>\n" +
+                        "    <input type='hidden' id='searched-dormId' value='"+data['dormitoryDto']['id']+"'> " +
+                        "    <input type='hidden' id='canAddStu' value='0'> " +
+                        "    <table class='stu-table' id='stu-table'>\n" +
+                        "        <tr class='stu-th'><th>床位</th><th>学号</th><th>姓名</th><th>入学年份</th></tr>\n" +
+                        "    </table>\n" +
+                        "</div> " +
+                        "<div class='add-stu' onclick='addStudentToDorm()'>加入学生</div>\n" +
+                        "<div class='close-dorm icon-remove' onclick='closeStuInfo()'></div>"
+                    );
+                }
+            }
+            else {
+                alert("请联系管理员，该宿舍不存在！")
+            }
+        }
+    });
+    // 3. 播放动画
     playInStuInfoAnim();
 }
 
@@ -300,6 +346,26 @@ function playInStuInfoAnim(){
 }
 
 /**
+ * 获取返回学生中宿舍长的信息，
+ * @param  chiefId 宿舍长ID
+ * @param jsonData 学生信息json对象
+ * @param str 要查找的宿舍长的信息的名称
+ */
+function getChiefInfo(chiefId,jsonData,infoStr){
+    for (var i in jsonData){
+        console.log(i+"----"+jsonData[i]['id']);
+        if (jsonData[i]['id'] == chiefId){
+            // 如果查找的是年级，还要转换一下
+            if (infoStr=="gradeName"){
+                return getGradeByDicCode(jsonData[i]['dicGrade']);
+            }
+            return jsonData[i][infoStr];
+        }
+    }
+    return "出错";
+}
+
+/**
  * 点击添加学生
  * 1. 滑出添加学生卡片
  * 2. 获取每日一句展示在查找学生框，清空上次搜索
@@ -307,7 +373,7 @@ function playInStuInfoAnim(){
 function addStudentToDorm(){
     // 1.滑出添加学生卡片
     $('#student-info-add').addClass('student-info-add-in').removeClass('student-info-add-out');
-    // 2.
+    // 2. TODO 第二个版本在添加此内容
     $('#info-text').empty().append("<span class='everyday'>不乱于心，不困于情。不畏将来，不念过往。如此，安好。——丰子恺 《不宠无惊过一生》</span>");
     $('#stuAdd-inpu').val('');
 }
@@ -321,28 +387,109 @@ function addStudentToDorm(){
  */
 function searchStu(){
     // 1.
-    var stuNum = $('#stuAdd-inpu').val();
-    if (stuNum == null || stuNum.trim().length <= 0){
+    var data = $('#stuAdd-inpu').val();
+    if (data == null || data.trim().length <= 0){
+        $('#stuAdd-inpu').val("");
         return;
     }
     // 2.
-    var data;
-    // 3.
-    $('#info-text').empty();
-    if (true){
-        $('#info-text').append("" +
-            "<span>姓名：不思凡</span>\n" +
-            "<span>班级：15070942</span>\n" +
-            "<span >学号：1507099835</span>\n" +
-            "<span>学院：啦啦啦德玛西亚学院</span>\n" +
-            "<span>专业：呵呵呵呵呵专业</span>\n" +
-            "<span>性别：男</span>\n" +
-            "<span>年级：大一</span>\n"+
-            "<input type='hidden' id='stuId' value='00000011'>");
-    } else {
-        $('#info-text').append("<span class='no-exist'>该学生不存在！</span>");
+    $.ajax({
+        type:'get',
+        url:getBasePath()+"/student/searchSingle/"+data,
+        success:function (studentDto) {
+            // 3.
+            if (studentDto['id'] != null){
+                $('#info-text').empty().append("" +
+                    "<input type='hidden' id='seached-name' value='"+studentDto['name']+"'> " +
+                    "<input type='hidden' id='seached-date' value='"+getDateStr(studentDto['enroYear'])+"'> " +
+                    "<input type='hidden' id='seached-id' value='"+studentDto['id']+"'> " +
+                    "<span>姓名："+studentDto['name']+"</span>\n" +
+                    "<span>班级："+studentDto['className']+"</span>\n" +
+                    "<span>学号："+studentDto['id']+"</span>\n" +
+                    "<span>学院："+studentDto['academyName']+"</span>\n" +
+                    "<span>专业："+studentDto['majorName']+"</span>\n" +
+                    "<span>性别："+getGenderStr(studentDto['gender'])+"</span>\n" +
+                    "<span>年级："+getGradeByDicCode(studentDto['dicGrade'])+"</span>\n"+
+                    "<input type='hidden' id='stuId' value='"+studentDto['id']+"'>"
+                );
+            } else {
+                $('#info-text').empty().append("<span class='no-exist'>该学生不存在！</span>");
+            }
+        }
+    });
+}
+
+/**
+ * 将搜索到的学生加入宿舍后台服务
+ * 1. 访问后台添加服务
+ * 2. 提示
+ */
+function doAddStudentToDorm() {
+    if ($('#stuId').length > 0){
+        // 如果宿舍人未满【前端验证】
+        if ($('#canAddStu').val()!=null && $('#canAddStu').val()<1){
+            var data = {};
+            data['stuId'] = $('#seached-id').val();
+            data['dormId'] = $('#searched-dormId').val();
+            // 1. 访问后台
+            $.ajax({
+                type:'post',
+                data:data,
+                url:getBasePath()+"/dormitory/distriSingle",
+                success:function (code) {
+                    // 添加成功
+                    if (code['pageCode'] == 1400){
+                        var lastIndex = parseInt($('#stu-table tbody:last-child .index').html());
+                        $('#stu-table').append("<tr class='stu-tr'><td>0"+(lastIndex+1)+"</td><td>"+$('#seached-id').val()+"</td><td>"+$('#seached-name').val()+"</td><td>"+$('#seached-date').val()+"</td></tr>");
+                    }
+                    // 添加失败
+                    if (code['pageCode'] == 1401){
+                        alert("添加学生至宿舍失败，未知错误！");
+                    }
+                    if (code['pageCode'] == 1402){
+                        alert("添加学生至宿舍失败，该学生已经分配宿舍/该宿舍人满。");
+                    }
+                    if (code['pageCode'] == 1403){
+                        alert("添加至宿舍失败，不存在的学生ID/宿舍！");
+                    }
+                },
+                error:function (errorInfo) {
+                    alert('添加失败，服务器发生故障。');
+                }
+            });
+        } else {
+            alert('该宿舍人满!');
+        }
     }
-    
+}
+
+
+/**
+ * 工具类，根据年级代码获取年级
+ * @param dicGradeCode
+ */
+function getGradeByDicCode(dicGradeCode) {
+    if (dicGradeCode == '10012'){
+        return "大一"
+    }
+    if (dicGradeCode == '10013'){
+        return "大二"
+    }
+    if (dicGradeCode == '10014'){
+        return "大三"
+    }
+    if (dicGradeCode == '10015'){
+        return "大四"
+    }
+    if (dicGradeCode == '10016'){
+        return "研一"
+    }
+    if (dicGradeCode == '10017'){
+        return "研二"
+    }
+    if (dicGradeCode == '10018'){
+        return "研三"
+    }
 }
 
 /**
@@ -356,32 +503,6 @@ function closeStuInfo(){
     }
     $('#student-info').addClass('slip-out-dorm-Animation');
 }
-
-/**
- * 将搜索到的学生加入宿舍后台服务
- * 1. 访问后台添加服务
- * 2. 提示
- */
-function doAddStudentToDorm() {
-    if ($('#stuId').length > 0){
-        // 1. 访问后台
-        // 2. 提示 --> 后台返回 提示信息（判断提示信息状态码）
-        // 2.1 成功添加--> 将该学生加入 stu-table 中
-        if ($('#stu-table tbody .stu-tr').length < 6){ // 前端其实不需要验证。
-            $('#stu-table').append("<tr class='stu-tr'><td>06</td><td>1507094236</td><td>1Gb江北</td><td>2015-09-01</td></tr>");
-        } else {
-            alert('该宿舍人满')
-        }
-        // 2.2 失败，提示
-        if (false){
-            var errorInfo;
-            alert('添加失败：' + errorInfo);
-        }
-
-    }
-}
-
-
 
 
 

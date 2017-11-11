@@ -98,10 +98,12 @@ select:focus{
 .entry{
     position: fixed;
     padding:50px 70px 50px 20px;
-    border: 1px solid #eee;
-    top:150px;
+    top:120px;
     left: 38%;
+    background: #fff;
     z-index:100001;
+    border-radius: 5px;
+    box-shadow: 0 0 4px 1px #ccc;
 }
 .entry-td-text{
     display: inline-block;
@@ -112,12 +114,12 @@ select:focus{
     margin-right: 3px;
 }
 .entry-td-input{
-    padding:3px 5px;
     margin-bottom: 5px;
+    width:150px;
+    padding:5px;
     color: #000;
-    border-radius: 5px;
-    background: rgba(255,255,255,0.7);
-    border:1px solid #aaa;
+    border:1px solid #555;
+    border-radius: 3px;
 }
 .td-submit{
 
@@ -133,8 +135,22 @@ select:focus{
     border-radius: 5px;
     cursor: pointer;
 }
+.entry-submit-cancel{
+    color: #fff;
+    font-size: 14px;
+    padding:3px 65px;
+    margin-top: 10px;
+    margin-left: 60px;
+    border: none;
+    background: #96CDCD;
+    border-radius: 5px;
+    cursor: pointer;
+}
 .entry-submit:hover{
     background: #00DFCD;
+}
+.entry-submit-cancel:hover{
+    background: #96ADCD;
 }
 
 

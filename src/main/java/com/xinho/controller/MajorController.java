@@ -12,12 +12,10 @@ import java.util.List;
 @RequestMapping("/major")
 public class MajorController {
 
-    @Autowired
-    private MajorService majorService;
+    @Autowired private MajorService majorService;
 
-    @ResponseBody
     @RequestMapping(value = "/pid",method = RequestMethod.GET)
-    public List<MajorDto> getMajorByPid(@RequestParam(value = "academyId") Integer academyId){
+    public @ResponseBody List<MajorDto> getMajorByPid(@RequestParam(value = "academyId") Integer academyId){
         List<MajorDto> majorDtoList = majorService.getMajorsByPid(academyId);
         return majorDtoList;
     }

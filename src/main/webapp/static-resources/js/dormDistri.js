@@ -1,34 +1,33 @@
 $(function () {
-    doSelectAll('#stu-table .tr-h .select-label input',
-        '#stu-table .tr-d .select-label');
-    doSelectAll("#dorm-table .tr-h .select-label-th .select-label input",
-        "#dorm-table .tr-d .select-label-td .select-label input[type='checkbox']");
-    doSearch('#select-box .search-input','#select-box select','stu-table');
-    doSearch('#dorm-input-button','#dorm-select-box','dorm-table');
+    // 绑定全选事件
+    doSelectAll('#stu-table tbody .tr-h .select-label input',
+        '#stu-table tbody .tr-d .select-label');
+
+    doSelectAll("#dorm-table tbody .tr-h .select-label-th .select-label input",
+        "#dorm-table tbody .tr-d .select-label-td .select-label input[type='checkbox']");
 
 });
 
 /**
- * 点击查询按钮 -- 不怎么可复用
- * 1. 获取搜索条件
- * 2. 向后台发起查询
- * 3. 分情况将查询结果写入 dom
- * 4. 查询过程中的等待时期要有提示（转圈圈的那种）
+ * 根据搜索条件搜索学生
+ * 1. 获取搜索数据并发起请求
+ * 2. 将结果写入 DOM
  */
-function doSearch(searchButtonElePath, selectListsPath,type){
-    $(searchButtonElePath).click(function () {
-        // 1
-        var selectData = {};
-        var testData = {};
-        var selectLists = $(selectListsPath);
-        selectLists.each(function () {
-            testData[$(this).attr('name')] = $(this).children('option:selected').html(); // 获取选中的文本
-            selectData[$(this).attr('name')] = $(this).val();
-        });
-        // 2
-        var data;// 根据 if 条件不同请求不同的服务，得到不同的返回数据
-        // 3
-        if (type == 'stu-table'){
+function searchStudent() {
+    var data = {};
+    data['dicGrade'] = $('#grade').val();
+    data['academyId'] = $('#acade').val();
+    data['majorId'] = $('#major').val();
+    data['classId'] = $('#class').val();
+    data['gender'] = $('#grender').val();
+    data['dormStatus'] = '0';
+    // 1.2
+    $.ajax({
+        type:'post',
+        contentType:'application/json;charset=utf-8',
+        url:getBasePath()+"/student/list/search",
+        data:JSON.stringify(data),
+        success:function (data) {
             // 写入之前先重置
             $('#stu-table tbody').empty().append("" +
                 "<tr class='tr-h'>\n" +
@@ -39,29 +38,42 @@ function doSearch(searchButtonElePath, selectListsPath,type){
                 "    <th>性别</th>\n" +
                 "</tr>"
             );
-            // 重置 -- 绑定全选事件
-            doSelectAll('#stu-table .tr-h .select-label input',
-                '#stu-table .tr-d .select-label');
-
-            $('#stu-table tbody').append("" +
-                "<tr class='tr-d'>\n" +
-                "    <td><label class='select-label'><input type='checkbox'><input type='hidden' value='000001' name='学生ID' class='stu-id'></label></td>\n" +
-                "    <td>009</td>\n" +
-                "    <td>1507094236</td>\n" +
-                "    <td>江大北</td>\n" +
-                "    <td>男</td>\n" +
-                "</tr>"
-            );
-
+            // 循环写入 DOM
+            for (var i in data){
+                $('#stu-table tbody').append("" +
+                    "<tr class='tr-d'>\n" +
+                    "    <td>" +
+                    "       <label class='select-label'>" +
+                    "           <input type='checkbox' name='one' value='"+data[i]['id']+"'>" +
+                    "       </label>" +
+                    "    </td>\n" +
+                    "    <td>"+(i+1)+"</td>\n" +
+                    "    <td>"+data[i]['id']+"</td>\n" +
+                    "    <td>"+data[i]['name']+"</td>\n" +
+                    "    <td>"+getGenderStr(data[i]['gender'])+"</td>\n" +
+                    "</tr>"
+                );
+            }
         }
-        if (type == 'dorm-table'){
-            // 写入宿舍楼信息
-            $('#apart-introduce span').html('#14-呵呵楼');
-            $('#apart-type span').html('男生公寓');
-            $('#apart-all-bed span').html('900 / 1000');
-            $('#apart-single-bed span').html('6');
+    });
+}
 
-            // 重置 table -- 内容添加
+/**
+ * 根据公寓搜索宿舍
+ */
+function searchDorm() {
+    var data = $('#apartId option:checked').val();
+    $.ajax({
+        type:'get',
+        url:getBasePath()+"/distribute/getDorm/"+data,
+        data:data,
+        success:function (data) {
+            var apart = data['apartDto'];
+            $('#apart-introduce span').html('#'+apart['id']+"-"+apart['name']);
+            $('#apart-type span').html(apart['apartmentTypeName']);
+            $('#apart-all-bed span').html(apart['usedDorm']+' / '+apart['allBed']);
+            $('#apart-single-bed span').html(apart['dormBedNum']);
+
             $('#dorm-table tbody').empty().append("" +
                 "<tr class='tr-h'>\n" +
                 "    <th class='select-label-th'><label class='select-label'><input type='checkbox'>全选</label></th>\n" +
@@ -70,27 +82,20 @@ function doSearch(searchButtonElePath, selectListsPath,type){
                 "    <th class='rest-th'>入住比</th>\n" +
                 "</tr>"
             );
-            // 重置 table -- 绑定全选事件
-            doSelectAll('#dorm-table .tr-h .select-label-th .select-label input',
-                '#dorm-table .tr-d .select-label-td .select-label input');
-            //  根据后台返回 data 写入宿舍信息
-            // for (var i=0; i<data.length; i++){
-            //
-            // }
-            $('#dorm-table tbody').append("" +
-                "<tr class='tr-d'>\n" +
-                "    <td class='select-label-td'><label class='select-label'><input type='checkbox'></label><input type='hidden' class='u-dorm-id' value='00001' name='宿舍ID'></td>\n" +
-                "    <td class='sequence-d'>006</td>\n" +
-                "    <td class='dorm-id-d'>#13-0342</td>\n" +
-                "    <td class='rest-td'><span class='graph-wrap'><span class='distred-change'></span><span class='graph'><span class='exist-num'>6</span>/6</span></span></td>\n" +
-                "</tr>"+
-                "<tr class='tr-d'>\n" +
-                "    <td class='select-label-td'><label class='select-label'><input type='checkbox'></label></td>\n" +
-                "    <td class='sequence-d'>006</td>\n" +
-                "    <td class='dorm-id-d'>#13-0342</td>\n" +
-                "    <td class='rest-td'><span class='graph-wrap'><span class='distred-change'></span><span class='graph'><span class='exist-num'>3</span>/6</span></span></td>\n" +
-                "</tr>"
-            );
+
+            var dorms = data['dormDtos'];
+            for (var i in dorms){
+                $('#dorm-table tbody').append("" +
+                    "<tr class='tr-d'>\n" +
+                    "    <td class='select-label-td'>" +
+                    "       <label class='select-label'><input type='checkbox'></label>" +
+                    "       <input type='hidden' class='u-dorm-id' value='"+dorms[i]['id']+"' name=''></td>\n" +
+                    "    <td class='sequence-d'>"+(i+1)+"</td>\n" +
+                    "    <td class='dorm-id-d'>#"+apart['id']+"-"+dorms[i]['dormId']+"</td>\n" +
+                    "    <td class='rest-td'><span class='graph-wrap'><span class='distred-change'></span><span class='graph'><span class='exist-num'>"+dorms[i]['usedBed']+"</span>/"+dorms[i]['allBed']+"</span></span></td>\n" +
+                    "</tr>"
+                );
+            }
             // 设置进度条
             var singleNum = parseInt($('#apart-single-bed span.value').html());
             var existNum = 0;
@@ -105,6 +110,8 @@ function doSearch(searchButtonElePath, selectListsPath,type){
         }
     });
 }
+
+
 
 /**
  * 按照入住比率比率进行排序
@@ -194,6 +201,7 @@ function doTest(){
     // 展出 div
     $('#test-info').addClass('test-info-in');
 }
+
 //=========
 function _setwidth(target,percentage) {
     return function () {
@@ -205,6 +213,8 @@ function setWidth(target,percentage){
     target.css('width',percentage+'%');
 }
 //=========
+
+
 
 /**
  * 点击确定关闭，关闭弹出窗口
@@ -245,9 +255,77 @@ function doConfirm(){
 
 
 
+/**
+ * 选择学院之后，向后台获取该学院的专业数据
+ * 1. 获取当前学院ID,
+ * 1.1 判断当前选中的是不是全部，是，则清空子选项并终止不发起请求
+ * 2. 发送数据至后台，
+ * 3. 将新数据写入 Dom
+ */
+function doAcademyChange() {
+    // 1.
+    var data = {};
+    data['academyId'] = $('#acade').val();
+    // 1.1 点击全部时清空下一级菜单
+    if (data['academyId']==null || data['academyId'].length == 0){
+        $('#major').empty().append("<option value=''>全部</option>");
+        $('#class').empty().append("<option value=''>全部</option>");
+        $('#dorm').empty().append("<option value=''>全部</option>");
+        return;
+    }
 
+    // 2.
 
+    $.ajax({
+        type:'get',
+        url:getBasePath()+"/major/pid",
+        data:data,
+        success:function (data) {
+            // 将新值写进 dom 之前要=将旧值删除
+            $('#major').empty().append("<option value=''>全部</option>");
+            $('#class').empty().append("<option value=''>全部</option>");
+            for (var i in data){
+                $('#major').append("" +
+                    "<option value='"+data[i]['id']+"'>"+data[i]["name"]+"</option>"
+                )
+            }
+        }
+    })
+}
 
+/**
+ * 选择专业之后，向后台获取该专业的班级数据
+ * 1. 获取当前专业ID,
+ * 1.1 ...
+ * 2. 发送数据至后台，
+ * 3. 将新数据写入 Dom
+ */
+function doMajorChange() {
+    // 1.
+    var data = {};
+    data['majorId'] = $('#major').val();
+    data['dicGrade'] = $('#grade').val();
+    if (data['majorId'] == null || data['majorId'].length == 0) {
+        $('#class').empty().append("<option value=''>全部</option>");
+        return;
+    }
+    // 2.
+    $.ajax({
+        type: 'get',
+        url: getBasePath() + "/class/pid",
+        data: data,
+        success: function (data) {
+            $('#class').empty().append("<option value=''>全部</option>");
+            $('#dorm').empty().append("<option value=''>全部</option>");
+            for (var i in data) {
+                $('#class').append("" +
+                    "<option value='" + data[i]['id'] + "'>" + data[i]["classId"] + "</option>"
+                )
+            }
+        }
+    });
+
+}
 
 
 

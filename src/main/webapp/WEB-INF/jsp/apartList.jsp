@@ -1,18 +1,21 @@
+<%@page language="java" contentType="text/html; utf-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>后台管理--宿舍列表</title>
-    <link rel="shotcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/apartList.css">
-    <link rel="stylesheet" href="css/font-awesome/font-awesome.min.css">
-    <script src="js/comment/jquery-3.2.1.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/apartList.js"></script>
+    <link rel="shotcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="${basePath}/css/reset.css">
+    <link rel="stylesheet" href="${basePath}/css/main.css">
+    <link rel="stylesheet" href="${basePath}/css/apartList.css">
+    <link rel="stylesheet" href="${basePath}/css/font-awesome/font-awesome.min.css">
+    <script src="${basePath}/js/comment/jquery-3.2.1.js"></script>
+    <script src="${basePath}/js/main.js"></script>
+    <script src="${basePath}/js/apartList.js"></script>
 </head>
 <body>
+<input type="hidden" value="${basePath}" id="basePath">
 <aside class="side-bar">
     <ul class="sider-bar-ul" id="sider-bar-ul">
         <li class="logo"><a href="#" class="logo-img">宿舍管理系统</a></li>
@@ -30,7 +33,7 @@
 <div class="container">
     <header class="header" id="header">
         <nav class="message  icon-envelope envelope-icon" id="message-div"></nav>
-        <img src="images/me.jpg" alt="" class="user-img">
+        <img src="${basePath}/images/me.jpg" alt="" class="user-img">
         <span class="welcome-info"><span class="welcome-text">欢迎您</span><span class="user-name">江北</span></span>
         <i class=" icon-caret-down user-arror-down" id="user-arror-down"></i>
         <ul class="user-menu  icon-caret-up caret-up hide" id="user-menu">
@@ -42,46 +45,17 @@
     <div class="main-body">
         <div class="content">
             <ul class="apart-list" id="apart-list">
-                <li class="apart special">
-                    <span class="apart-img icon-building"></span>
-                    <ul class="apart-text-list">
-                        <li class="apart-text"># <span class="dorm-id">13</span><span class="block-10"></span>文瀛楼</li>
-                        <li class="apart-text"><span class="apart-type">男生宿舍楼</span>，共<span class="apart-num">3</span>层</li>
-                        <li class="apart-text">床位： <span class="rest-num">200</span> / 3000</li>
-                    </ul>
-                </li>
-                <li class="apart special">
-                    <span class="apart-img icon-building"></span>
-                    <ul class="apart-text-list">
-                        <li class="apart-text">#13<span class="block-10"></span>文瀛楼</li>
-                        <li class="apart-text"><span class="apart-type">男生宿舍楼</span>，共<span class="apart-num">3</span>层</li>
-                        <li class="apart-text">床位： <span class="rest-num">200</span> / 3000</li>
-                    </ul>
-                </li>
-                <li class="apart special">
-                    <span class="apart-img icon-building"></span>
-                    <ul class="apart-text-list">
-                        <li class="apart-text">#13<span class="block-10"></span>文瀛楼</li>
-                        <li class="apart-text"><span class="apart-type">男生宿舍楼</span>，共<span class="apart-num">3</span>层</li>
-                        <li class="apart-text">床位： <span class="rest-num">200</span> / 3000</li>
-                    </ul>
-                </li>
-                <li class="apart special">
-                    <span class="apart-img icon-building"></span>
-                    <ul class="apart-text-list">
-                        <li class="apart-text">#13<span class="block-10"></span>文瀛楼</li>
-                        <li class="apart-text"><span class="apart-type">男生宿舍楼</span>，共<span class="apart-num">3</span>层</li>
-                        <li class="apart-text">床位： <span class="rest-num">200</span> / 3000</li>
-                    </ul>
-                </li>
-                <li class="apart special">
-                    <span class="apart-img icon-building"></span>
-                    <ul class="apart-text-list">
-                        <li class="apart-text">#13<span class="block-10"></span>文瀛楼</li>
-                        <li class="apart-text"><span class="apart-type">男生宿舍楼</span>，共<span class="apart-num">3</span>层</li>
-                        <li class="apart-text">床位： <span class="rest-num">200</span> / 3000</li>
-                    </ul>
-                </li>
+                <c:forEach items="${apartmentDtoList}" var="item">
+                    <li class="apart special">
+                        <span class="apart-img icon-building"></span>
+                        <ul class="apart-text-list">
+                            <input type="hidden" class="apartId" value="${item.id}">
+                            <li class="apart-text">#${item.id}<span class="block-10"></span>${item.name}</li>
+                            <li class="apart-text"><span class="apart-type">${item.apartmentTypeName}</span>，共<span class="apart-num">${item.floorNum}</span>层</li>
+                            <li class="apart-text">床位： <span class="rest-num">${item.remainBed}</span> / ${item.allBed}</li>
+                        </ul>
+                    </li>
+                </c:forEach>
                 <li class="apart apart-add" id="apart-add" onclick="openAddDiv()">
                     <span class="apart-img  icon-plus-sign"></span>
                 </li>
@@ -97,21 +71,27 @@
         <li class="add-apart-li"><span class="add-apart-text">楼名：</span><input type="text" class="entry-input" name="name"></li>
         <li class="add-apart-li"><span class="add-apart-text">楼编号：</span><input type="text" class="entry-input" name="id"></li>
         <li class="add-apart-li"><span class="add-apart-text">楼层数：</span><input type="text" class="entry-input" name="floorNum"></li>
-        <li class="add-apart-li one-li"><span class="add-apart-text">楼类型：</span><select class="entry-select" name="dicApartType">
-            <option value="">男生宿舍楼</option>
-            <option value="">女生宿舍楼</option>
-            <option value="">留学生公寓</option>
-            <option value="">教师公寓</option>
-            <option value="">新建</option>
-        </select></li>
-        <li class="add-apart-li"><span class="add-apart-text">宿舍总数：</span><input type="text" class="entry-input" name="floorDoriNum"></li>
-        <li class="add-apart-li"><span class="add-apart-text">单位床铺数：</span><input type="text" class="entry-input" name="cellBed"></li>
+        <li class="add-apart-li one-li"><span class="add-apart-text">楼类型：</span>
+            <select class="entry-select" name="dicApartType">
+                <option value="10003">普通男生公寓</option>
+                <option value="10004">普通女生公寓</option>
+                <option value="10005">普通混合公寓</option>
+                <option value="10006">研究生男生公寓</option>
+                <option value="10007">研究生女生公寓</option>
+                <option value="10008">研究生混合公寓</option>
+                <option value="10009">留学生男生公寓</option>
+                <option value="10010">留学生女生公寓</option>
+                <option value="10011">留学生混合公寓</option>
+            </select>
+        </li>
+        <li class="add-apart-li"><span class="add-apart-text">宿舍总数：</span><input type="text" class="entry-input" name="dormNum"></li>
+        <li class="add-apart-li"><span class="add-apart-text">单位床铺数：</span><input type="text" class="entry-input" name="dormBedNum"></li>
     </ul>
     <input type="button" value="提交" class="input-submit" onclick="addApartSubmit()">
     <span class="close-icon icon-remove" onclick="closeAdd(this)"></span>
 </div>
 <div class="dorm-list hide-out" id="dorm-list-Div">
-    <iframe src="dormList.html" frameborder="0" class="iframe-dormList" id="dorm-list-iframe"></iframe>
+    <iframe src="" frameborder="0" class="iframe-dormList" id="dorm-list-iframe"></iframe>
     <div class="student-info slip-out-dormInfo" id="student-info"></div>
     <div class="student-info-add student-info-add-out" id="student-info-add">
         <input type="text" class="stuAdd-input" placeholder="请输入学号查找" id="stuAdd-inpu">
@@ -122,6 +102,7 @@
         </div>
     </div>
 </div>
+<div id="wait-icon" class="hide icon-spinner spinner-animation-transform"></div>
 </body>
 </html>
 
