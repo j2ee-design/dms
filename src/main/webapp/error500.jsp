@@ -1,16 +1,10 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: xinho
-  Date: 17-10-26
-  Time: 上午9:36
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8"  pageEncoding="UTF-8" language="java" isErrorPage="true" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>505</title>
 </head>
 <body>
-    <h1>抱歉，服务器开小差了！</h1>
+<h4 style="text-align: center;margin-top: 100px;font-size: 20px;font-weight: 600">抱歉，服务器开小差了～~</h4>
 </body>
 </html>

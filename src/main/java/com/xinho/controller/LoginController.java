@@ -2,6 +2,7 @@ package com.xinho.controller;
 
 import com.xinho.bean.SysUser;
 import com.xinho.constant.PageCodeEnum;
+import com.xinho.constant.SessionKeyConst;
 import com.xinho.service.SysUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -44,9 +45,8 @@ public class LoginController {
             return "redirect:/login";
         }
         // 登录成功，保存登录状态。TODO 这里应该用一个token
-
-
-        return "main";
+        session.setAttribute(SessionKeyConst.USER_INFO,sysUserService.getUser(user.getId()));
+        return "redirect:/index";
     }
 }
 

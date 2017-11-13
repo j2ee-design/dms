@@ -22,7 +22,7 @@
     <form action="${basePath}/login/validate" method="post" id="mainForm">
     <div class="login-div">
         <h2>宿舍管理系统后台登录</h2>
-        <div class="form-input  mg-top-10"><input type="text" id="username" name="name" placeholder="账号:"></div>
+        <div class="form-input  mg-top-10"><input type="text" id="username" name="id" placeholder="账号:"></div>
         <div class="form-input "><input type="password" id="password" name="password" placeholder="密码:"><input type="hidden" value="pass"></div>
         <div class="remember-me mg-bottom-10"><label><input type="checkbox" name="rememberMe"><span class="text">10 天内免登录</span></label></div>
         <div class="form-input login-button-wrap"><input type="text" onclick="loginSubmit()" id="login-submit" class="button login-button" value="登录" readonly></div>

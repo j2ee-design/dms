@@ -1,3 +1,16 @@
+$(function () {
+    closeUserMenu();
+    // 弹出用户菜单并阻止冒泡
+    $('#user-arror-down').bind('click',function (event) {
+        $('#user-menu').slideToggle(300);
+        event.stopPropagation();
+    });
+    showMassage();
+});
+
+/**
+ * 左侧菜单栏收缩
+ */
 function collapse() {
     if ($("#collapse").hasClass("icon-double-angle-left")){
         // 变换图标
@@ -16,10 +29,17 @@ function collapse() {
 }
 
 /**
+ * 回到首页
+ */
+function toIndex() {
+    window.location.href = getBasePath()+"/index";
+}
+
+/**
  * 请求数据、展开二级菜单
  * @param target
  */
-function openSonMenu(target){
+function openSonMenu(target,code){
     targetId = '#' + target;
 
     // 判断 sider-bar 是否已经关闭，关闭则点击无效
@@ -37,47 +57,82 @@ function openSonMenu(target){
         }
     }
     $("#sider-bar-ul").children('li.open').removeClass('open');
-    var data;
-    addSonMenu(target,data);
 
+    // 查询后台（传入当前点击）
+
+
+    // 将查询结果绘制到页面
+    // addSonMenu(target,data);
+    if (code == 1){
+        // 加入 dom 树
+
+        $(targetId).parent().append(
+            "<ul class='son-menu hide' id='son-menu'>"+
+                 "<li class='son-menu-li'><a href='javascript:void(0);' class='son-li-a' onclick=\"goUrl('/student')\">添加学生</a></li>" +
+                 "<li class='son-menu-li'><a href='javascript:void(0);' class='son-li-a' onclick=\"goUrl('/student/list')\">查看学生资料</a></li>"+
+            "</ul>"
+        );
+        // 将当前 li 置为 open，在将二级菜单慢慢滑出,
+        $(targetId).parent().addClass('open');
+        $("#son-menu").slideDown(150);
+    }
+    if (code == 2){
+        // 加入 dom 树
+        $(targetId).parent().append(
+            "<ul class='son-menu hide' id='son-menu'>"+
+            "<li class='son-menu-li'><a href='javascript:void(0);' class='son-li-a' onclick=\"goUrl('/apart')\">查看公寓</a></li>" +
+            "<li class='son-menu-li'><a href='javascript:void(0);' class='son-li-a' onclick=\"goUrl('/distribute')\">分配宿舍</a></li>"+
+            "<li class='son-menu-li'><a href='javascript:void(0);' class='son-li-a' onclick=\"goUrl('/dormReset')\">退宿管理</a></li>"+
+            "</ul>"
+        );
+        // 将当前 li 置为 open，在将二级菜单慢慢滑出,
+        $(targetId).parent().addClass('open');
+        $("#son-menu").slideDown(150);
+    }
+    if(code != 1 && code != 2){
+        $(targetId).parent().append(
+            "<ul class='son-menu hide' id='son-menu'>"+
+            "<li class='son-menu-li'><a href='' class='son-li-a' onclick='goUrl()'>我还没写呢。。。</a></li>" +
+            "</ul>"
+        );
+        // 将当前 li 置为 open，在将二级菜单慢慢滑出,
+        $(targetId).parent().addClass('open');
+        $("#son-menu").slideDown(150);
+    }
 }
-
+function goUrl(url) {
+    window.location.href = getBasePath()+url;
+}
 /**
  * 绘制二级菜单
  * @param target 父容器的 id
  * @param data 添加的子菜单。
  */
-function addSonMenu(target, data) {
-    targetId = '#' + target;
+// function addSonMenu(target, data) {
+//     targetId = '#' + target;
+//
+//     // 加入 dom 树
+//     $(targetId).parent().append(
+//         "<ul class='son-menu hide' id='son-menu'>"+
+//         "<li class='son-menu-li'><a href='' class='son-li-a' onclick='goUrl()'>新生资料录入</a></li>" +
+//         "<li class='son-menu-li'><a href='' class='son-li-a' onclick='goUrl()'>学生资料维护</a></li>"+
+//         "</ul>"
+//     );
+//     // 将当前 li 置为 open，在将二级菜单慢慢滑出,
+//     $(targetId).parent().addClass('open');
+//     $("#son-menu").slideDown(150);
+// }
 
-    // 加入 dom 树
-    $(targetId).parent().append(
-        "<ul class='son-menu hide' id='son-menu'>"+
-        "<li class='son-menu-li'><a href='' class='son-li-a'>新生资料录入</a></li>" +
-        "<li class='son-menu-li'><a href='' class='son-li-a'>学生资料维护</a></li>"+
-        "</ul>"
-    );
-    // 将当前 li 置为 open，在将二级菜单慢慢滑出,
-    $(targetId).parent().addClass('open');
-    $("#son-menu").slideDown(150);
-}
-
-
+/**
+ * 点击关闭用户菜单
+ */
 function closeUserMenu() {
     $('body').click(function () {
         $('#user-menu').slideUp(300);
     })
 }
 
-$(function () {
-    closeUserMenu();
-    // 弹出用户菜单并阻止冒泡
-    $('#user-arror-down').bind('click',function (event) {
-        $('#user-menu').slideToggle(300);
-        event.stopPropagation();
-    });
-    showMassage();
-});
+
 function showMassage(message) {
     if (message != null && message.trim().length>0){
         alert(message);

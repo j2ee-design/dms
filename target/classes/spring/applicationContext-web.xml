@@ -23,4 +23,17 @@
     <mvc:resources mapping="/js/**" location="/static-resources/js/"/>
     <mvc:resources mapping="/font/**" location="/static-resources/font/"/>
     <mvc:resources mapping="/laydate/**" location="/static-resources/other/laydate/"/>
+    <!-- 开启拦截器 -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <mvc:exclude-mapping path="/images/**"/>
+            <mvc:exclude-mapping path="/css/**"/>
+            <mvc:exclude-mapping path="/js/**"/>
+            <mvc:exclude-mapping path="/font/**"/>
+            <mvc:exclude-mapping path="/laydate/**"/>
+            <mvc:exclude-mapping path="/login/**"/>
+            <bean class="com.xinho.controller.interceptor.SessionInterceptor"/>
+        </mvc:interceptor>
+    </mvc:interceptors>
 </beans>

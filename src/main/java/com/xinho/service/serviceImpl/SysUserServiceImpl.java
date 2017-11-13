@@ -33,6 +33,11 @@ public class SysUserServiceImpl implements SysUserService{
         }
         return sysUser.getPassword().equals(user.getPassword());
     }
+
+    @Override
+    public SysUser getUser(Integer id) {
+        return sysUserDao.selectByPrimaryKey(id);
+    }
 }
 
 

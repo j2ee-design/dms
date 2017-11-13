@@ -65,4 +65,14 @@
             <include-prelude>/WEB-INF/jsp/common.jsp</include-prelude>
         </jsp-property-group>
     </jsp-config>
+    <!--错误页面展示-->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error404.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error500.jsp</location>
+    </error-page>
 </web-app>

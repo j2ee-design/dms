@@ -6,4 +6,6 @@ public interface SysUserService {
     boolean validateDate(SysUser user);
 
     boolean validate(SysUser user);
+
+    SysUser getUser(Integer id);
 }
