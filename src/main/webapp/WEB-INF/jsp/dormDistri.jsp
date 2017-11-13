@@ -78,19 +78,12 @@
                 <div class="table-wrap stu-table-div scroller-bar-01">
                     <table class="stu-table table" id="stu-table">
                         <tr class="tr-h">
-                            <th><label class="select-label"><input type="checkbox">全选</label></th>
+                            <th><label class="select-label"><input type="checkbox" onclick="clickAllStu()">全选</label></th>
                             <th>编号</th>
                             <th>学号</th>
                             <th>姓名</th>
                             <th>性别</th>
                         </tr>
-                        <%--<tr class="tr-d">--%>
-                            <%--<td><label class="select-label"><input type="checkbox" value=""></label></td><!--checkbox value 中填学生在数据库中的序号-->--%>
-                            <%--<td>01</td>--%>
-                            <%--<td>1507094236</td>--%>
-                            <%--<td>江大北</td>--%>
-                            <%--<td>男</td>--%>
-                        <%--</tr>--%>
                     </table>
                 </div>
             </div>
@@ -114,19 +107,11 @@
                 <div class="table-wrap dorm-table-div scroller-bar-01">
                     <table class="dorm-table table" id="dorm-table">
                         <tr class="tr-h">
-                            <th class="select-label-th"><label class="select-label"><input type="checkbox">全选</label></th>
+                            <th class="select-label-th"><label class="select-label"><input type="checkbox" onclick="clickAllDorm()">全选</label></th>
                             <th class="sequence-h">序号</th>
                             <th class="dorm-id-h">宿舍号</th>
                             <th class="rest-th">入住比</th>
                         </tr>
-
-                        <%--<tr class="tr-d">--%>
-                            <%--<td class="select-label-td"><label class="select-label"><input type="checkbox"></label></td>--%>
-                            <%--<td class="sequence-d">01</td>--%>
-                            <%--<td class="dorm-id-d">#13-0342</td>--%>
-                            <%--<td class="rest-td"><span class="graph-wrap"><span class="distred-change"></span><span class="graph">1/6</span></span></td>--%>
-                        <%--</tr>--%>
-
                     </table>
                 </div>
             </div>
@@ -135,8 +120,8 @@
     </div>
 </div>
     <div class="test-info" id="test-info">
-        <p>本次共<span class="stu-num"></span>名学生参与分配，有<span class="dorm-num"></span>个宿舍参与变更，成功分配<span class="distrbute-num"></span>名学生，
-        共<span class="dorm-num"></span>个宿舍受到变更。</p>
+        <p>本次测试共<span class="stu-num"></span>名学生<span class="dorm-num"></span>个宿舍参与分配，成功分配<span class="distrbute-num"></span>名学生<!--
+     -->至<span class="dorm-num"></span>个宿舍。<span class="moreInfo"></span></p>
         <span class="confirm" onclick="closeBox()">确定</span>
     </div>
 <span class="popup-hint-info" id="popup-hint-info"></span>

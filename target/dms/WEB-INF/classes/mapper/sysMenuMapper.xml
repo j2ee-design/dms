@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xinho.dao.SysMenuDao">
-  <resultMap id="BaseResultMap" type="com.xinho.bean.sysMenu">
+  <resultMap id="BaseResultMap" type="com.xinho.bean.SysMenu">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="name" jdbcType="VARCHAR" property="name" />
     <result column="url" jdbcType="VARCHAR" property="url" />
@@ -69,7 +69,7 @@
   <sql id="Base_Column_List">
     id, name, url, parent_id, order_num
   </sql>
-  <select id="selectByExample" parameterType="com.xinho.bean.sysMenuExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xinho.bean.SysMenuExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -93,19 +93,19 @@
     delete from sys_menu
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xinho.bean.sysMenuExample">
+  <delete id="deleteByExample" parameterType="com.xinho.bean.SysMenuExample">
     delete from sys_menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xinho.bean.sysMenu">
+  <insert id="insert" parameterType="com.xinho.bean.SysMenu">
     insert into sys_menu (id, name, url, 
       parent_id, order_num)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{url,jdbcType=VARCHAR}, 
       #{parentId,jdbcType=INTEGER}, #{orderNum,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" parameterType="com.xinho.bean.sysMenu">
+  <insert id="insertSelective" parameterType="com.xinho.bean.SysMenu">
     insert into sys_menu
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -142,7 +142,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xinho.bean.sysMenuExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.xinho.bean.SysMenuExample" resultType="java.lang.Long">
     select count(*) from sys_menu
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -182,7 +182,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xinho.bean.sysMenu">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xinho.bean.SysMenu">
     update sys_menu
     <set>
       <if test="name != null">
@@ -200,7 +200,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xinho.bean.sysMenu">
+  <update id="updateByPrimaryKey" parameterType="com.xinho.bean.SysMenu">
     update sys_menu
     set name = #{name,jdbcType=VARCHAR},
       url = #{url,jdbcType=VARCHAR},

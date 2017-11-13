@@ -20,19 +20,13 @@ public enum PageCodeEnum {
     DISTRI_ADD_STU_FAIL(1401,"添加学生至宿舍失败，未知错误"),
     DISTRI_ADD_STU_FAIL_DISTRIED(1402,"添加学生至宿舍失败，该学生已经分配宿舍/该宿舍人满。"),
     DISTRI_ADD_STUNOEXIST(1403,"添加学生失败，该学生ID/宿舍ID不存在"),
+    DELETE_SUCCESS(1500,"删除成功"),
+    DELETE_FAIL_NO_DISCRI(1501,"删除失败，该生未分配宿舍。"),
+    DELETE_FAIL_NO_STU(1502,"删除失败，该学生不存在。"),
+    DELETEe_FAIL_DONT_KNOW(1503,"删除失败，未知错误"),
+    USER_LOGIN_FAIL_DATA_ILLIGLE(1601,"登录失败，数据非法"),
+    USER_LOGIN_FAIL_VALIDATE(1602,"登录失败，用户名或密码不正确");
 
-
-
-    STUDENT_REMOVE_SUCCESS(1200,"删除成功！"),
-    STUDENT_REMOVE_FAIL(1201,"删除失败！"),
-    LOGIN_FAIL(1301,"登录失败！用户名密码错误！"),
-    SESSION_TIMEOUT(1302,"session超时，请重新登录！"),
-    NO_AUTH(1303,"没有权限访问请求资源，请切换账户后重试！"),
-    USERNAME_EXISTS(1401,"用户名已存在！"),
-    GROUPNAME_EXISTS(1402,"用户组名已存在！"),
-    ASSIGN_SUCCESS(1500,"分配成功！"),
-    ASSIGN_FAIL(1501,"分配失败！"),
-    ;
 
     private Integer code;
     private String msg;

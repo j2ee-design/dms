@@ -42,4 +42,6 @@ public interface StudentService {
     boolean validateAddLogic(StudentDto studentDto);
 
     StudentDto beanToDto(Student student);
+
+    int searchStudentDelete(StudentDto studentDto);
 }

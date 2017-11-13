@@ -10,93 +10,82 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6f6b33d6-e0bb-4df5-bd67-325dd9212b0a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/controller/ApartmentController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormDistriController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormResetController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormDistri.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormList.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/xinho/service/ApartmentTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormDistri.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/js/comment/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/jsp/apartList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/jsp/dormDistri.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/jsp/dormList.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/static-resources/js/comment/bootstrap.js" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/apartList.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/apartList.jsp" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormReset.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormReset.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/Apartment.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/bean/Apartment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/Dormitory.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/bean/Dormitory.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/bean/SysUser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/DormDistriService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/SysUserService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/DormDistriServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/SysUserServiceImpl.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/bean/sysUser.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/sysMenu.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/sysMenuExample$Criteria.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/sysMenuExample$Criterion.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/sysMenuExample$GeneratedCriteria.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/sysMenuExample.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/sysUser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/sysUserExample$Criteria.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/sysUserExample$Criterion.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/sysUserExample$GeneratedCriteria.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/xinho/bean/sysUserExample.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/sysMenu.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/sysMenuExample$Criteria.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/sysMenuExample$Criterion.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/sysMenuExample$GeneratedCriteria.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/sysMenuExample.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/sysUser.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/sysUserExample$Criteria.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/sysUserExample$Criterion.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/sysUserExample$GeneratedCriteria.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/sysUserExample.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/jsp/dormReset.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/jsp/main.html" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/bean/sysMenu.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/bean/SysMenu.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/bean/sysMenuExample.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/bean/SysMenuExample.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/bean/sysUserExample.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/bean/SysUserExample.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/main.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/main.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/constant/PageCodeEnum.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/constant/PageCodeEnum.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/controller/StudentController.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/controller/StudentController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/dto/ApartmentDto.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/dto/ApartmentDto.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/dto/StudentDto.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/dto/StudentDto.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/service/ApartmentService.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/service/ApartmentService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/service/DormitoryService.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/service/DormitoryService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/dao/SysMenuDao.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/dao/SysMenuDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/dao/SysUserDao.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/dao/SysUserDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/service/StudentService.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/service/StudentService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/service/serviceImpl/ApartmentServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/service/serviceImpl/ApartmentServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/service/serviceImpl/DormitoryServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/service/serviceImpl/DormitoryServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/xinho/service/serviceImpl/StudentServiceImpl.class" afterPath="$PROJECT_DIR$/target/classes/com/xinho/service/serviceImpl/StudentServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/Apartment.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/Apartment.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/Dormitory.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/bean/Dormitory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/constant/PageCodeEnum.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/constant/PageCodeEnum.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/controller/StudentController.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/controller/StudentController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/dto/ApartmentDto.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/dto/ApartmentDto.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/dto/StudentDto.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/dto/StudentDto.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/service/ApartmentService.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/service/ApartmentService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/service/DormitoryService.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/service/DormitoryService.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/dao/SysMenuDao.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/dao/SysMenuDao.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/dao/SysUserDao.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/dao/SysUserDao.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/service/StudentService.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/service/StudentService.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/service/serviceImpl/ApartmentServiceImpl.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/service/serviceImpl/ApartmentServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/service/serviceImpl/DormitoryServiceImpl.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/service/serviceImpl/DormitoryServiceImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/service/serviceImpl/StudentServiceImpl.class" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/com/xinho/service/serviceImpl/StudentServiceImpl.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/xinho/service/StudentServiceTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/xinho/service/StudentServiceTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/6be36501-5e23-4e52-863d-50f2f5f5f5f5.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/6be36501-5e23-4e52-863d-50f2f5f5f5f5.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/bean/Apartment.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/bean/Apartment.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/bean/Dormitory.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/bean/Dormitory.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/constant/PageCodeEnum.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/constant/PageCodeEnum.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormitoryController.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormitoryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/controller/MajorController.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/controller/MajorController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormDistriController.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormDistriController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormResetController.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormResetController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/controller/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/controller/LoginController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/controller/StudentController.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/controller/StudentController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/dao/StudentDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/dao/StudentDao.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/dto/ApartmentDto.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/dto/ApartmentDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/dto/DormitoryDto.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/dto/DormitoryDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/dto/StudentDto.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/dto/StudentDto.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/service/AcademyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/AcademyService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/service/ApartmentService.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/ApartmentService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/service/DormitoryService.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/DormitoryService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/dao/SysMenuDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/dao/SysMenuDao.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/dao/SysUserDao.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/dao/SysUserDao.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/service/StudentService.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/StudentService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/AcademyServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/AcademyServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/ApartmentServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/ApartmentServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/DormitoryServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/DormitoryServiceImpl.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/StudentServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/StudentServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/StudentMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/studentList.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/studentList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sysMenuMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sysMenuMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/sysUserMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/sysUserMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormDistri.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormDistri.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormReset.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormReset.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/css/dormDistri.css" afterPath="$PROJECT_DIR$/src/main/webapp/static-resources/css/dormDistri.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/css/main.css" afterPath="$PROJECT_DIR$/src/main/webapp/static-resources/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/css/studentList.css" afterPath="$PROJECT_DIR$/src/main/webapp/static-resources/css/studentList.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/js/apartList.js" afterPath="$PROJECT_DIR$/src/main/webapp/static-resources/js/apartList.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/js/dormDistri.js" afterPath="$PROJECT_DIR$/src/main/webapp/static-resources/js/dormDistri.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/js/dormList.js" afterPath="$PROJECT_DIR$/src/main/webapp/static-resources/js/dormList.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/js/dormReset.js" afterPath="$PROJECT_DIR$/src/main/webapp/static-resources/js/dormReset.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/js/login.js" afterPath="$PROJECT_DIR$/src/main/webapp/static-resources/js/login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/js/main.js" afterPath="$PROJECT_DIR$/src/main/webapp/static-resources/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/js/studentAdd.js" afterPath="$PROJECT_DIR$/src/main/webapp/static-resources/js/studentAdd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/static-resources/js/studentList.js" afterPath="$PROJECT_DIR$/src/main/webapp/static-resources/js/studentList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/xinho/service/DormitoryServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/xinho/service/DormitoryServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/xinho/service/StudentServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/xinho/service/StudentServiceTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/StudentMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/StudentMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/mapper/StudentMapper.xml" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/mapper/StudentMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/jsp/studentList.jsp" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/jsp/studentList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/sysMenuMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/sysMenuMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/mapper/sysUserMapper.xml" afterPath="$PROJECT_DIR$/target/classes/mapper/sysUserMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/mapper/sysMenuMapper.xml" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/mapper/sysMenuMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/classes/mapper/sysUserMapper.xml" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/classes/mapper/sysUserMapper.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/WEB-INF/jsp/login.jsp" afterPath="$PROJECT_DIR$/target/dms/WEB-INF/jsp/login.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/static-resources/css/dormDistri.css" afterPath="$PROJECT_DIR$/target/dms/static-resources/css/dormDistri.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/static-resources/css/main.css" afterPath="$PROJECT_DIR$/target/dms/static-resources/css/main.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/static-resources/css/studentList.css" afterPath="$PROJECT_DIR$/target/dms/static-resources/css/studentList.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/static-resources/js/apartList.js" afterPath="$PROJECT_DIR$/target/dms/static-resources/js/apartList.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/static-resources/js/dormDistri.js" afterPath="$PROJECT_DIR$/target/dms/static-resources/js/dormDistri.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/static-resources/js/dormList.js" afterPath="$PROJECT_DIR$/target/dms/static-resources/js/dormList.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/static-resources/js/dormReset.js" afterPath="$PROJECT_DIR$/target/dms/static-resources/js/dormReset.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/static-resources/js/login.js" afterPath="$PROJECT_DIR$/target/dms/static-resources/js/login.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/static-resources/js/main.js" afterPath="$PROJECT_DIR$/target/dms/static-resources/js/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/static-resources/js/studentAdd.js" afterPath="$PROJECT_DIR$/target/dms/static-resources/js/studentAdd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/dms/static-resources/js/studentList.js" afterPath="$PROJECT_DIR$/target/dms/static-resources/js/studentList.js" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -128,51 +117,58 @@
     </expand>
     <select />
   </component>
+  <component name="FavoritesManager">
+    <favorites_list name="dms" />
+  </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="studentList.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/studentList.jsp">
+      <file leaf-file-name="login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/js/login.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="39" column="30" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="30" />
+            <state relative-caret-position="222">
+              <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="dormDistri.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/js/dormDistri.js">
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-              <folding>
-                <element signature="n#!!doc;n#doAcademyChange#0" expanded="false" />
-                <element signature="n#!!doc;n#doMajorChange#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="dormReset.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormReset.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="595">
-              <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+            <state relative-caret-position="341">
+              <caret line="24" column="90" lean-forward="false" selection-start-line="24" selection-start-column="76" selection-end-line="24" selection-end-column="90" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DormResetController.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/DormResetController.java">
+      <file leaf-file-name="LoginController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/LoginController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+            <state relative-caret-position="256">
+              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SysUserServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/SysUserServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="375">
+              <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#267#268#0" expanded="true" />
-                <element signature="e#301#302#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="sys_user" pinned="false" current-in-tab="false">
+        <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.sys_user">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -184,21 +180,13 @@
       <list>
         <option value="FxmlFile" />
         <option value="Jsp File" />
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>isNum</find>
-      <find>setBeanByDtoPageInfo</find>
-      <find>addflag</find>
-      <find>beanToDto</find>
-      <find>td-submit</find>
-      <find>graderInput</find>
-      <find>$('#gradeInput').val()</find>
-      <find>delete</find>
       <find>frontdata['dicGrade']</find>
       <find>filterNum</find>
       <find>getAllBed</find>
@@ -209,7 +197,6 @@
       <find>&lt;div class=&quot;page-shade hide&quot; id=&quot;page-shade&quot;&gt;&lt;/div&gt;</find>
       <find>page</find>
       <find>bean</find>
-      <find>stuNum</find>
       <find>stuAdd-inpu</find>
       <find>searchStudentById</find>
       <find>jsonData[i]['dicGrade']</find>
@@ -221,6 +208,15 @@
       <find>basePath</find>
       <find>apart-single-bed</find>
       <find>distribute</find>
+      <find>doTe</find>
+      <find>doConfi</find>
+      <find>j</find>
+      <find>return</find>
+      <find>stuNum</find>
+      <find>updateByPrimary</find>
+      <find>3407</find>
+      <find>sid</find>
+      <find>update</find>
     </findStrings>
     <replaceStrings>
       <replace>Dormitory</replace>
@@ -255,16 +251,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/util/CommonUtils.java" />
-        <option value="$PROJECT_DIR$/generatorConfig.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/xinho/dao/Generator.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/dto/ClassDto.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/ClassMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/bean/Class.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/ClassService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/ClassServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/test/java/com/xinho/service/ClassServiceTest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/ClassController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/dto/DormitoryDto.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static-resources/css/studentList.css" />
         <option value="$PROJECT_DIR$/target/dms/static-resources/js/studentList.js" />
@@ -277,35 +263,45 @@
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/dto/ApartmentDto.java" />
         <option value="$PROJECT_DIR$/src/test/java/com/xinho/service/ApartmentTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/ApartmentService.java" />
-        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6be36501-5e23-4e52-863d-50f2f5f5f5f5/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/ApartmentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/ApartmentController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static-resources/css/main.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/apartList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/StudentService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/dormList.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/DormitoryService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/constant/PageCodeEnum.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/main.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/bean/Dormitory.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/studentAdd.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/MajorController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormitoryController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/studentList.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/apartList.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/AcademyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/AcademyServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormDistri.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormDistriController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/DormitoryServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/StudentServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/studentList.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/StudentController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/static-resources/css/dormDistri.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/dormDistri.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormReset.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormDistri.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormitoryController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormResetController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormReset.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/StudentController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/StudentService.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/6be36501-5e23-4e52-863d-50f2f5f5f5f5/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/DormDistriService.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/apartList.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/main.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/dormReset.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/DormDistriController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/DormDistriServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/dormDistri.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/main.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/bean/sysUser.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/constant/PageCodeEnum.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/SysUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/StudentServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/static-resources/js/login.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/SysUserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xinho/controller/LoginController.java" />
       </list>
     </option>
   </component>
@@ -359,9 +355,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="AndroidView" />
       <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="PackagesPane">
         <subPane>
           <expand>
@@ -496,11 +492,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/src/main/java/com/xinho/dao" />
-      <recent name="$PROJECT_DIR$/src/main/resources" />
-      <recent name="$PROJECT_DIR$/src/test/java/com/xinho/dao" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.xinho.dto" />
+      <recent name="com.xinho.service" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.xinho.dao" />
@@ -517,9 +511,11 @@
       <recent name="com.xinho.dto" />
       <recent name="com.xinho.dao" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="com.xinho.dto" />
-      <recent name="com.xinho.service" />
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/src/main/java/com/xinho/dao" />
+      <recent name="$PROJECT_DIR$/src/main/resources" />
+      <recent name="$PROJECT_DIR$/src/test/java/com/xinho/dao" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -859,7 +855,8 @@
       <workItem from="1509906053961" duration="35624000" />
       <workItem from="1510013550479" duration="35350000" />
       <workItem from="1510187194623" duration="28767000" />
-      <workItem from="1510275018865" duration="45301000" />
+      <workItem from="1510275018865" duration="45842000" />
+      <workItem from="1510389305070" duration="45881000" />
     </task>
     <task id="LOCAL-00001" summary="日常备份">
       <created>1509877392655</created>
@@ -882,7 +879,14 @@
       <option name="project" value="LOCAL" />
       <updated>1509911493786</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="11-11-最近一个正常使用的版本，宿舍分配页面解决了异步查找的问题，正在完成分配功能。">
+      <created>1510388232185</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1510388232185</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -918,7 +922,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="342225000" />
+    <option name="totallyTimeSpent" value="388647000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -938,11 +942,11 @@
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24169184" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20015106" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29456192" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3984496" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36434108" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32868218" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32868218" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -953,19 +957,19 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32868218" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20619336" sideWeight="0.48526078" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30232558" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18126889" sideWeight="0.48526078" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32930514" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Web" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3503876" sideWeight="0.5147392" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32868218" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18353474" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" x="100" y="100" width="1166" height="568" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30232558" sideWeight="0.5" order="15" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1014,7 +1018,9 @@
     <MESSAGE value="日常备份" />
     <MESSAGE value="studentList打包之后内容丢失？" />
     <MESSAGE value="11-06-03:30-最近一次的正确代码.studentlist中异步选择查询信息可用。" />
-    <option name="LAST_COMMIT_MESSAGE" value="11-06-03:30-最近一次的正确代码.studentlist中异步选择查询信息可用。" />
+    <MESSAGE value="11-11-最近一个正常使用的版本，宿舍分配页面解决了异步查找的问题，正在完成分配功能。" />
+    <MESSAGE value="11-13-最后一次正确源码。准备写权限管理，吐出菜单树了。" />
+    <option name="LAST_COMMIT_MESSAGE" value="11-13-最后一次正确源码。准备写权限管理，吐出菜单树了。" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1022,11 +1028,10 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/main/webapp/static-resources/js/apartList.js</url>
           <line>354</line>
-          <properties />
           <option name="timeStamp" value="253" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="276" />
+      <option name="time" value="299" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1035,214 +1040,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.class">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/css/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="226" column="12" lean-forward="true" selection-start-line="226" selection-start-column="12" selection-end-line="226" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/css/apartList.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="146" column="17" lean-forward="false" selection-start-line="146" selection-start-column="1" selection-end-line="146" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dao/StudentDao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="12" column="28" lean-forward="false" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/userInfo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-523">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/StudentService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-119">
-          <caret line="8" column="4" lean-forward="false" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/MajorServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-696">
-          <caret line="17" column="13" lean-forward="false" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/ClassServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-577">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/js/dormList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dto/StudentDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="12" column="30" lean-forward="false" selection-start-line="12" selection-start-column="19" selection-end-line="12" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dto/PageCodeDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/DormitoryService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="482">
-          <caret line="42" column="56" lean-forward="false" selection-start-line="42" selection-start-column="56" selection-end-line="42" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/apartList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="100" column="50" lean-forward="false" selection-start-line="100" selection-start-column="50" selection-end-line="100" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/LoginController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="7" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/MajorController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="18" column="53" lean-forward="true" selection-start-line="18" selection-start-column="53" selection-end-line="18" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/js/studentAdd.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="56" column="53" lean-forward="false" selection-start-line="56" selection-start-column="8" selection-end-line="56" selection-end-column="53" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dto/DormitoryDto.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="5" column="47" lean-forward="false" selection-start-line="5" selection-start-column="47" selection-end-line="5" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/js/apartList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="451" column="50" lean-forward="true" selection-start-line="451" selection-start-column="50" selection-end-line="451" selection-end-column="50" />
-          <folding>
-            <element signature="n#!!doc;n#closeAdd#0" expanded="false" />
-            <element signature="n#!!block;n#closeAdd#0" expanded="false" />
-            <element signature="n#!!doc;n#openAddDiv#0" expanded="false" />
-            <element signature="n#!!block;n#openAddDiv#0" expanded="false" />
-            <element signature="n#!!doc;n#addApartSubmit#0" expanded="false" />
-            <element signature="n#!!block;n#addApartSubmit#0" expanded="false" />
-            <element signature="n#!!doc;n#addApartDiv#0" expanded="false" />
-            <element signature="n#!!block;n#addApartDiv#0" expanded="false" />
-            <element signature="n#!!doc;n#filterNull#0" expanded="false" />
-            <element signature="n#!!block;n#filterNull#0" expanded="false" />
-            <element signature="n#!!doc;n#filterNum#0" expanded="false" />
-            <element signature="n#!!block;n#filterNum#0" expanded="false" />
-            <element signature="n#!!doc;n#animationLinstener#0" expanded="false" />
-            <element signature="n#!!block;n#animationLinstener#0" expanded="false" />
-            <element signature="n#!!doc;n#hideDormList#0" expanded="false" />
-            <element signature="n#!!block;n#hideDormList#0" expanded="false" />
-            <element signature="n#!!doc;n#stopSomePropagation#0" expanded="false" />
-            <element signature="n#!!block;n#stopSomePropagation#0" expanded="false" />
-            <element signature="n#!!doc;n#slipInDormList#0" expanded="false" />
-            <element signature="n#!!doc;n#alertStudentInfo#0" expanded="false" />
-            <element signature="n#!!doc;n#playInStuInfoAnim#0" expanded="false" />
-            <element signature="n#!!block;n#playInStuInfoAnim#0" expanded="false" />
-            <element signature="n#!!doc;n#getChiefInfo#0" expanded="false" />
-            <element signature="n#!!doc;n#addStudentToDorm#0" expanded="false" />
-            <element signature="n#!!block;n#addStudentToDorm#0" expanded="false" />
-            <element signature="n#!!doc;n#searchStu#0" expanded="false" />
-            <element signature="n#!!doc;n#doAddStudentToDorm#0" expanded="false" />
-            <element signature="n#!!doc;n#getGradeByDicCode#0" expanded="false" />
-            <element signature="n#!!block;n#getGradeByDicCode#0" expanded="false" />
-            <element signature="n#!!doc;n#closeStuInfo#0" expanded="false" />
-            <element signature="n#!!block;n#closeStuInfo#0" expanded="false" />
-            <marker date="1510333712238" expanded="true" signature="10377:10393" ph="..." />
-            <marker date="1510333712238" expanded="true" signature="10377:10413" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/constant/PageCodeEnum.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="40" column="46" lean-forward="false" selection-start-line="40" selection-start-column="38" selection-end-line="40" selection-end-column="46" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/AcademyServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="23" column="39" lean-forward="false" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/AcademyService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="12" column="26" lean-forward="false" selection-start-line="12" selection-start-column="26" selection-end-line="12" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/ApartmentController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="839">
-          <caret line="63" column="31" lean-forward="true" selection-start-line="63" selection-start-column="31" selection-end-line="63" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/ApartmentService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
@@ -1267,13 +1064,6 @@
       </provider>
     </entry>
     <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.dic">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.apartment">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1310,22 +1100,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/bean/Student.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="28" column="30" lean-forward="false" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/studentAdd.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="19" column="0" lean-forward="false" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="59" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormList.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="229">
@@ -1358,36 +1132,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.dormitory">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/bean/Dormitory.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
           <caret line="16" column="26" lean-forward="false" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="26" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormDistri.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="111" column="45" lean-forward="true" selection-start-line="111" selection-start-column="45" selection-end-line="111" selection-end-column="74" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/DormDistriController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="409">
-          <caret line="40" column="50" lean-forward="false" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1421,10 +1170,96 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.major">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/lib/JavaScriptLanguage.jar!/com/intellij/lang/javascript/index/predefined/DHTML.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="34" column="17" lean-forward="false" selection-start-line="34" selection-start-column="17" selection-end-line="34" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/css/dormDistri.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="178" column="15" lean-forward="false" selection-start-line="178" selection-start-column="15" selection-end-line="178" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.class">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/DormResetController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="18" column="19" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/bean/Student.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="26" column="26" lean-forward="false" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/StudentService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="45" column="27" lean-forward="true" selection-start-line="45" selection-start-column="27" selection-end-line="45" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dao/StudentDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="24" column="61" lean-forward="false" selection-start-line="24" selection-start-column="61" selection-end-line="24" selection-end-column="61" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormReset.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="73" column="79" lean-forward="false" selection-start-line="73" selection-start-column="79" selection-end-line="73" selection-end-column="79" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://src:table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.student">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="21" column="2" lean-forward="false" selection-start-line="21" selection-start-column="2" selection-end-line="21" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/6be36501-5e23-4e52-863d-50f2f5f5f5f5/console.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="80" lean-forward="false" selection-start-line="6" selection-start-column="80" selection-end-line="6" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/DormitoryController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
-          <caret line="90" column="49" lean-forward="false" selection-start-line="90" selection-start-column="49" selection-end-line="90" selection-end-column="49" />
+          <caret line="90" column="71" lean-forward="false" selection-start-line="90" selection-start-column="71" selection-end-line="90" selection-end-column="71" />
           <folding>
             <element signature="docComment;method#getDormList#0;class#DormitoryController#0" expanded="false" />
             <element signature="docComment;method#getDormListByClassId#0;class#DormitoryController#0" expanded="false" />
@@ -1432,7 +1267,132 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.major">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.2.3.RELEASE/spring-web-4.2.3.RELEASE-sources.jar!/org/springframework/web/bind/annotation/PathVariable.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="380">
+          <caret line="42" column="18" lean-forward="false" selection-start-line="42" selection-start-column="18" selection-end-line="42" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/DormDistriService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="33" lean-forward="false" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/js/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="344">
+          <caret line="223" column="1" lean-forward="false" selection-start-line="223" selection-start-column="1" selection-end-line="223" selection-end-column="1" />
+          <folding>
+            <element signature="n#!!doc;n#getDateStr#0" expanded="false" />
+            <element signature="n#!!doc;n#getGenderStr#0" expanded="false" />
+            <element signature="n#!!doc;n#getGradeByDicCode#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/js/apartList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="465" column="0" lean-forward="false" selection-start-line="465" selection-start-column="0" selection-end-line="465" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc;n#closeAdd#0" expanded="false" />
+            <element signature="n#!!block;n#closeAdd#0" expanded="false" />
+            <element signature="n#!!doc;n#openAddDiv#0" expanded="false" />
+            <element signature="n#!!block;n#openAddDiv#0" expanded="false" />
+            <element signature="n#!!doc;n#addApartSubmit#0" expanded="false" />
+            <element signature="n#!!block;n#addApartSubmit#0" expanded="false" />
+            <element signature="n#!!doc;n#addApartDiv#0" expanded="false" />
+            <element signature="n#!!block;n#addApartDiv#0" expanded="false" />
+            <element signature="n#!!doc;n#filterNull#0" expanded="false" />
+            <element signature="n#!!block;n#filterNull#0" expanded="false" />
+            <element signature="n#!!doc;n#filterNum#0" expanded="false" />
+            <element signature="n#!!block;n#filterNum#0" expanded="false" />
+            <element signature="n#!!doc;n#animationLinstener#0" expanded="false" />
+            <element signature="n#!!block;n#animationLinstener#0" expanded="false" />
+            <element signature="n#!!doc;n#hideDormList#0" expanded="false" />
+            <element signature="n#!!block;n#hideDormList#0" expanded="false" />
+            <element signature="n#!!doc;n#stopSomePropagation#0" expanded="false" />
+            <element signature="n#!!block;n#stopSomePropagation#0" expanded="false" />
+            <element signature="n#!!doc;n#slipInDormList#0" expanded="false" />
+            <element signature="n#!!doc;n#alertStudentInfo#0" expanded="false" />
+            <element signature="n#!!doc;n#playInStuInfoAnim#0" expanded="false" />
+            <element signature="n#!!block;n#playInStuInfoAnim#0" expanded="false" />
+            <element signature="n#!!doc;n#getChiefInfo#0" expanded="false" />
+            <element signature="n#!!doc;n#addStudentToDorm#0" expanded="false" />
+            <element signature="n#!!block;n#addStudentToDorm#0" expanded="false" />
+            <element signature="n#!!doc;n#searchStu#0" expanded="false" />
+            <element signature="n#!!doc;n#doAddStudentToDorm#0" expanded="false" />
+            <element signature="n#!!doc;n#closeStuInfo#0" expanded="false" />
+            <element signature="n#!!block;n#closeStuInfo#0" expanded="false" />
+            <marker date="1510441219332" expanded="true" signature="10377:10393" ph="..." />
+            <marker date="1510441219332" expanded="true" signature="10377:10413" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/dto/StudentDto.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="18" column="30" lean-forward="true" selection-start-line="18" selection-start-column="30" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/js/dormReset.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="766">
+          <caret line="177" column="19" lean-forward="false" selection-start-line="177" selection-start-column="19" selection-end-line="177" selection-end-column="19" />
+          <folding>
+            <element signature="n#!!doc;n#doAcademyChange#0" expanded="false" />
+            <element signature="n#!!doc;n#doMajorChange#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormDistri.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="75" column="89" lean-forward="true" selection-start-line="75" selection-start-column="89" selection-end-line="75" selection-end-column="89" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/js/dormDistri.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="275" column="25" lean-forward="false" selection-start-line="275" selection-start-column="25" selection-end-line="275" selection-end-column="25" />
+          <folding>
+            <element signature="n#!!doc;n#doTest#0" expanded="false" />
+            <element signature="n#!!doc;n#doAcademyChange#0" expanded="false" />
+            <element signature="n#!!doc;n#doMajorChange#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/DormDistriServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="602">
+          <caret line="88" column="0" lean-forward="false" selection-start-line="88" selection-start-column="0" selection-end-line="88" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/DormDistriController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="52">
+          <caret line="55" column="30" lean-forward="true" selection-start-line="55" selection-start-column="30" selection-end-line="55" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.apartment">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
@@ -1446,13 +1406,59 @@
         </state>
       </provider>
     </entry>
+    <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.dormitory">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/studentAdd.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="47" lean-forward="true" selection-start-line="6" selection-start-column="35" selection-end-line="6" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/studentList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="30" column="59" lean-forward="false" selection-start-line="30" selection-start-column="59" selection-end-line="30" selection-end-column="59" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/bean/SysUser.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="4" lean-forward="false" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/SysUserService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="11" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/StudentServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
-          <caret line="206" column="28" lean-forward="false" selection-start-line="206" selection-start-column="28" selection-end-line="206" selection-end-column="28" />
+        <state relative-caret-position="196">
+          <caret line="405" column="22" lean-forward="false" selection-start-line="405" selection-start-column="22" selection-end-line="405" selection-end-column="22" />
           <folding>
             <element signature="docComment;method#validate#0;class#StudentServiceImpl#0" expanded="false" />
-            <element signature="e#3136#3145#0" expanded="true" />
             <element signature="method#removeStudentById#1;class#StudentServiceImpl#0" expanded="false" />
             <element signature="docComment;method#searchStudentById#0;class#StudentServiceImpl#0" expanded="false" />
             <element signature="docComment;method#getExampleByDto#0;class#StudentServiceImpl#0" expanded="false" />
@@ -1466,79 +1472,78 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/StudentController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="94" column="33" lean-forward="true" selection-start-line="94" selection-start-column="33" selection-end-line="94" selection-end-column="33" />
+        <state relative-caret-position="21">
+          <caret line="146" column="78" lean-forward="true" selection-start-line="146" selection-start-column="78" selection-end-line="146" selection-end-column="78" />
           <folding>
-            <element signature="e#854#855#0" expanded="true" />
-            <element signature="e#900#901#0" expanded="true" />
             <element signature="docComment;method#initAdd#0;class#StudentController#0" expanded="false" />
             <element signature="docComment;method#addSingle#0;class#StudentController#0" expanded="false" />
             <element signature="method#addSingle#0;class#StudentController#0" expanded="false" />
             <element signature="docComment;method#initList#0;class#StudentController#0" expanded="false" />
             <element signature="docComment;method#getStudent#0;class#StudentController#0" expanded="false" />
+            <element signature="docComment;method#getStudentDelete#0;class#StudentController#0" expanded="false" />
             <element signature="docComment;method#modifyStudent#0;class#StudentController#0" expanded="false" />
-            <element signature="method#modifyStudent#0;class#StudentController#0" expanded="false" />
             <element signature="docComment;method#delete#0;class#StudentController#0" expanded="false" />
             <element signature="method#delete#0;class#StudentController#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/css/dormDistri.css">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/constant/PageCodeEnum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="169" column="17" lean-forward="false" selection-start-line="169" selection-start-column="17" selection-end-line="169" selection-end-column="17" />
+        <state relative-caret-position="127">
+          <caret line="26" column="4" lean-forward="false" selection-start-line="26" selection-start-column="4" selection-end-line="26" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/js/main.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1141">
-          <caret line="125" column="7" lean-forward="true" selection-start-line="125" selection-start-column="7" selection-end-line="125" selection-end-column="7" />
+        <state relative-caret-position="222">
+          <caret line="28" column="24" lean-forward="false" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/40d86337/6be36501-5e23-4e52-863d-50f2f5f5f5f5/dms.sys_user">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="24" column="90" lean-forward="false" selection-start-line="24" selection-start-column="76" selection-end-line="24" selection-end-column="90" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/util/CommonUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="26" column="48" lean-forward="true" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
           <folding>
-            <element signature="n#!!doc;n#getDateStr#0" expanded="false" />
-            <element signature="n#!!doc;n#getGenderStr#0" expanded="false" />
+            <element signature="e#753#754#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/studentList.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/service/serviceImpl/SysUserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="39" column="30" lean-forward="true" selection-start-line="39" selection-start-column="18" selection-end-line="39" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/static-resources/js/dormDistri.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="27" selection-end-line="6" selection-end-column="27" />
-          <folding>
-            <element signature="n#!!doc;n#doAcademyChange#0" expanded="false" />
-            <element signature="n#!!doc;n#doMajorChange#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/jsp/dormReset.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="595">
-          <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/DormResetController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="11" column="25" lean-forward="false" selection-start-line="11" selection-start-column="25" selection-end-line="11" selection-end-column="25" />
+        <state relative-caret-position="375">
+          <caret line="33" column="64" lean-forward="false" selection-start-line="33" selection-start-column="64" selection-end-line="33" selection-end-column="64" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#267#268#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xinho/controller/LoginController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

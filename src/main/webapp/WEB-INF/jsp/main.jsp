@@ -1,17 +1,16 @@
+<%@page language="java" contentType="text/html; utf-8" pageEncoding="UTF-8" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>后台管理--首页</title>
-    <link rel="shotcut icon" href="images/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/font-awesome/font-awesome.min.css">
-    <script src="js/comment/jquery-3.2.1.js"></script>
-    <script src="js/main.js"></script>
-    <style>
-
-    </style>
+    <link rel="shotcut icon" href="${basePath}/images/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="${basePath}/css/reset.css">
+    <link rel="stylesheet" href="${basePath}/css/main.css">
+    <link rel="stylesheet" href="${basePath}/css/font-awesome/font-awesome.min.css">
+    <script src="${basePath}/js/comment/jquery-3.2.1.js"></script>
+    <script src="${basePath}/js/main.js"></script>
 </head>
 <body>
 <aside class="side-bar">
@@ -29,9 +28,10 @@
     <div class="sider-bar-toggle"><i class="double-arror-icon icon-double-angle-left" id="collapse" onclick="collapse()"></i></div>
 </aside>
 <div class="container">
+    <input type="hidden" value="${basePath}" id="basePath">
     <header class="header" id="header">
         <nav class="message  icon-envelope envelope-icon" id="message-div"></nav>
-        <img src="images/me.jpg" alt="" class="user-img">
+        <img src="${basePath}/images/me.jpg" alt="" class="user-img">
         <span class="welcome-info"><span class="welcome-text">欢迎您</span><span class="user-name">江北</span></span>
         <i class=" icon-caret-down user-arror-down" id="user-arror-down"></i>
         <ul class="user-menu  icon-caret-up caret-up hide" id="user-menu">

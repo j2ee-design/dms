@@ -25,8 +25,11 @@ $(function () {
 
 });
 
+/**
+ * 登录失败后的提示信息。展示在登录按钮下面。
+ */
 function showMessage() {
-    var message = $("#message").val();
+    var message = $("#msg").val();
     if (message != null && message.length != 0){
         $("#login-info").removeClass("hide");
         $("#login-info").html(message);

@@ -46,33 +46,32 @@
         <h3 class="title">批量退宿</h3>
         <div class="hint-info">*注：搜索针对于在学生，且多搜索条件只支持批量退宿，如有学生属于例外情况需要特殊处理，请输入学号查找后进行操作</div>
         <div class="select-box" id="selectBatch">
-            <label>年级<select name="grade" id="grade">
-                <option value="4">大四</option>
-                <option value="0">全部</option>
-                <option value="1">大一</option>
-                <option value="2">大二</option>
-                <option value="3">大三</option>
+            <label>年级<select name="dicGrade" id="grade" autofocus="">
+                <option value="-1">未选择</option>
+                <option value="">全部</option>
+                <c:forEach items="${dicGradeList}" var="dicGrade">
+                    <option value="${dicGrade.id}">${dicGrade.value}</option>
+                </c:forEach>
             </select></label>
-            <label>学院<select name="academy" id="academy">
-                <option value="0">全部</option>
-                <option value="1">大数据学院</option>
-                <option value="2">机电工程学院</option>
-                <option value="3">软件学院</option>
+            <label>学院<select name="academyId" id="acade" onchange="doAcademyChange()">
+                <option value="-1">未选择</option>
+                <option value="">全部</option>
+                <c:forEach items="${academyDtos}" var="academy">
+                    <option value="${academy.id}">${academy.name}</option>
+                </c:forEach>
             </select></label>
-            <label>专业<select name="majoy" id="majoy">
-                <option value="0">全部</option>
-                <option value="2">物联网工程</option>
-                <option value="3">网络工程</option>
+            <label>专业<select name="majorId" id="major" onchange="doMajorChange()">
+                <option value="-1">未选择</option>
+                <option value="">全部</option>
             </select></label>
             <label>班级<select name="class" id="class">
-                <option value="0">全部</option>
-                <option value="2">15070941</option>
-                <option value="3">15070942</option>
+                <option value="-1">未选择</option>
+                <option value="">全部</option>
             </select></label>
             <input type="button" class="search-button" value="查询" onclick="searchBatch()" id="search-button-1">
         </div>
         <div class="content hide" id="content">
-            <p class="info">当前搜索条件下共<span class="stu-num" id="stu-num"></span>人，涉及到的宿舍楼有：</p>
+            <p class="info">当前搜索条件下共<span class="stu-num" id="stu-num"></span>人</p>
             <p class="info apart-list"><span class="apart-wrap" id="apart-wrap"></span></p>
             <p class="action" id="action">是否退宿处理？<span onclick="quitDormBatch()">是</span><span onclick="cansel()">否</span></p>
         </div>

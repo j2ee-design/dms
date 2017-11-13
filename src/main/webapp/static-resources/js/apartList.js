@@ -464,33 +464,6 @@ function doAddStudentToDorm() {
 }
 
 
-/**
- * 工具类，根据年级代码获取年级
- * @param dicGradeCode
- */
-function getGradeByDicCode(dicGradeCode) {
-    if (dicGradeCode == '10012'){
-        return "大一"
-    }
-    if (dicGradeCode == '10013'){
-        return "大二"
-    }
-    if (dicGradeCode == '10014'){
-        return "大三"
-    }
-    if (dicGradeCode == '10015'){
-        return "大四"
-    }
-    if (dicGradeCode == '10016'){
-        return "研一"
-    }
-    if (dicGradeCode == '10017'){
-        return "研二"
-    }
-    if (dicGradeCode == '10018'){
-        return "研三"
-    }
-}
 
 /**
  * 点击叉叉关闭学生信息卡片

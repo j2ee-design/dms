@@ -1,6 +1,6 @@
 package com.xinho.bean;
 
-public class sysMenu {
+public class SysMenu {
     private Integer id;
 
     private String name;

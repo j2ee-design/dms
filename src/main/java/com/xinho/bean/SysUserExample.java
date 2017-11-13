@@ -3,14 +3,14 @@ package com.xinho.bean;
 import java.util.ArrayList;
 import java.util.List;
 
-public class sysUserExample {
+public class SysUserExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public sysUserExample() {
+    public SysUserExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

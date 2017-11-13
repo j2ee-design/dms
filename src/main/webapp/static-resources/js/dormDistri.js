@@ -1,10 +1,5 @@
 $(function () {
-    // 绑定全选事件
-    doSelectAll('#stu-table tbody .tr-h .select-label input',
-        '#stu-table tbody .tr-d .select-label');
 
-    doSelectAll("#dorm-table tbody .tr-h .select-label-th .select-label input",
-        "#dorm-table tbody .tr-d .select-label-td .select-label input[type='checkbox']");
 
 });
 
@@ -31,7 +26,7 @@ function searchStudent() {
             // 写入之前先重置
             $('#stu-table tbody').empty().append("" +
                 "<tr class='tr-h'>\n" +
-                "    <th><label class='select-label'><input type='checkbox'>全选</label></th>\n" +
+                "    <th><label class='select-label'><input type='checkbox' onclick='clickAllStu()'>全选</label></th>\n" +
                 "    <th>编号</th>\n" +
                 "    <th>学号</th>\n" +
                 "    <th>姓名</th>\n" +
@@ -39,6 +34,7 @@ function searchStudent() {
                 "</tr>"
             );
             // 循环写入 DOM
+            var x = 1;
             for (var i in data){
                 $('#stu-table tbody').append("" +
                     "<tr class='tr-d'>\n" +
@@ -47,15 +43,23 @@ function searchStudent() {
                     "           <input type='checkbox' name='one' value='"+data[i]['id']+"'>" +
                     "       </label>" +
                     "    </td>\n" +
-                    "    <td>"+(i+1)+"</td>\n" +
+                    "    <td>"+x+"</td>\n" +
                     "    <td>"+data[i]['id']+"</td>\n" +
                     "    <td>"+data[i]['name']+"</td>\n" +
                     "    <td>"+getGenderStr(data[i]['gender'])+"</td>\n" +
                     "</tr>"
                 );
+                x++;
             }
         }
     });
+}
+
+/**
+ * 点击全选--学生表
+ */
+function clickAllStu() {
+    $("#stu-table tbody .tr-d td .select-label input[type='checkbox']").click();
 }
 
 /**
@@ -76,7 +80,7 @@ function searchDorm() {
 
             $('#dorm-table tbody').empty().append("" +
                 "<tr class='tr-h'>\n" +
-                "    <th class='select-label-th'><label class='select-label'><input type='checkbox'>全选</label></th>\n" +
+                "    <th class='select-label-th'><label class='select-label'><input type='checkbox' onclick='clickAllDorm()'>全选</label></th>\n" +
                 "    <th class='sequence-h'>序号</th>\n" +
                 "    <th class='dorm-id-h'>宿舍号</th>\n" +
                 "    <th class='rest-th'>入住比</th>\n" +
@@ -88,7 +92,7 @@ function searchDorm() {
                 $('#dorm-table tbody').append("" +
                     "<tr class='tr-d'>\n" +
                     "    <td class='select-label-td'>" +
-                    "       <label class='select-label'><input type='checkbox'></label>" +
+                    "       <label class='select-label'><input type='checkbox' value='"+dorms[i]['id']+"'></label>" +
                     "       <input type='hidden' class='u-dorm-id' value='"+dorms[i]['id']+"' name=''></td>\n" +
                     "    <td class='sequence-d'>"+(i+1)+"</td>\n" +
                     "    <td class='dorm-id-d'>#"+apart['id']+"-"+dorms[i]['dormId']+"</td>\n" +
@@ -111,7 +115,12 @@ function searchDorm() {
     });
 }
 
-
+/**
+ * 点击全选--宿舍表
+ */
+function clickAllDorm() {
+    $("#dorm-table tbody .tr-d .select-label-td .select-label input[type='checkbox']").click();
+}
 
 /**
  * 按照入住比率比率进行排序
@@ -123,11 +132,14 @@ function sortBypercentage(data){
 
 /**
  * 测试分配
- * 1. 计算选中要分配学生人数，计算选中宿舍剩余床位，for 循环依次减去单位宿舍剩余床铺数，直到宿舍用完或者人数耗尽
+ * 1. 判断学生性别和宿舍类型是否匹配
+ * 2. 计算选中要分配学生人数，计算选中宿舍剩余床位，for 循环依次减去单位宿舍剩余床铺数，直到宿舍用完或者人数耗尽
  * 2. 分配结果用进度条表现出来（画进度条之前先删除）
  * 2. 将 for 循环判断结果弹出告知用户（本次分配 ** 人，可分配床位 ** 个，涉及宿舍 ** 个，无法分配完全/可以分配完全）
  */
 function doTest(){
+    // 判断类型符合否 TODO iwangtosleepso
+
     var stuCheckBoxLists = $("#stu-table tbody .tr-d .select-label input[type='checkbox']:checked");
     var stuNum = stuCheckBoxLists.length;
     // 这里可以对宿舍进行某种排序，比如按照入住比
@@ -164,6 +176,7 @@ function doTest(){
     var oldNum = stuNum;
     var singleBed = parseInt($('#apart-single-bed span').html());
     var restNum = 0;
+    var temp = stuNum;//临时变量用来保存总参与分配的学生个数。
     while (stuNum>0 && dormNum>0){
         restNum = singleBed - restNumLists[i];
         if (restNum <= 0){ // 如果当前宿舍已经住满，跳过分配
@@ -193,6 +206,12 @@ function doTest(){
     $('#test-info .dorm-num').html(dormNum);
     $('#test-info .distrbute-num').html(oldNum-stuNum);
     $('#test-info .dorm-num').html(usedDorm);
+    if (oldNum-stuNum<temp){
+        var xx = temp+stuNum-oldNum;
+        $('#test-info .moreInfo').html("有"+xx+"名学生无法分配完全。");
+    } else {
+        $('#test-info .moreInfo').html("可完全分配！");
+    }
     // 设置位置
     var divWidth = parseInt($('#test-info').css('width'));
     var allWidth = $(document).width;
@@ -230,26 +249,37 @@ function closeBox(){
  * 3. 否则弹出失败信息
  */
 function doConfirm(){
-    // 1
+    // 1.2
     var stuList = $("#stu-table tbody .tr-d .select-label input[type='checkbox']:checked");
     var dormList = $("#dorm-table tbody .tr-d .select-label input[type='checkbox']:checked");
-    var stuData = {},dormData={};
+    var stuData = [],dormData=[];
 
-    i = 0;
     stuList.each(function(){
-        stuData[i] = $(this).siblings('.stu-id').val();
-        i++;
+        stuData.push($(this).val());
     });
 
-    i = 0;
     dormList.each(function () {
-        dormData[i] = $(this).parent().siblings('.u-dorm-id').val();
+        dormData.push($(this).parent().siblings('.u-dorm-id').val());
     });
-
-    // 2 改变长度以及弹出提示信息:后台传回修改过的宿舍的 ID 和 以住学生人数和单位总人数，计算宽度。
-
-    popupInfo('分配成功！');
-    console.log(stuData+' '+dormData);
+    var data = {};
+    data['stuIds'] = stuData.join(',');
+    data['dormIds'] = dormData.join(',');
+    // 后台查值
+    $.ajax({
+        type:'post',
+        url:getBasePath()+"/distribute/batchDistribute",
+        data:data,
+        success:function (data) {
+            // 分配成功的数量 TODO iwantsleepso。。。
+            // 分配成功之后点击两个搜索按钮刷新页面。
+            searchStudent();
+            searchDorm();
+            popupInfo('操作成功！');
+        },
+        error:function () {
+            alert("发生异常");
+        }
+    });
 
 }
 
@@ -326,6 +356,10 @@ function doMajorChange() {
     });
 
 }
+
+
+
+
 
 
 

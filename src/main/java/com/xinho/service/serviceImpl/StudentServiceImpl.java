@@ -15,6 +15,7 @@ import java.util.List;
 
 @Service("studentService")
 public class StudentServiceImpl implements StudentService {
+    @Autowired private ApartmentDao apartmentDao;
 
     @Autowired private StudentDao studentDao;
 
@@ -210,11 +211,15 @@ public class StudentServiceImpl implements StudentService {
         StudentExample studentExample = new StudentExample();
         StudentExample.Criteria criteria = studentExample.createCriteria();
 
+        // 退宿用
+        if (studentDto.getDormStatus()!=null){
+            criteria.andDormStatusEqualTo(studentDto.getDormStatus());
+        }
         // 宿舍分配用，性别和宿舍分配状态。
         if (studentDto.getGender()!=null){
             criteria.andGenderEqualTo(studentDto.getGender());
         }
-        if (studentDto.getDormStatus()==0){
+        if (studentDto.getDormStatus()!=null && studentDto.getDormStatus()==0){
             criteria.andDormStatusEqualTo(studentDto.getDormStatus());
         }
 
@@ -266,6 +271,9 @@ public class StudentServiceImpl implements StudentService {
             }
             return studentDtoList;
         }
+
+
+
         studentList = studentDao.selectByExample(studentExample);
         for (Student student: studentList){
             studentDtoList.add(beanToDto(student));
@@ -387,12 +395,13 @@ public class StudentServiceImpl implements StudentService {
         }
 
         // 1. 检验学院是否存在
-        AcademyExample academyExample = new AcademyExample();
-        academyExample.createCriteria().andNameEqualTo(studentDto.getAcademyName());
-        if (academyDao.selectByExample(academyExample).size()!=1){
-            return false;
+        if (studentDto.getAcademyName()!=null){
+            AcademyExample academyExample = new AcademyExample();
+            academyExample.createCriteria().andNameEqualTo(studentDto.getAcademyName());
+            if (academyDao.selectByExample(academyExample).size()!=1){
+                return false;
+            }
         }
-
         // 检验专业是否存在
         MajorExample majorExample = new MajorExample();
         majorExample.createCriteria().andNameEqualTo(studentDto.getMajorName());
@@ -518,6 +527,57 @@ public class StudentServiceImpl implements StudentService {
         }
 
         return studentDto;
+    }
+
+    /**
+     * 根据搜索条件批量删除。
+     * TODO ×
+     * @param studentDto
+     * @return
+     */
+    @Override
+    public int searchStudentDelete(StudentDto studentDto) {
+        StudentExample studentExample = new StudentExample();
+        StudentExample.Criteria criteria = studentExample.createCriteria();
+
+        if (studentDto.getDicGrade()!=null){
+            criteria.andDicGradeEqualTo(studentDto.getDicGrade());
+        }
+        if (studentDto.getAcademyId()!=null){
+            criteria.andAcademyIdEqualTo(studentDto.getAcademyId());
+        }
+        if (studentDto.getMajorId()!=null){
+            criteria.andMajorIdEqualTo(studentDto.getMajorId());
+        }
+        if (studentDto.getClassId()!=null){
+            criteria.andClassIdEqualTo(studentDto.getClassId());
+        }
+        criteria.andDormStatusEqualTo(2);
+
+        int successNum = 0;
+        Dormitory dormitory = null;
+        Apartment apartment = null;
+        // 把每个学生都查出来，因为要连带的修改宿舍和公寓信息
+        List<Student> studentList = studentDao.selectByExample(studentExample);
+        for (Student student: studentList){
+            if (student.getDormId()!=null){
+                dormitory = dormitoryDao.selectByPrimaryKey(student.getDormId());
+                dormitory.setUsedBed(dormitory.getUsedBed()-1);
+                apartment = apartmentDao.selectByPrimaryKey(dormitory.getApartId());
+                apartment.setRemainBed(apartment.getRemainBed()+1);
+                if (dormitory.getUsedBed()==0){
+                    apartment.setUsedDorm(apartment.getUsedDorm()-1);
+                    dormitory.setChiefId(null);
+                    dormitory.setClassId(null);
+                }
+                dormitoryDao.updateByPrimaryKey(dormitory);
+                apartmentDao.updateByPrimaryKey(apartment);
+            }
+            student.setDormId(null);
+            student.setDormStatus(0);
+            successNum += studentDao.updateByPrimaryKey(student);
+        }
+        return successNum;
     }
 
     /**

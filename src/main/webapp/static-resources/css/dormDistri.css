@@ -177,7 +177,6 @@
 .test-distribute,.do-distribute{
     display: flex;
     width: 50%;
-    height: 100%;
     align-items: center;
     transition: all 0.5s;
 }

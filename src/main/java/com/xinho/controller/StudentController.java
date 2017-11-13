@@ -112,6 +112,20 @@ public class StudentController {
         return studentDtoList;
     }
 
+    /**
+     * 根据页面条件条件查询学生.studentList.jsp 用
+     * 1. 分页的实现两种思路：
+     *    1.1 要分页的地方调用专门分页的函数（所以要专门写一个分页的 dao 方法），传入 page 信息即可。
+     *    1.2 使用 mybatis 拦截器，标志要分页的请求，在 mybatis 发起请求的时候打断并修改请求 sql 语句。
+     * @param studentDto 查询的 dto
+     * @return
+     */
+    @RequestMapping(value = "/list/searchDelete",method = RequestMethod.POST)
+    public @ResponseBody int getStudentDelete(@RequestBody StudentDto studentDto){
+        int result = studentService.searchStudentDelete(studentDto);
+        return result;
+    }
+
     // TODO 不得不说，你这URL取的真丑。垃圾。早日学RESTful早日优雅起来。
     @RequestMapping("/searchSingle/{id}")
     public @ResponseBody StudentDto searchSingle(@PathVariable("id") Integer id){

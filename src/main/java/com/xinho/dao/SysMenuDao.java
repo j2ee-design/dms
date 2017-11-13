@@ -1,32 +1,32 @@
 package com.xinho.dao;
 
-import com.xinho.bean.sysMenu;
-import com.xinho.bean.sysMenuExample;
+import com.xinho.bean.SysMenu;
+import com.xinho.bean.SysMenuExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SysMenuDao {
-    long countByExample(sysMenuExample example);
+    long countByExample(SysMenuExample example);
 
-    int deleteByExample(sysMenuExample example);
+    int deleteByExample(SysMenuExample example);
 
     int deleteByPrimaryKey(Integer id);
 
-    int insert(sysMenu record);
+    int insert(SysMenu record);
 
-    int insertSelective(sysMenu record);
+    int insertSelective(SysMenu record);
 
-    List<sysMenu> selectByExample(sysMenuExample example);
+    List<SysMenu> selectByExample(SysMenuExample example);
 
-    sysMenu selectByPrimaryKey(Integer id);
+    SysMenu selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") sysMenu record, @Param("example") sysMenuExample example);
+    int updateByExampleSelective(@Param("record") SysMenu record, @Param("example") SysMenuExample example);
 
-    int updateByExample(@Param("record") sysMenu record, @Param("example") sysMenuExample example);
+    int updateByExample(@Param("record") SysMenu record, @Param("example") SysMenuExample example);
 
-    int updateByPrimaryKeySelective(sysMenu record);
+    int updateByPrimaryKeySelective(SysMenu record);
 
-    int updateByPrimaryKey(sysMenu record);
+    int updateByPrimaryKey(SysMenu record);
 }

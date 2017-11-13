@@ -1,32 +1,32 @@
 package com.xinho.dao;
 
-import com.xinho.bean.sysUser;
-import com.xinho.bean.sysUserExample;
+import com.xinho.bean.SysUser;
+import com.xinho.bean.SysUserExample;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SysUserDao {
-    long countByExample(sysUserExample example);
+    long countByExample(SysUserExample example);
 
-    int deleteByExample(sysUserExample example);
+    int deleteByExample(SysUserExample example);
 
     int deleteByPrimaryKey(Integer id);
 
-    int insert(sysUser record);
+    int insert(SysUser record);
 
-    int insertSelective(sysUser record);
+    int insertSelective(SysUser record);
 
-    List<sysUser> selectByExample(sysUserExample example);
+    List<SysUser> selectByExample(SysUserExample example);
 
-    sysUser selectByPrimaryKey(Integer id);
+    SysUser selectByPrimaryKey(Integer id);
 
-    int updateByExampleSelective(@Param("record") sysUser record, @Param("example") sysUserExample example);
+    int updateByExampleSelective(@Param("record") SysUser record, @Param("example") SysUserExample example);
 
-    int updateByExample(@Param("record") sysUser record, @Param("example") sysUserExample example);
+    int updateByExample(@Param("record") SysUser record, @Param("example") SysUserExample example);
 
-    int updateByPrimaryKeySelective(sysUser record);
+    int updateByPrimaryKeySelective(SysUser record);
 
-    int updateByPrimaryKey(sysUser record);
+    int updateByPrimaryKey(SysUser record);
 }
